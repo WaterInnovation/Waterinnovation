@@ -1,0 +1,2071 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f4f8fc">
+<meta name="description" content="Read the Privacy Policy of Water Innovation Systems. Learn how we collect, use, protect and manage personal information when you visit our website or contact us.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://waterinnovation.co.in/privacy-policy/">
+
+<title>Privacy Policy | Water Innovation Systems</title>
+
+<link rel="stylesheet" href="site-language.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  color-scheme: light;
+  --ink: #172f69;
+  --muted: #66758d;
+  --blue: #24489f;
+  --blue-dark: #183776;
+  --sky: #c9eaf8;
+  --paper: #f4f8fc;
+  --line: #dfe8f2;
+  --white: #fff;
+  --radius: 22px;
+  --shadow: 0 18px 55px rgba(21,54,46,.10);
+  font-family: "DM Sans", sans-serif;
+  scroll-behavior: smooth;
+}
+
+*,*::before,*::after { box-sizing:border-box; }
+
+body {
+  margin:0;
+  color:var(--ink);
+  background:var(--paper);
+  line-height:1.7;
+}
+
+img { display:block; max-width:100%; }
+a { color:inherit; text-decoration:none; }
+button { font:inherit; }
+
+.container {
+  width:min(1160px,calc(100% - 48px));
+  margin-inline:auto;
+}
+
+.eyebrow {
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  color:var(--blue);
+  font-size:.75rem;
+  font-weight:700;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+}
+
+.eyebrow::before {
+  width:23px;
+  height:2px;
+  background:currentColor;
+  content:"";
+}
+
+/* TOP BAR */
+
+.topline {
+  background:var(--ink);
+  color:#eaf2ff;
+  font-size:.78rem;
+}
+
+.topline-inner {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  min-height:38px;
+  gap:20px;
+}
+
+.topline p { margin:0; }
+.topline a { color:var(--sky); font-weight:700; }
+
+.topline-right {
+  display:flex;
+  gap:23px;
+  align-items:center;
+}
+
+/* HEADER */
+
+.site-header {
+  position:sticky;
+  z-index:20;
+  top:0;
+  background:rgba(244,248,252,.95);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(223,232,242,.8);
+}
+
+.nav {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  min-height:80px;
+  gap:24px;
+}
+
+.brand {
+  display:inline-flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:1px;
+  flex-shrink:0;
+}
+
+.brand-logo {
+  display:block;
+  width:min(250px,24vw);
+  height:58px;
+  object-fit:contain;
+  object-position:left center;
+}
+
+.brand-partner {
+  color:#526882;
+  font-size:.66rem;
+  font-weight:700;
+  letter-spacing:.035em;
+  line-height:1.2;
+}
+
+.nav-links {
+  display:flex;
+  align-items:center;
+  gap:clamp(18px,3vw,36px);
+}
+
+.nav-links>a:not(.button),
+.dropdown-toggle {
+  color:#405652;
+  font-size:.89rem;
+  font-weight:600;
+  transition:color .2s;
+}
+
+.nav-links>a:hover,
+.dropdown-toggle:hover { color:var(--blue); }
+
+.button {
+  display:inline-flex;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
+  min-height:48px;
+  padding:0 21px;
+  border:0;
+  border-radius:999px;
+  background:var(--blue);
+  color:white;
+  font-size:.9rem;
+  font-weight:700;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.button:hover {
+  transform:translateY(-2px);
+  background:var(--blue-dark);
+  box-shadow:0 10px 24px rgba(36,72,159,.2);
+}
+
+.button svg { width:17px; }
+
+.menu-toggle {
+  display:none;
+  width:44px;
+  height:44px;
+  place-items:center;
+  border:1px solid var(--line);
+  border-radius:50%;
+  background:white;
+  color:var(--ink);
+  cursor:pointer;
+}
+
+/* DROPDOWN */
+
+.nav-dropdown {
+  position:relative;
+  z-index:1;
+}
+
+.nav-dropdown:hover,
+.nav-dropdown:focus-within { z-index:26; }
+
+.dropdown-toggle {
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  padding:12px 0;
+  border:0;
+  background:transparent;
+  cursor:pointer;
+}
+
+.dropdown-toggle svg {
+  width:14px;
+  transition:transform .2s;
+}
+
+.nav-dropdown.open .dropdown-toggle svg {
+  transform:rotate(180deg);
+}
+
+.dropdown-menu {
+  position:absolute;
+  z-index:25;
+  top:calc(100% + 8px);
+  left:-18px;
+  display:none;
+  width:220px;
+  padding:8px;
+  border:1px solid var(--line);
+  border-radius:14px;
+  background:white;
+  box-shadow:var(--shadow);
+}
+
+.nav-dropdown.open .dropdown-menu { display:grid; }
+
+@media (hover:hover) and (min-width:761px) {
+  .nav-dropdown:hover .dropdown-menu { display:grid; }
+}
+
+.dropdown-menu a {
+  padding:10px 12px;
+  border-radius:8px;
+  color:#405652;
+  font-size:.85rem;
+  font-weight:600;
+}
+
+.dropdown-menu a:hover {
+  background:#eaf2fa;
+  color:var(--blue);
+}
+
+/* LANGUAGE SELECTOR */
+
+.language-trigger {
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  padding:10px 12px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:white;
+  color:var(--ink);
+  font-size:.82rem;
+  font-weight:700;
+  cursor:pointer;
+}
+
+.language-trigger svg { width:17px; }
+
+.language-dialog {
+  width:min(590px,calc(100% - 32px));
+  max-height:min(680px,calc(100% - 32px));
+  margin:auto;
+  padding:0;
+  border:1px solid var(--line);
+  border-radius:24px;
+  background:white;
+  color:var(--ink);
+  box-shadow:0 24px 80px rgba(17,39,82,.25);
+}
+
+.language-dialog::backdrop {
+  background:rgba(15,31,62,.55);
+  backdrop-filter:blur(4px);
+}
+
+.language-dialog-inner { padding:30px; }
+
+.language-dialog-head {
+  display:flex;
+  justify-content:space-between;
+  gap:16px;
+  margin-bottom:20px;
+}
+
+.language-dialog h2 {
+  margin:0;
+  font:800 1.55rem "Manrope",sans-serif;
+}
+
+.language-dialog-head p {
+  color:var(--muted);
+  font-size:.88rem;
+}
+
+.language-dialog-close {
+  width:38px;
+  height:38px;
+  border:1px solid var(--line);
+  border-radius:50%;
+  background:white;
+  cursor:pointer;
+}
+
+.language-options {
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+}
+
+.language-option {
+  min-height:48px;
+  padding:10px;
+  border:1px solid var(--line);
+  border-radius:12px;
+  background:#f8fbff;
+  color:#354b70;
+  font-weight:700;
+  cursor:pointer;
+}
+
+.language-option:hover,
+.language-option[aria-pressed="true"] {
+  border-color:var(--blue);
+  background:#edf4ff;
+  color:var(--blue);
+}
+
+.language-dialog-footer {
+  display:flex;
+  justify-content:flex-end;
+  margin-top:20px;
+}
+
+.language-cancel {
+  border:0;
+  background:transparent;
+  color:var(--blue);
+  font-weight:700;
+  cursor:pointer;
+}
+
+/* PRIVACY HERO */
+
+.policy-hero {
+  position:relative;
+  overflow:hidden;
+  padding:85px 0 75px;
+  background:linear-gradient(135deg,#edf5fc 0%,#e1effa 55%,#f4f8fc 100%);
+}
+
+.policy-hero::before {
+  position:absolute;
+  top:-180px;
+  right:-100px;
+  width:480px;
+  height:480px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(79,181,226,.22),transparent 68%);
+  content:"";
+}
+
+.policy-hero::after {
+  position:absolute;
+  bottom:-190px;
+  left:-120px;
+  width:400px;
+  height:400px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(36,72,159,.10),transparent 68%);
+  content:"";
+}
+
+.policy-hero-inner {
+  position:relative;
+  z-index:1;
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  align-items:center;
+  gap:50px;
+}
+
+.policy-hero h1 {
+  margin:18px 0;
+  font:800 clamp(2.8rem,6vw,5rem)/1.08 "Manrope",sans-serif;
+  letter-spacing:-.07em;
+}
+
+.policy-hero h1 span { color:var(--blue); }
+
+.policy-hero p {
+  max-width:620px;
+  margin:0;
+  color:var(--muted);
+  font-size:1.05rem;
+}
+
+.policy-meta {
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:25px;
+}
+
+.policy-meta span {
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:9px 14px;
+  border:1px solid #d6e4f2;
+  border-radius:99px;
+  background:rgba(255,255,255,.75);
+  color:#526782;
+  font-size:.77rem;
+  font-weight:700;
+}
+
+.policy-meta svg { width:16px; }
+
+.policy-hero-art {
+  display:grid;
+  place-items:center;
+  min-height:280px;
+}
+
+.shield-card {
+  display:grid;
+  width:220px;
+  height:220px;
+  place-items:center;
+  border:1px solid rgba(255,255,255,.9);
+  border-radius:45px;
+  background:rgba(255,255,255,.7);
+  box-shadow:0 25px 70px rgba(23,47,105,.12);
+  transform:rotate(-5deg);
+}
+
+.shield-card svg {
+  width:105px;
+  color:var(--blue);
+}
+
+.shield-caption {
+  margin-top:18px;
+  color:var(--blue-dark);
+  font:800 1rem "Manrope",sans-serif;
+  text-align:center;
+}
+
+/* INTRO STRIP */
+
+.privacy-intro {
+  padding:28px 0;
+  border-bottom:1px solid var(--line);
+  background:white;
+}
+
+.intro-inner {
+  display:flex;
+  align-items:center;
+  gap:18px;
+}
+
+.intro-icon {
+  display:grid;
+  width:48px;
+  height:48px;
+  flex:0 0 48px;
+  place-items:center;
+  border-radius:15px;
+  background:#eaf2fa;
+  color:var(--blue);
+}
+
+.intro-icon svg { width:24px; }
+
+.intro-inner p {
+  margin:0;
+  color:#526782;
+  font-size:.9rem;
+}
+
+.intro-inner strong { color:var(--ink); }
+
+/* POLICY CONTENT */
+
+.policy-section { padding:85px 0 100px; }
+
+.policy-layout {
+  display:grid;
+  grid-template-columns:270px minmax(0,1fr);
+  align-items:start;
+  gap:55px;
+}
+
+.policy-sidebar {
+  position:sticky;
+  top:115px;
+  padding:25px;
+  border:1px solid var(--line);
+  border-radius:20px;
+  background:white;
+  box-shadow:0 10px 35px rgba(23,47,105,.04);
+}
+
+.policy-sidebar h3 {
+  margin:0 0 17px;
+  font:800 1rem "Manrope",sans-serif;
+}
+
+.policy-nav {
+  display:grid;
+  gap:5px;
+}
+
+.policy-nav a {
+  padding:9px 11px;
+  border-radius:9px;
+  color:#62728a;
+  font-size:.79rem;
+  font-weight:600;
+  transition:.2s;
+}
+
+.policy-nav a:hover,
+.policy-nav a.active {
+  background:#edf4ff;
+  color:var(--blue);
+}
+
+.sidebar-help {
+  margin-top:25px;
+  padding-top:20px;
+  border-top:1px solid var(--line);
+}
+
+.sidebar-help p {
+  margin:0 0 9px;
+  color:var(--muted);
+  font-size:.78rem;
+}
+
+.sidebar-help a {
+  color:var(--blue);
+  font-size:.82rem;
+  font-weight:700;
+  overflow-wrap:anywhere;
+}
+
+.policy-content {
+  min-width:0;
+  padding:clamp(25px,4vw,48px);
+  border:1px solid var(--line);
+  border-radius:24px;
+  background:white;
+  box-shadow:0 15px 45px rgba(23,47,105,.045);
+}
+
+.policy-content section {
+  padding:0 0 32px;
+  margin-bottom:32px;
+  border-bottom:1px solid #e9eef5;
+  scroll-margin-top:115px;
+}
+
+.policy-content section:last-child {
+  padding-bottom:0;
+  margin-bottom:0;
+  border-bottom:0;
+}
+
+.policy-content h2 {
+  display:flex;
+  align-items:flex-start;
+  gap:13px;
+  margin:0 0 17px;
+  font:800 clamp(1.18rem,2.2vw,1.45rem)/1.35 "Manrope",sans-serif;
+  letter-spacing:-.035em;
+}
+
+.section-number {
+  display:grid;
+  width:34px;
+  height:34px;
+  flex:0 0 34px;
+  place-items:center;
+  border-radius:10px;
+  background:#edf4ff;
+  color:var(--blue);
+  font-size:.75rem;
+}
+
+.policy-content p {
+  margin:0 0 15px;
+  color:#68788f;
+  font-size:.91rem;
+}
+
+.policy-content p:last-child { margin-bottom:0; }
+
+.policy-content strong { color:#344c70; }
+
+.policy-content ul {
+  display:grid;
+  gap:10px;
+  margin:15px 0 18px;
+  padding-left:22px;
+  color:#68788f;
+  font-size:.89rem;
+}
+
+.policy-content li { padding-left:4px; }
+
+.policy-content li::marker { color:var(--blue); }
+
+.policy-highlight {
+  margin:20px 0;
+  padding:18px 20px;
+  border-left:3px solid var(--blue);
+  border-radius:0 12px 12px 0;
+  background:#f1f6fc;
+  color:#536782;
+  font-size:.87rem;
+}
+
+.policy-highlight strong { color:var(--blue-dark); }
+
+.policy-content a {
+  color:var(--blue);
+  font-weight:700;
+  overflow-wrap:anywhere;
+}
+
+.policy-content a:hover { text-decoration:underline; }
+
+/* CONTACT CTA */
+
+.policy-contact {
+  padding:0 0 95px;
+}
+
+.policy-contact-card {
+  position:relative;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:35px;
+  overflow:hidden;
+  padding:clamp(30px,5vw,55px);
+  border-radius:26px;
+  background:linear-gradient(120deg,#172f69,#24489f);
+  color:white;
+}
+
+.policy-contact-card::after {
+  position:absolute;
+  top:-100px;
+  right:100px;
+  width:300px;
+  height:300px;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:50%;
+  box-shadow:0 0 0 35px rgba(255,255,255,.035),
+             0 0 0 70px rgba(255,255,255,.025);
+  content:"";
+}
+
+.policy-contact-card > * { position:relative; z-index:1; }
+
+.policy-contact-card .eyebrow { color:#8bd1f0; }
+
+.policy-contact-card h2 {
+  max-width:550px;
+  margin:12px 0;
+  font:800 clamp(1.8rem,4vw,2.7rem)/1.15 "Manrope",sans-serif;
+  letter-spacing:-.055em;
+}
+
+.policy-contact-card p {
+  margin:0;
+  color:#c5d5ed;
+  font-size:.9rem;
+}
+
+.policy-contact-card .button {
+  flex-shrink:0;
+  background:white;
+  color:var(--blue-dark);
+}
+
+.policy-contact-card .button:hover { background:var(--sky); }
+
+/* FOOTER */
+
+.footer {
+  padding:32px 0;
+  background:var(--ink);
+  color:#e0e9f8;
+}
+
+.footer-inner {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:25px;
+}
+
+.footer-links {
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px;
+  color:#e0e9f8;
+  font-size:.78rem;
+}
+
+.footer-links a:hover { color:#8bd1f0; }
+
+.footer-social {
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
+
+.footer-social a {
+  display:flex;
+  width:40px;
+  height:40px;
+  align-items:center;
+  justify-content:center;
+  border:1px solid rgba(255,255,255,.22);
+  border-radius:50%;
+  background:rgba(255,255,255,.08);
+  transition:all .25s ease;
+}
+
+.footer-social a:hover {
+  background:white;
+  transform:translateY(-4px);
+}
+
+.footer-social img {
+  width:20px;
+  height:20px;
+  object-fit:contain;
+  filter:brightness(0) invert(1);
+  transition:filter .25s ease;
+}
+
+.footer-social a:hover img { filter:none; }
+
+.footer-partner {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+  margin-top:28px;
+  padding-top:22px;
+  border-top:1px solid rgba(255,255,255,.16);
+}
+
+.footer-partner img {
+  display:block;
+  width:min(245px,40vw);
+  height:auto;
+  padding:7px 10px;
+  border-radius:8px;
+  background:white;
+}
+
+.footer-partner span {
+  max-width:540px;
+  color:#c5d5ed;
+  font-size:.8rem;
+}
+
+.footer-partner .footer-copyright {
+  flex-basis:100%;
+  color:#a7b5d0;
+  text-align:center;
+}
+
+.footer-credit {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+  margin-top:20px;
+  padding-top:16px;
+  border-top:1px solid rgba(255,255,255,.1);
+}
+
+.footer-credit p {
+  margin:0;
+  color:#a7b5d0;
+  font-size:.77rem;
+}
+
+.footer-credit a {
+  color:#8bd1f0;
+  font-size:.77rem;
+}
+
+/* BACK TO TOP */
+
+.back-top {
+  position:fixed;
+  right:22px;
+  bottom:22px;
+  z-index:15;
+  display:grid;
+  width:46px;
+  height:46px;
+  place-items:center;
+  border:0;
+  border-radius:50%;
+  background:var(--blue);
+  color:white;
+  box-shadow:0 8px 25px rgba(23,47,105,.2);
+  cursor:pointer;
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(10px);
+  transition:.25s;
+}
+
+.back-top.show {
+  opacity:1;
+  visibility:visible;
+  transform:none;
+}
+
+.back-top svg { width:20px; }
+
+.reveal {
+  opacity:0;
+  transform:translateY(18px);
+  transition:opacity .65s ease,transform .65s ease;
+}
+
+.reveal.visible {
+  opacity:1;
+  transform:none;
+}
+
+@media(prefers-reduced-motion:reduce) {
+  *,*::before,*::after {
+    scroll-behavior:auto!important;
+    transition-duration:.01ms!important;
+    animation-duration:.01ms!important;
+  }
+  .reveal { opacity:1; transform:none; }
+}
+
+/* TABLET */
+
+@media(max-width:950px) {
+  .nav { gap:12px; }
+  .brand-logo { width:185px; }
+  .nav-links { gap:10px; }
+  .nav-links>a:not(.button),.dropdown-toggle { font-size:.77rem; }
+  .nav-links .button { min-height:42px; padding-inline:12px; font-size:.77rem; }
+  .language-trigger { padding:8px; font-size:.72rem; }
+}
+
+@media(max-width:760px) {
+  .container { width:min(100% - 34px,560px); }
+
+  .topline-inner {
+    justify-content:center;
+    min-height:36px;
+  }
+
+  .topline-right { display:none; }
+
+  .nav { min-height:70px; }
+
+  .brand-logo {
+    width:min(230px,62vw);
+    height:52px;
+  }
+
+  .menu-toggle { display:grid; }
+
+  .nav-links {
+    position:absolute;
+    top:calc(100% + 1px);
+    right:0;
+    left:0;
+    display:none;
+    align-items:stretch;
+    gap:0;
+    padding:10px 18px 18px;
+    border-bottom:1px solid var(--line);
+    background:var(--paper);
+    box-shadow:0 14px 18px rgba(23,47,105,.08);
+  }
+
+  .nav-links.open { display:flex; flex-direction:column; }
+
+  .nav-links>a:not(.button) {
+    padding:12px 4px;
+    border-bottom:1px solid var(--line);
+    font-size:.92rem;
+  }
+
+  .nav-dropdown {
+    width:100%;
+    border-bottom:1px solid var(--line);
+  }
+
+  .dropdown-toggle {
+    justify-content:space-between;
+    width:100%;
+    padding:12px 4px;
+    font-size:.92rem;
+  }
+
+  .dropdown-menu {
+    position:static;
+    width:100%;
+    padding:0 0 8px 12px;
+    border:0;
+    background:transparent;
+    box-shadow:none;
+  }
+
+  .nav-links .button {
+    margin-top:13px;
+  }
+
+  .nav-links .language-trigger {
+    align-self:flex-start;
+    margin-top:13px;
+  }
+
+  .policy-hero { padding:60px 0; }
+
+  .policy-hero-inner {
+    grid-template-columns:1fr;
+    gap:15px;
+  }
+
+  .policy-hero-art { min-height:210px; }
+
+  .shield-card {
+    width:160px;
+    height:160px;
+    border-radius:32px;
+  }
+
+  .shield-card svg { width:80px; }
+
+  .policy-section { padding:55px 0 70px; }
+
+  .policy-layout { grid-template-columns:1fr; gap:25px; }
+
+  .policy-sidebar {
+    position:static;
+    padding:20px;
+  }
+
+  .policy-nav {
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:6px;
+  }
+
+  .policy-content { padding:24px 19px; }
+
+  .policy-content p { font-size:.87rem; }
+
+  .policy-contact { padding-bottom:70px; }
+
+  .policy-contact-card {
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .footer-inner {
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .footer-partner { gap:13px; }
+
+  .footer-partner img { width:min(220px,65vw); }
+
+  .footer-credit {
+    flex-direction:column;
+    align-items:flex-start;
+    gap:7px;
+  }
+}
+
+@media(max-width:390px) {
+  .language-options { grid-template-columns:1fr; }
+  .policy-nav { grid-template-columns:1fr; }
+  .policy-meta { gap:8px; }
+  .policy-meta span { font-size:.7rem; }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- TOP BAR -->
+
+<div class="topline">
+  <div class="container topline-inner">
+    <p>Engineered for cleaner water and stronger industries.</p>
+    <div class="topline-right">
+      <span>Bangalore, India</span>
+      <a href="tel:+919739950961">Call our team +91 97399 50961</a>
+    </div>
+  </div>
+</div>
+
+<!-- HEADER -->
+
+<header class="site-header">
+  <nav class="container nav" aria-label="Main navigation">
+
+    <a class="brand" href="index.html" aria-label="Water Innovation Systems home">
+      <img class="brand-logo" src="logo/logo_color.png" alt="Water Innovation Systems">
+      <span class="brand-partner">Authorized Channel Partner of Milton Roy</span>
+    </a>
+
+    <button class="menu-toggle" type="button"
+      aria-label="Open navigation menu"
+      aria-expanded="false"
+      aria-controls="nav-links">
+      <svg viewBox="0 0 24 24" width="21" fill="none"
+        stroke="currentColor" stroke-width="1.8"
+        stroke-linecap="round">
+        <path d="M4 7h16M4 12h16M4 17h16"/>
+      </svg>
+    </button>
+
+    <div class="nav-links" id="nav-links">
+
+      <a href="index.html">Home</a>
+
+      <div class="nav-dropdown">
+        <button class="dropdown-toggle" type="button"
+          aria-expanded="false" aria-controls="products-menu">
+          Products
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="m6 9 6 6 6-6"/>
+          </svg>
+        </button>
+
+        <div class="dropdown-menu" id="products-menu">
+          <a href="dosing.html">Dosing Pumps</a>
+          <a href="controller.html">Controller</a>
+          <a href="industrial-mixer.html">Industrial Mixer</a>
+          <a href="valves.html">Industrial Valves</a>
+        </div>
+      </div>
+
+      <a href="application.html">Applications</a>
+      <a href="projects.html">Projects</a>
+      <a href="support.html">Support</a>
+      <a href="sales.html">Sales</a>
+      <a href="about.html">About us</a>
+
+      <button class="language-trigger" id="language-trigger"
+        type="button" aria-haspopup="dialog"
+        aria-controls="language-dialog">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <circle cx="12" cy="12" r="9"/>
+          <path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0-18"/>
+        </svg>
+        Language
+      </button>
+
+      <a class="button" href="sales.html">
+        Talk to an expert
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M5 12h14M13 6l6 6-6 6"/>
+        </svg>
+      </a>
+
+    </div>
+  </nav>
+</header>
+
+<!-- LANGUAGE DIALOG -->
+
+<dialog class="language-dialog" id="language-dialog"
+  aria-labelledby="language-dialog-title">
+
+  <div class="language-dialog-inner">
+
+    <div class="language-dialog-head">
+      <div>
+        <h2 id="language-dialog-title">Choose your language</h2>
+        <p>The website interface and main sections are translated locally. Some detailed policy descriptions may remain in English.</p>
+      </div>
+
+      <button class="language-dialog-close" type="button"
+        aria-label="Close language selection" data-close-language>×</button>
+    </div>
+
+    <div class="language-options" role="group"
+      aria-label="Available languages">
+
+      <button class="language-option" type="button" data-language="en" aria-pressed="true">English</button>
+      <button class="language-option" type="button" data-language="hi" aria-pressed="false">हिन्दी · Hindi</button>
+      <button class="language-option" type="button" data-language="bn" aria-pressed="false">বাংলা · Bengali</button>
+      <button class="language-option" type="button" data-language="ta" aria-pressed="false">தமிழ் · Tamil</button>
+      <button class="language-option" type="button" data-language="te" aria-pressed="false">తెలుగు · Telugu</button>
+      <button class="language-option" type="button" data-language="mr" aria-pressed="false">मराठी · Marathi</button>
+      <button class="language-option" type="button" data-language="kn" aria-pressed="false">ಕನ್ನಡ · Kannada</button>
+      <button class="language-option" type="button" data-language="ml" aria-pressed="false">മലയാളം · Malayalam</button>
+      <button class="language-option" type="button" data-language="gu" aria-pressed="false">ગુજરાતી · Gujarati</button>
+      <button class="language-option" type="button" data-language="pa" aria-pressed="false">ਪੰਜਾਬੀ · Punjabi</button>
+      <button class="language-option" type="button" data-language="ur" aria-pressed="false">اردو · Urdu</button>
+
+    </div>
+
+    <div class="language-dialog-footer">
+      <button class="language-cancel" type="button" data-close-language>Close</button>
+    </div>
+
+  </div>
+</dialog>
+
+<main>
+
+<!-- PRIVACY HERO -->
+
+<section class="policy-hero">
+  <div class="container policy-hero-inner">
+
+    <div class="reveal">
+
+      <span class="eyebrow">Your privacy matters</span>
+
+      <h1>
+        Privacy <span>Policy.</span>
+      </h1>
+
+      <p>
+        Your trust is important to us. At Water Innovation Systems,
+        we respect your privacy and are committed to handling your
+        personal information responsibly whenever you visit our
+        website, submit an enquiry or communicate with our team.
+      </p>
+
+      <div class="policy-meta">
+
+        <span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <rect x="3" y="5" width="18" height="16" rx="2"/>
+            <path d="M16 3v4M8 3v4M3 10h18"/>
+          </svg>
+          Effective date: 06 November 2026
+        </span>
+
+        <span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M12 3 4 7v5c0 4 3 7 8 9 5-2 8-5 8-9V7l-8-4Z"/>
+            <path d="m8 12 2.5 2.5L16 9"/>
+          </svg>
+          Privacy & Data Protection
+        </span>
+
+      </div>
+    </div>
+
+    <div class="policy-hero-art reveal">
+
+      <div>
+        <div class="shield-card">
+          <svg viewBox="0 0 100 100" fill="none"
+            stroke="currentColor" stroke-width="3.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M50 8 17 21v24c0 22 14 37 33 47 19-10 33-25 33-47V21L50 8Z"/>
+            <path d="m34 49 11 11 23-25"/>
+            <circle cx="50" cy="50" r="38" opacity=".12"/>
+          </svg>
+        </div>
+        <div class="shield-caption">Your Data. Our Responsibility.</div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- INTRO -->
+
+<section class="privacy-intro">
+  <div class="container intro-inner">
+
+    <div class="intro-icon">
+      <svg viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="1.8">
+        <path d="M12 3 4 7v5c0 4 3 7 8 9 5-2 8-5 8-9V7l-8-4Z"/>
+        <path d="M12 8v4M12 16h.01"/>
+      </svg>
+    </div>
+
+    <p>
+      <strong>Transparency is important to us.</strong>
+      This Privacy Policy explains what information we may collect,
+      why we collect it, how it may be used and the choices available
+      to you when interacting with our website.
+    </p>
+
+  </div>
+</section>
+
+<!-- POLICY CONTENT -->
+
+<section class="policy-section">
+  <div class="container policy-layout">
+
+    <!-- SIDEBAR -->
+
+    <aside class="policy-sidebar">
+
+      <h3>Policy Contents</h3>
+
+      <nav class="policy-nav" aria-label="Privacy policy sections">
+        <a href="#introduction" class="active">01. Introduction</a>
+        <a href="#information">02. Information We Collect</a>
+        <a href="#collection">03. How We Collect Data</a>
+        <a href="#usage">04. How We Use Information</a>
+        <a href="#cookies">05. Cookies & Tracking</a>
+        <a href="#sharing">06. Information Sharing</a>
+        <a href="#security">07. Data Security</a>
+        <a href="#retention">08. Data Retention</a>
+        <a href="#rights">09. Your Privacy Rights</a>
+        <a href="#third-party">10. Third-Party Links</a>
+        <a href="#children">11. Children's Privacy</a>
+        <a href="#changes">12. Policy Updates</a>
+        <a href="#contact">13. Contact Us</a>
+      </nav>
+
+      <div class="sidebar-help">
+        <p>Have questions about your privacy?</p>
+        <a href="mailto:sales@waterinnovation.co.in">
+          sales@waterinnovation.co.in
+        </a>
+      </div>
+
+    </aside>
+
+    <!-- MAIN POLICY -->
+
+    <article class="policy-content">
+
+      <section id="introduction">
+        <h2>
+          <span class="section-number">01</span>
+          Introduction
+        </h2>
+
+        <p>
+          Welcome to <strong>Water Innovation Systems</strong>
+          ("Water Innovation", "we", "our" or "us").
+          We are a Bangalore-based provider of industrial chemical
+          dosing equipment, water treatment solutions, dosing pumps,
+          controllers, valves and process equipment.
+        </p>
+
+        <p>
+          This Privacy Policy applies to information collected
+          through our website, including
+          <a href="https://waterinnovation.co.in/" target="_blank" rel="noopener noreferrer">
+            waterinnovation.co.in
+          </a>,
+          our website enquiry forms and communications with our team.
+        </p>
+
+        <p>
+          By using our website, you acknowledge that you have had
+          the opportunity to read this policy. Where applicable,
+          we will obtain consent for processing personal information
+          as required by law.
+        </p>
+      </section>
+
+      <section id="information">
+        <h2>
+          <span class="section-number">02</span>
+          Information We Collect
+        </h2>
+
+        <p>
+          We may collect different types of information depending
+          on how you interact with our website and services.
+        </p>
+
+        <p><strong>A. Personal Information</strong></p>
+
+        <p>When you submit an enquiry or contact our team, we may collect:</p>
+
+        <ul>
+          <li>Your name and contact details.</li>
+          <li>Your business or company name.</li>
+          <li>Your email address.</li>
+          <li>Your telephone or mobile number.</li>
+          <li>Your project requirements and enquiry details.</li>
+          <li>Information you voluntarily provide in messages or communications.</li>
+        </ul>
+
+        <p><strong>B. Technical Information</strong></p>
+
+        <p>
+          When you browse our website, certain technical information
+          may be collected by the website, hosting provider or enabled
+          third-party services, such as:
+        </p>
+
+        <ul>
+          <li>IP address and general network information.</li>
+          <li>Browser type and version.</li>
+          <li>Device type and operating system.</li>
+          <li>Pages visited and approximate visit duration.</li>
+          <li>Referring website and basic interaction information.</li>
+        </ul>
+
+        <div class="policy-highlight">
+          <strong>Important:</strong> We do not intentionally request
+          sensitive personal information through our general website
+          enquiry form. Please avoid submitting passwords, financial
+          credentials or unnecessary sensitive information.
+        </div>
+      </section>
+
+      <section id="collection">
+        <h2>
+          <span class="section-number">03</span>
+          How We Collect Information
+        </h2>
+
+        <p>Information may be collected through the following methods:</p>
+
+        <ul>
+          <li>
+            <strong>Website enquiry forms:</strong>
+            When you submit a product, service or sales enquiry.
+          </li>
+          <li>
+            <strong>Email communication:</strong>
+            When you email our team directly.
+          </li>
+          <li>
+            <strong>Telephone communication:</strong>
+            When you contact us by phone.
+          </li>
+          <li>
+            <strong>Website interactions:</strong>
+            Through basic technical information generated while
+            browsing the website.
+          </li>
+          <li>
+            <strong>Third-party services:</strong>
+            Through hosting, form processing, analytics or other
+            services that may support our website.
+          </li>
+        </ul>
+
+        <p>
+          We aim to collect only information that is reasonably
+          necessary for the relevant business or website purpose.
+        </p>
+      </section>
+
+      <section id="usage">
+        <h2>
+          <span class="section-number">04</span>
+          How We Use Your Information
+        </h2>
+
+        <p>Information collected may be used for the following purposes:</p>
+
+        <ul>
+          <li>Responding to product and service enquiries.</li>
+          <li>Providing quotations and commercial information.</li>
+          <li>Understanding your technical and application requirements.</li>
+          <li>Communicating about orders, products and services.</li>
+          <li>Providing customer assistance and after-sales support.</li>
+          <li>Improving our website functionality and user experience.</li>
+          <li>Monitoring website performance and identifying technical issues.</li>
+          <li>Maintaining website security and preventing misuse.</li>
+          <li>Meeting applicable legal and regulatory requirements.</li>
+        </ul>
+
+        <p>
+          We do not intend to sell your personal information to
+          third parties.
+        </p>
+      </section>
+
+      <section id="cookies">
+        <h2>
+          <span class="section-number">05</span>
+          Cookies & Website Tracking
+        </h2>
+
+        <p>
+          Cookies are small text files that websites may store on
+          your device to support website functionality and improve
+          the browsing experience.
+        </p>
+
+        <p>
+          Depending on the services enabled on our website,
+          cookies or similar technologies may be used for:
+        </p>
+
+        <ul>
+          <li>Essential website functionality.</li>
+          <li>Remembering certain website preferences.</li>
+          <li>Understanding website traffic and performance.</li>
+          <li>Improving website navigation and user experience.</li>
+        </ul>
+
+        <p>
+          Third-party analytics or embedded services may also use
+          their own cookies or similar technologies where enabled.
+        </p>
+
+        <p>
+          You can manage or disable cookies through your browser
+          settings. Blocking certain cookies may affect some
+          website functions.
+        </p>
+
+        <div class="policy-highlight">
+          Our use of optional cookies and analytics technologies,
+          where applicable, should follow the consent and disclosure
+          requirements relevant to those services and applicable law.
+        </div>
+      </section>
+
+      <section id="sharing">
+        <h2>
+          <span class="section-number">06</span>
+          Sharing of Information
+        </h2>
+
+        <p>
+          We may share information with trusted service providers
+          when reasonably necessary to operate our website and
+          conduct our business.
+        </p>
+
+        <p>These may include:</p>
+
+        <ul>
+          <li>
+            <strong>Website hosting providers:</strong>
+            For website storage, hosting and technical operations.
+          </li>
+          <li>
+            <strong>Email and communication providers:</strong>
+            For receiving and responding to enquiries.
+          </li>
+          <li>
+            <strong>Form processing providers:</strong>
+            Where an external form service is used to deliver
+            website enquiries.
+          </li>
+          <li>
+            <strong>Analytics providers:</strong>
+            Where website performance measurement tools are enabled.
+          </li>
+          <li>
+            <strong>Professional advisers:</strong>
+            Where reasonably necessary for legal, accounting
+            or compliance purposes.
+          </li>
+        </ul>
+
+        <p>
+          Information may also be disclosed where required by
+          applicable law, a valid legal request or a competent
+          regulatory authority.
+        </p>
+
+        <p>
+          We expect relevant service providers to handle information
+          responsibly and only for the purposes for which it is shared.
+        </p>
+      </section>
+
+      <section id="security">
+        <h2>
+          <span class="section-number">07</span>
+          Data Security
+        </h2>
+
+        <p>
+          We take reasonable technical and organisational measures
+          intended to protect information against unauthorised access,
+          disclosure, alteration, loss or misuse.
+        </p>
+
+        <p>Depending on the systems in use, these measures may include:</p>
+
+        <ul>
+          <li>Secure website connections using HTTPS where enabled.</li>
+          <li>Access restrictions for business communication systems.</li>
+          <li>Appropriate password and account protection practices.</li>
+          <li>Website maintenance and security monitoring.</li>
+          <li>Reasonable precautions when handling enquiry information.</li>
+        </ul>
+
+        <p>
+          However, no internet transmission or electronic storage
+          method can be guaranteed to be completely secure.
+          We therefore cannot promise absolute security of information.
+        </p>
+      </section>
+
+      <section id="retention">
+        <h2>
+          <span class="section-number">08</span>
+          Data Retention
+        </h2>
+
+        <p>
+          We retain personal information only for as long as
+          reasonably necessary for the purpose for which it was
+          collected, including:
+        </p>
+
+        <ul>
+          <li>Responding to enquiries and maintaining business communication.</li>
+          <li>Managing customer and commercial relationships.</li>
+          <li>Maintaining records required for business operations.</li>
+          <li>Meeting applicable legal, accounting and regulatory obligations.</li>
+          <li>Resolving disputes and protecting legitimate business interests.</li>
+        </ul>
+
+        <p>
+          When information is no longer required, we will take
+          reasonable steps to delete, anonymise or securely dispose
+          of it, subject to applicable legal and operational requirements.
+        </p>
+      </section>
+
+      <section id="rights">
+        <h2>
+          <span class="section-number">09</span>
+          Your Privacy Rights
+        </h2>
+
+        <p>
+          Depending on applicable law, you may have certain rights
+          regarding your personal information.
+        </p>
+
+        <p>These may include the right to:</p>
+
+        <ul>
+          <li>Request information about personal data we process.</li>
+          <li>Request correction of inaccurate or incomplete information.</li>
+          <li>Request deletion of personal information where legally applicable.</li>
+          <li>Withdraw consent where processing is based on consent.</li>
+          <li>Raise concerns or submit a privacy-related complaint.</li>
+          <li>Exercise other rights available under applicable data protection laws.</li>
+        </ul>
+
+        <p>
+          To make a privacy-related request, please contact us using
+          the email address provided in the Contact Us section.
+          We may need to verify your identity before processing
+          certain requests.
+        </p>
+
+        <p>
+          Requests will be handled in accordance with applicable
+          legal requirements and any relevant exceptions.
+        </p>
+      </section>
+
+      <section id="third-party">
+        <h2>
+          <span class="section-number">10</span>
+          Third-Party Websites and Services
+        </h2>
+
+        <p>
+          Our website may contain links to external websites,
+          product resources, social media platforms or other
+          third-party services.
+        </p>
+
+        <p>
+          These external websites operate independently and may
+          have their own privacy policies, cookie practices and
+          terms of use.
+        </p>
+
+        <p>
+          Water Innovation Systems does not control the privacy
+          practices or content of external websites. We encourage
+          visitors to review the privacy policies of third-party
+          websites before sharing personal information with them.
+        </p>
+      </section>
+
+      <section id="children">
+        <h2>
+          <span class="section-number">11</span>
+          Children's Privacy
+        </h2>
+
+        <p>
+          Our website and services are primarily intended for
+          businesses, professionals and individuals seeking
+          industrial equipment and related solutions.
+        </p>
+
+        <p>
+          We do not knowingly seek to collect personal information
+          from children in connection with our business enquiry
+          services.
+        </p>
+
+        <p>
+          If you believe that a child has provided personal
+          information through our website, please contact us
+          so that we can review the matter and take appropriate
+          action as required by applicable law.
+        </p>
+      </section>
+
+      <section id="changes">
+        <h2>
+          <span class="section-number">12</span>
+          Changes to This Privacy Policy
+        </h2>
+
+        <p>
+          We may update this Privacy Policy from time to time
+          to reflect changes in our website, business practices,
+          technology or applicable legal requirements.
+        </p>
+
+        <p>
+          Any updated version will be published on this page.
+          The effective date displayed at the top of the policy
+          will indicate when the latest version takes effect.
+        </p>
+
+        <p>
+          We encourage visitors to review this page periodically
+          to stay informed about our privacy practices.
+        </p>
+      </section>
+
+      <section id="contact">
+        <h2>
+          <span class="section-number">13</span>
+          Contact Us
+        </h2>
+
+        <p>
+          If you have questions, concerns or requests relating
+          to this Privacy Policy or the handling of your
+          personal information, you may contact us using
+          the details below.
+        </p>
+
+        <div class="policy-highlight">
+
+          <strong>Water Innovation Systems</strong><br><br>
+
+          <strong>Address:</strong><br>
+          90, 3rd Floor, Best County 3,<br>
+          Hesarghatta Main Road, Vidyaranyapura,<br>
+          Bangalore - 560097, Karnataka, India.<br><br>
+
+          <strong>Email:</strong><br>
+          <a href="mailto:sales@waterinnovation.co.in">
+            sales@waterinnovation.co.in
+          </a><br><br>
+
+          <strong>Phone:</strong><br>
+          <a href="tel:+919739950961">+91 97399 50961</a><br><br>
+
+          <strong>Website:</strong><br>
+          <a href="https://waterinnovation.co.in/" target="_blank" rel="noopener noreferrer">
+            www.waterinnovation.co.in
+          </a>
+
+        </div>
+
+        <p>
+          We will make reasonable efforts to review and respond
+          to privacy-related enquiries within the time required
+          under applicable law.
+        </p>
+      </section>
+
+    </article>
+  </div>
+</section>
+
+<!-- CONTACT CTA -->
+
+<section class="policy-contact">
+  <div class="container">
+
+    <div class="policy-contact-card reveal">
+
+      <div>
+        <span class="eyebrow">We're here to help</span>
+
+        <h2>
+          Your trust matters. Let's stay connected.
+        </h2>
+
+        <p>
+          Have a question about your information or our privacy
+          practices? Our team is ready to assist.
+        </p>
+      </div>
+
+      <a class="button" href="mailto:sales@waterinnovation.co.in">
+        Contact our team
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M5 12h14M13 6l6 6-6 6"/>
+        </svg>
+      </a>
+
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+  <div class="container footer-inner">
+
+    <div class="footer-links">
+      <a href="Careers.html">Careers</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy-policy.html" aria-current="page">Privacy Policy</a>
+      <a href="terms&conditions.html">Terms & Conditions</a>
+    </div>
+
+    <div class="footer-social">
+
+      <a href="https://www.facebook.com/"
+        target="_blank" rel="noopener noreferrer"
+        aria-label="Facebook">
+        <img src="logo/facebook-white.png" alt="Facebook">
+      </a>
+
+      <a href="https://www.linkedin.com/company/waterinnovationsystems/"
+        target="_blank" rel="noopener noreferrer"
+        aria-label="LinkedIn">
+        <img src="logo/linkedin-white.png" alt="LinkedIn">
+      </a>
+
+      <a href="https://www.instagram.com/"
+        target="_blank" rel="noopener noreferrer"
+        aria-label="Instagram">
+        <img src="logo/instagram-white.png" alt="Instagram">
+      </a>
+
+    </div>
+
+  </div>
+
+  <div class="container footer-partner">
+
+    <img src="logo/Milton Roy logo.png" alt="Milton Roy">
+
+    <span>
+      Delivering reliable water treatment, chemical dosing and
+      industrial process solutions through innovation and quality.
+    </span>
+
+    <p class="footer-copyright">
+      Copyright © <span id="copyright-year">2026</span>
+      Water Innovation System. All Rights Reserved.
+    </p>
+
+  </div>
+
+  <div class="container footer-credit">
+    <p>Developed by Water Innovation Systems</p>
+    <a href="#top" id="footer-top">Back to top ↑</a>
+  </div>
+
+</footer>
+
+<!-- BACK TO TOP -->
+
+<button class="back-top" id="back-top"
+  type="button" aria-label="Back to top">
+
+  <svg viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2">
+    <path d="m6 14 6-6 6 6"/>
+  </svg>
+
+</button>
+
+<!-- JAVASCRIPT -->
+
+<script src="site-language-data.js"></script>
+<script src="site-language.js"></script>
+
+<script>
+
+  // MOBILE NAVIGATION
+
+  const menuButton = document.querySelector(".menu-toggle");
+  const navLinks = document.querySelector(".nav-links");
+
+  const dropdowns = [
+    ...document.querySelectorAll(".nav-dropdown")
+  ];
+
+  const dropdownToggles = [
+    ...document.querySelectorAll(".dropdown-toggle")
+  ];
+
+  function closeNavigation() {
+    navLinks.classList.remove("open");
+
+    menuButton.setAttribute("aria-expanded", "false");
+
+    menuButton.setAttribute(
+      "aria-label",
+      "Open navigation menu"
+    );
+
+    dropdowns.forEach(dropdown => {
+      dropdown.classList.remove("open");
+
+      dropdown.querySelector(".dropdown-toggle")
+        .setAttribute("aria-expanded", "false");
+    });
+  }
+
+  menuButton.addEventListener("click", () => {
+    const isOpen = navLinks.classList.toggle("open");
+
+    menuButton.setAttribute(
+      "aria-expanded",
+      String(isOpen)
+    );
+
+    menuButton.setAttribute(
+      "aria-label",
+      isOpen
+        ? "Close navigation menu"
+        : "Open navigation menu"
+    );
+  });
+
+  dropdownToggles.forEach(toggle => {
+
+    toggle.addEventListener("click", () => {
+
+      const current = toggle.closest(".nav-dropdown");
+
+      const isOpen = !current.classList.contains("open");
+
+      dropdowns.forEach(dropdown => {
+
+        dropdown.classList.toggle(
+          "open",
+          dropdown === current && isOpen
+        );
+
+        dropdown.querySelector(".dropdown-toggle")
+          .setAttribute(
+            "aria-expanded",
+            String(dropdown === current && isOpen)
+          );
+
+      });
+
+    });
+
+  });
+
+  navLinks.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", closeNavigation);
+  });
+
+  // CLOSE MENU WITH ESCAPE
+
+  document.addEventListener("keydown", event => {
+
+    if (event.key === "Escape") {
+
+      closeNavigation();
+
+      const languageDialog = document.getElementById("language-dialog");
+
+      if (languageDialog.open) {
+        languageDialog.close();
+      }
+
+    }
+
+  });
+
+  // LANGUAGE DIALOG
+
+  const languageTrigger =
+    document.getElementById("language-trigger");
+
+  const languageDialog =
+    document.getElementById("language-dialog");
+
+  languageTrigger.addEventListener("click", () => {
+    languageDialog.showModal();
+  });
+
+  document.querySelectorAll("[data-close-language]")
+    .forEach(button => {
+
+      button.addEventListener("click", () => {
+        languageDialog.close();
+      });
+
+    });
+
+  // CLOSE DIALOG WHEN CLICKING BACKDROP
+
+  languageDialog.addEventListener("click", event => {
+
+    if (event.target === languageDialog) {
+      languageDialog.close();
+    }
+
+  });
+
+  // SCROLL REVEAL
+
+  const revealObserver = new IntersectionObserver(
+    (entries, observer) => {
+
+      entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+
+          entry.target.classList.add("visible");
+
+          observer.unobserve(entry.target);
+
+        }
+
+      });
+
+    },
+    { threshold: 0.12 }
+  );
+
+  document.querySelectorAll(".reveal").forEach(element => {
+    revealObserver.observe(element);
+  });
+
+  // ACTIVE POLICY SIDEBAR LINK
+
+  const policySections = [
+    ...document.querySelectorAll(".policy-content section")
+  ];
+
+  const policyLinks = [
+    ...document.querySelectorAll(".policy-nav a")
+  ];
+
+  const policyObserver = new IntersectionObserver(
+    entries => {
+
+      entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+
+          policyLinks.forEach(link => {
+
+            link.classList.toggle(
+              "active",
+              link.getAttribute("href") ===
+              "#" + entry.target.id
+            );
+
+          });
+
+        }
+
+      });
+
+    },
+    {
+      rootMargin: "-20% 0px -65% 0px",
+      threshold: 0
+    }
+  );
+
+  policySections.forEach(section => {
+    policyObserver.observe(section);
+  });
+
+  // BACK TO TOP
+
+  const backTop = document.getElementById("back-top");
+
+  window.addEventListener("scroll", () => {
+
+    backTop.classList.toggle(
+      "show",
+      window.scrollY > 400
+    );
+
+  }, { passive:true });
+
+  backTop.addEventListener("click", () => {
+
+    window.scrollTo({
+      top:0,
+      behavior:"smooth"
+    });
+
+  });
+
+  document.getElementById("footer-top")
+    .addEventListener("click", event => {
+
+      event.preventDefault();
+
+      window.scrollTo({
+        top:0,
+        behavior:"smooth"
+      });
+
+    });
+
+  // AUTOMATIC COPYRIGHT YEAR
+
+  document.getElementById("copyright-year").textContent =
+    new Date().getFullYear();
+
+</script>
+
+</body>
+</html>
