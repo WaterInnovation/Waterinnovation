@@ -1,0 +1,553 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f8fc">
+  <meta name="description" content="Explore water treatment, process control, dosing, agriculture, food and industrial applications supported by Water Innovation Systems.">
+  <title>Applications | Water Innovation Systems</title>
+  <link rel="stylesheet" href="site-language.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #172f69;
+      --muted: #66758d;
+      --blue: #24489f;
+      --blue-dark: #183776;
+      --sky: #c9eaf8;
+      --paper: #f4f8fc;
+      --line: #dfe8f2;
+      --shadow: 0 18px 55px rgba(23, 47, 105, .11);
+      font-family: "DM Sans", sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; color: var(--ink); background: var(--paper); line-height: 1.65; }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    .container { width: min(1160px, calc(100% - 48px)); margin-inline: auto; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; color: var(--blue); font-size: .75rem; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
+    .eyebrow::before { width: 23px; height: 2px; background: currentColor; content: ""; }
+    .button { display: inline-flex; justify-content: center; align-items: center; gap: 10px; min-height: 48px; padding: 0 21px; border: 0; border-radius: 999px; background: var(--blue); color: white; font-size: .9rem; font-weight: 700; cursor: pointer; transition: transform .2s, background .2s, box-shadow .2s; }
+    .button:hover { transform: translateY(-2px); background: var(--blue-dark); box-shadow: 0 10px 24px rgba(36, 72, 159, .2); }
+    .button svg, .inline-link svg { width: 17px; }
+    .button-outline { border: 1px solid #c6d8e9; background: white; color: var(--blue); }
+    .button-outline:hover { background: #f7fbff; color: var(--blue-dark); }
+    .section { padding: 88px 0; scroll-margin-top: 100px; }
+    .section-heading { max-width: 700px; margin-bottom: 36px; }
+    .section-heading h2 { margin: 13px 0 12px; font: 800 clamp(2rem, 4vw, 3.2rem)/1.12 "Manrope", sans-serif; letter-spacing: -.055em; }
+    .section-heading p { max-width: 600px; margin: 0; color: var(--muted); font-size: 1rem; }
+
+    .topline { background: var(--ink); color: #eaf2ff; font-size: .78rem; }
+    .topline-inner { display: flex; justify-content: space-between; align-items: center; min-height: 38px; gap: 20px; }
+    .topline p { margin: 0; }
+    .topline a { color: var(--sky); font-weight: 700; }
+    .topline-right { display: flex; gap: 23px; align-items: center; }
+    .site-header { position: sticky; z-index: 20; top: 0; border-bottom: 1px solid rgba(223, 232, 242, .85); background: rgba(244, 248, 252, .95); backdrop-filter: blur(14px); }
+    .nav { display: flex; align-items: center; justify-content: space-between; min-height: 78px; gap: 24px; }
+    .brand { display: flex; flex-direction: column; flex-shrink: 0; align-items: flex-start; gap: 1px; }
+    .brand-logo { display: block; width: min(250px, 24vw); height: 58px; object-fit: contain; object-position: left center; }
+    .brand-partner { color: #526882; font-size: .66rem; font-weight: 700; letter-spacing: .035em; line-height: 1.2; }
+    .nav-links { display: flex; align-items: center; gap: clamp(18px, 3vw, 34px); }
+    .nav-links > a:not(.button) { color: #405675; font-size: .89rem; font-weight: 600; transition: color .2s; }
+    .nav-links > a:not(.button):hover { color: var(--blue); }
+    .nav-dropdown { position: relative; }
+    .dropdown-toggle { display: inline-flex; align-items: center; gap: 7px; padding: 12px 0; border: 0; background: transparent; color: #405675; font-size: .89rem; font-weight: 600; cursor: pointer; }
+    .dropdown-toggle:hover, .dropdown-toggle[aria-expanded="true"] { color: var(--blue); }
+    .dropdown-toggle svg { width: 14px; transition: transform .2s; }
+    .nav-dropdown.open .dropdown-toggle svg { transform: rotate(180deg); }
+    .dropdown-menu { position: absolute; z-index: 25; top: calc(100% + 8px); left: -18px; display: none; width: 220px; padding: 8px; border: 1px solid var(--line); border-radius: 14px; background: white; box-shadow: var(--shadow); }
+    .nav-dropdown.open .dropdown-menu { display: grid; }
+    @media (hover: hover) and (min-width: 701px) { .nav-dropdown:hover .dropdown-menu { display: grid; } }
+    .dropdown-menu a { padding: 10px 12px; border-radius: 8px; color: #405675; font-size: .85rem; font-weight: 600; }
+    .dropdown-menu a:hover, .dropdown-menu a:focus-visible { background: #eaf2fa; color: var(--blue); }
+    .menu-toggle { display: none; width: 44px; height: 44px; place-items: center; border: 1px solid var(--line); border-radius: 50%; background: white; color: var(--ink); cursor: pointer; }
+
+    .hero { position: relative; overflow: hidden; padding: 72px 0 76px; background: linear-gradient(120deg, #f4f8fc 0%, #e8f3fb 54%, #d9edf8 100%); }
+    .hero::after { position: absolute; right: -120px; bottom: -270px; width: 580px; height: 580px; border: 1px solid rgba(36,72,159,.09); border-radius: 50%; box-shadow: 0 0 0 48px rgba(36,72,159,.025), 0 0 0 96px rgba(36,72,159,.02); content: ""; }
+    .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.12fr .88fr; align-items: center; gap: clamp(40px, 8vw, 100px); }
+    .hero-tag { display: inline-flex; align-items: center; gap: 9px; padding: 7px 12px 7px 8px; border: 1px solid #d5e5f2; border-radius: 99px; background: white; color: #47617c; font-size: .75rem; font-weight: 700; }
+    .hero-tag span { display: grid; width: 23px; height: 23px; place-items: center; border-radius: 50%; background: var(--sky); color: var(--blue-dark); }
+    h1 { margin: 22px 0 18px; font: 800 clamp(3rem, 6vw, 5rem)/1.02 "Manrope", sans-serif; letter-spacing: -.075em; }
+    h1 em { color: var(--blue); font-style: normal; }
+    .hero-copy > p { max-width: 600px; margin: 0; color: #586b85; font-size: clamp(1rem, 1.5vw, 1.13rem); }
+    .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 13px; margin-top: 28px; }
+    .hero-visual { position: relative; min-height: 360px; display: grid; place-items: center; }
+    .hero-orbit { position: absolute; width: min(100%, 350px); aspect-ratio: 1; border: 1px solid rgba(36,72,159,.12); border-radius: 50%; background: radial-gradient(circle, rgba(255,255,255,.92) 0 38%, rgba(255,255,255,.42) 39% 60%, transparent 61%); box-shadow: 0 0 0 34px rgba(36,72,159,.025), 0 0 0 68px rgba(36,72,159,.018); }
+    .hero-orbit svg { position: absolute; top: 50%; left: 50%; width: 120px; height: 120px; transform: translate(-50%, -50%); color: var(--blue); }
+    .orbit-chip { position: absolute; display: flex; align-items: center; gap: 9px; padding: 11px 14px; border: 1px solid #e6edf5; border-radius: 14px; background: white; box-shadow: 0 12px 32px rgba(23,47,105,.09); color: #405675; font-size: .75rem; font-weight: 700; }
+    .orbit-chip svg { width: 20px; color: var(--blue); }
+    .orbit-chip.one { top: 24px; right: 0; }
+    .orbit-chip.two { bottom: 42px; left: -5px; }
+    .orbit-chip.three { right: 2px; bottom: 8px; }
+
+    .quick-nav { position: relative; z-index: 2; border-block: 1px solid var(--line); background: white; }
+    .quick-nav-inner { display: flex; align-items: center; justify-content: center; gap: 12px; padding-block: 15px; }
+    .quick-nav a { padding: 8px 14px; border: 1px solid var(--line); border-radius: 99px; color: #425b7f; font-size: .77rem; font-weight: 700; transition: border-color .2s, background .2s, color .2s; }
+    .quick-nav a:hover { border-color: #b8cdea; background: #eef5fc; color: var(--blue); }
+
+    .intro-section { padding-bottom: 55px; }
+    .intro-panel { display: grid; grid-template-columns: .9fr 1.1fr; gap: 40px; align-items: center; padding: clamp(28px, 5vw, 50px); border: 1px solid var(--line); border-radius: 26px; background: white; box-shadow: 0 12px 35px rgba(23,47,105,.045); }
+    .intro-panel h2 { margin: 12px 0 0; font: 800 clamp(1.7rem, 3vw, 2.45rem)/1.14 "Manrope", sans-serif; letter-spacing: -.05em; }
+    .intro-panel p { margin: 0; color: #586b85; }
+    .intro-panel p + p { margin-top: 12px; }
+    .application-section { background: white; }
+    .application-groups { display: grid; gap: 20px; }
+    .application-group { display: grid; grid-template-columns: minmax(190px, .34fr) 1fr; gap: 25px; padding: 25px; border: 1px solid var(--line); border-radius: 22px; background: #fbfdff; }
+    .group-heading { display: flex; align-items: flex-start; gap: 13px; }
+    .group-icon { display: grid; width: 44px; height: 44px; flex: 0 0 44px; place-items: center; border-radius: 14px; background: #e8f3fc; color: var(--blue); }
+    .group-icon svg { width: 23px; }
+    .group-heading h3 { margin: 2px 0 0; font: 800 1.05rem/1.35 "Manrope", sans-serif; letter-spacing: -.02em; }
+    .application-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin: 0; padding: 0; list-style: none; }
+    .application-list li { position: relative; padding: 12px 14px 12px 38px; border: 1px solid #e5edf5; border-radius: 13px; background: white; color: #425875; font-size: .82rem; font-weight: 600; }
+    .application-list li::before { position: absolute; top: 50%; left: 14px; width: 10px; height: 10px; transform: translateY(-50%); border: 2px solid #75bfe1; border-radius: 50%; content: ""; }
+    .application-list li span { display: block; margin-top: 3px; color: #718198; font-size: .75rem; font-weight: 400; }
+    .application-count { display: inline-flex; align-items: center; gap: 8px; margin-top: 24px; color: #61728a; font-size: .82rem; font-weight: 600; }
+    .application-count strong { display: grid; width: 34px; height: 34px; place-items: center; border-radius: 50%; background: var(--blue); color: white; font: 800 .85rem "Manrope", sans-serif; }
+
+    .demand-section { padding-top: 35px; background: white; }
+    .demand-panel { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(32px, 6vw, 72px); align-items: center; padding: clamp(27px, 5vw, 50px); border: 1px solid var(--line); border-radius: 26px; background: linear-gradient(145deg, #fff, #f8fbff); box-shadow: 0 12px 35px rgba(23,47,105,.045); }
+    .demand-copy h2 { margin: 12px 0; font: 800 clamp(1.8rem, 3.5vw, 2.7rem)/1.12 "Manrope", sans-serif; letter-spacing: -.05em; }
+    .demand-copy > p { margin: 0; color: var(--muted); font-size: .91rem; }
+    .demand-copy .demand-note { margin-top: 14px; color: #718198; font-size: .76rem; }
+    .demand-visual { display: grid; grid-template-columns: 1fr; align-items: center; gap: 24px; }
+    .pie-scene { display: grid; min-height: 290px; place-items: center; perspective: 900px; }
+    .pie-chart { position: relative; width: min(100%, 260px); aspect-ratio: 1; justify-self: center; border: 7px solid white; border-radius: 50%; background: conic-gradient(from -90deg, #24489f 0% 24%, #48a9d2 24% 47%, #36a69d 47% 66%, #f0ad4e 66% 80%, #8669c4 80% 92%, #e17c55 92% 100%); box-shadow: 0 14px 36px rgba(23,47,105,.15); transform: rotateX(56deg) rotateZ(-22deg); transform-style: preserve-3d; }
+    .pie-chart::before { position: absolute; z-index: -1; inset: 0; border: 7px solid #dce5ef; border-radius: 50%; background: inherit; content: ""; filter: brightness(.58) saturate(.9); transform: translateY(24px); }
+    .demand-legend { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
+    .demand-legend li { display: grid; grid-template-columns: 13px 1fr auto; align-items: center; gap: 10px; color: #425875; font-size: .8rem; }
+    .legend-swatch { width: 12px; height: 12px; border-radius: 4px; background: var(--slice-color); }
+    .demand-value { color: var(--ink); font-size: .79rem; font-weight: 800; white-space: nowrap; }
+    .demand-footnote { grid-column: 1 / -1; margin: -22px 0 0; color: #718198; font-size: .75rem; }
+
+    .approach-section { background: #eaf3fa; }
+    .projects-section { background: white; }
+    .approach-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+    .approach-card { padding: 24px; border: 1px solid rgba(36,72,159,.1); border-radius: 20px; background: rgba(255,255,255,.86); }
+    .approach-number { color: #78a8d7; font: 800 .76rem "Manrope", sans-serif; letter-spacing: .12em; }
+    .approach-card h3 { margin: 11px 0 8px; font: 800 1.08rem/1.3 "Manrope", sans-serif; }
+    .approach-card p { margin: 0; color: var(--muted); font-size: .86rem; }
+    .product-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 25px; }
+    .product-links a { padding: 10px 14px; border: 1px solid #c7d8eb; border-radius: 999px; background: white; color: var(--blue); font-size: .8rem; font-weight: 700; transition: background .2s, color .2s; }
+    .product-links a:hover { background: var(--blue); color: white; }
+
+    .cta-section { padding: 76px 0; }
+    .cta-panel { display: flex; justify-content: space-between; align-items: center; gap: 30px; padding: clamp(28px, 5vw, 52px); border-radius: 26px; background: linear-gradient(120deg, #d9effa, #edf5fc); }
+    .cta-copy .eyebrow { color: var(--blue); }
+    .cta-copy h2 { margin: 10px 0 7px; font: 800 clamp(1.7rem, 3vw, 2.5rem)/1.15 "Manrope", sans-serif; letter-spacing: -.05em; }
+    .cta-copy p { max-width: 600px; margin: 0; color: #5d7087; font-size: .9rem; }
+    .cta-actions { display: flex; flex-wrap: wrap; gap: 10px; flex-shrink: 0; }
+
+    .footer { padding: 32px 0; background: var(--ink); color: #e0e9f8; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 25px; }
+    .footer p { margin: 0; color: #a7b5d0; font-size: .77rem; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 20px; color: #e0e9f8; font-size: .78rem; }
+    .footer-links a:hover { color: #8bd1f0; }
+    .footer-partner { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 20px; margin-top: 28px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.16); }
+    .footer-partner .brand-logo { width: min(250px, 30vw); }
+    .footer-partner .brand-partner { color: #c5d5ed; }
+    .footer-logo { height: auto; padding: 8px 11px; border-radius: 9px; background: white; }
+    .footer-partner > img { display: block; width: min(245px, 40vw); height: auto; padding: 7px 10px; border-radius: 8px; background: white; }
+    .footer-partner p { color: #c5d5ed; }
+    .footer-partner .footer-copyright { flex-basis: 100%; color: #a7b5d0; text-align: center; }
+    .footer-credit { display: flex; justify-content: space-between; align-items: center; gap: 20px; margin-top: 20px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,.1); }
+    .footer-credit p { color: #a7b5d0; font-size: .77rem; }
+    .reveal { opacity: 1; transform: none; }
+    html.js-enabled .reveal { opacity: 0; transform: translateY(16px); transition: opacity .55s ease, transform .55s ease; }
+    html.js-enabled .reveal.visible { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+      .reveal, html.js-enabled .reveal { opacity: 1; transform: none; }
+    }
+    @media (max-width: 900px) {
+      .nav-links { gap: 18px; }
+      .nav-links > a:not(.button) { font-size: .82rem; }
+      .hero-grid { gap: 30px; }
+      .application-group { grid-template-columns: 1fr; gap: 18px; }
+      .demand-panel { grid-template-columns: 1fr; }
+      .demand-footnote { margin-top: -12px; }
+    }
+    @media (min-width: 701px) and (max-width: 850px) {
+      .nav { gap: 12px; }
+      .brand-logo { width: 185px; }
+      .nav-links { gap: 6px; }
+      .nav-links > a:not(.button), .dropdown-toggle { font-size: .76rem; }
+      .nav-links .button { min-height: 42px; padding-inline: 12px; font-size: .78rem; }
+    }
+    @media (max-width: 760px) {
+      .container { width: min(100% - 34px, 560px); }
+      .topline-inner { justify-content: center; min-height: 36px; }
+      .topline-right { display: none; }
+      .nav { min-height: 70px; }
+      .menu-toggle { display: grid; }
+      .brand-logo { width: min(230px, 62vw); height: 52px; }
+      .nav-links { position: absolute; top: calc(100% + 1px); right: 0; left: 0; display: none; align-items: stretch; gap: 0; padding: 10px 18px 18px; border-bottom: 1px solid var(--line); background: var(--paper); box-shadow: 0 14px 18px rgba(23,47,105,.08); }
+      .nav-links.open { display: flex; flex-direction: column; }
+      .nav-links > a:not(.button) { padding: 12px 4px; border-bottom: 1px solid var(--line); font-size: .92rem; }
+      .nav-dropdown { width: 100%; border-bottom: 1px solid var(--line); }
+      .dropdown-toggle { justify-content: space-between; width: 100%; padding: 12px 4px; font-size: .92rem; }
+      .dropdown-menu { position: static; width: 100%; padding: 0 0 8px 12px; border: 0; border-radius: 0; background: transparent; box-shadow: none; }
+      .dropdown-menu a { padding: 10px 12px; }
+      .nav-links .button { margin-top: 13px; }
+      .hero { padding: 48px 0 55px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 8px; }
+      h1 { font-size: clamp(3rem, 13vw, 4.4rem); }
+      .hero-visual { min-height: 285px; }
+      .hero-orbit { width: 250px; }
+      .hero-orbit svg { width: 95px; height: 95px; }
+      .orbit-chip.one { top: 4px; right: 0; }
+      .orbit-chip.two { bottom: 28px; left: 0; }
+      .orbit-chip.three { right: 0; bottom: 0; }
+      .quick-nav-inner { justify-content: flex-start; overflow-x: auto; }
+      .quick-nav a { flex-shrink: 0; }
+      .section { padding: 68px 0; }
+      .intro-section { padding-bottom: 35px; }
+      .intro-panel { grid-template-columns: 1fr; gap: 15px; }
+      .demand-section { padding-top: 20px; }
+      .demand-visual { grid-template-columns: 1fr; gap: 24px; }
+      .pie-chart { width: min(56vw, 210px); }
+      .demand-legend { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 11px 14px; }
+      .demand-legend li { grid-template-columns: 12px 1fr; gap: 7px; font-size: .75rem; }
+      .demand-value { grid-column: 2; font-size: .72rem; }
+      .demand-footnote { margin-top: 0; }
+      .application-groups { gap: 13px; }
+      .application-group { padding: 19px; }
+      .application-list { grid-template-columns: 1fr; }
+      .approach-grid { grid-template-columns: 1fr; }
+      .cta-panel { align-items: flex-start; flex-direction: column; }
+      .footer-inner { align-items: flex-start; flex-direction: column; }
+      .footer-partner { width: 100%; gap: 12px; }
+      .footer-partner .brand-logo { width: min(230px, 70vw); }
+      .footer-partner > img { width: min(220px, 65vw); }
+      .footer-partner .footer-copyright { margin-top: 2px; }
+      .footer-credit { flex-direction: column; align-items: flex-start; gap: 6px; }
+    }
+    @media (max-width: 390px) {
+      .orbit-chip { padding: 9px 10px; font-size: .69rem; }
+      .cta-actions { align-items: flex-start; flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topline">
+    <div class="container topline-inner">
+      <p>Engineered for cleaner water and stronger industries.</p>
+      <div class="topline-right"><span>Bangalore, India</span><a href="tel:+919739950961">Call our team&nbsp; +91 97399 50961</a></div>
+    </div>
+  </div>
+  <header class="site-header">
+    <nav class="container nav" aria-label="Main navigation">
+      <a class="brand" href="index.html" aria-label="Water Innovation Systems home">
+        <img class="brand-logo" src="logo/logo_color.png" alt="Water Innovation Systems">
+        <span class="brand-partner">Authorized Channel Partner of Milton Roy</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-links">
+        <svg viewBox="0 0 24 24" width="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <div class="nav-links" id="nav-links">
+        <a href="index.html">Home</a>
+        <div class="nav-dropdown">
+          <button class="dropdown-toggle" type="button" aria-expanded="false" aria-controls="products-menu">Products
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="dropdown-menu" id="products-menu">
+            <a href="dosing.html">Dosing Pumps</a>
+            <a href="controller.html">Controllers</a>
+            <a href="industrial-mixer.html">Industrial Mixers</a>
+            <a href="valves.html">Industrial Valves</a>
+          </div>
+        </div>
+        <a href="projects.html">Projects</a>
+        <a href="application.html" aria-current="page">Applications</a>
+        <a href="about.html">About Us</a>
+        <a class="button" href="#contact">Discuss your application
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <div class="hero-tag"><span aria-hidden="true">✦</span> Solutions across industries</div>
+          <h1>Built around<br><em>your process.</em></h1>
+          <p>From water and wastewater treatment to food processing, agriculture and manufacturing, explore applications where dosing, mixing and process-control solutions help keep operations on track.</p>
+          <div class="hero-actions">
+            <a class="button" href="#application-range">Explore applications
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a class="button button-outline" href="#contact">Talk to our team</a>
+          </div>
+        </div>
+        <div class="hero-visual reveal" aria-hidden="true">
+          <div class="hero-orbit">
+            <svg viewBox="0 0 96 96" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M48 9 17 26v36l31 18 31-18V26L48 9Z"/><path d="m17 26 31 18 31-18M48 44v36M34 18l31 36M62 18 31 55"/></svg>
+          </div>
+          <div class="orbit-chip one"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 19h18M5 19V9l7-5 7 5v10M9 19v-6h6v6"/></svg>Water treatment</div>
+          <div class="orbit-chip two"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21V10M12 14c-5 0-7-3-7-7 5 0 7 3 7 7Zm0-3c0-5 3-7 7-7 0 5-3 7-7 7Z"/></svg>Agriculture</div>
+          <div class="orbit-chip three"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20V8l8-4 8 4v12M8 20v-6h8v6M4 10h16"/></svg>Industry</div>
+        </div>
+      </div>
+    </section>
+
+    <nav class="quick-nav" aria-label="On this page">
+      <div class="container quick-nav-inner">
+        <a href="#pump-demand">Affordability fit</a><a href="#water">Water &amp; utilities</a><a href="#process">Process industries</a><a href="#agriculture">Agriculture</a><a href="#food-pharma">Food &amp; life sciences</a><a href="#projects">Projects</a><a href="#contact">Contact</a>
+      </div>
+    </nav>
+
+    <section class="section intro-section">
+      <div class="container intro-panel reveal">
+        <div><span class="eyebrow">Wide range of applications</span><h2>One process at a time, we help you find the right fit.</h2></div>
+        <div>
+          <p>Every application has its own process conditions, materials and targets. We work across water treatment and industrial sectors, helping customers explore suitable dosing pumps, mixers and control systems.</p>
+          <p>Browse the areas below to see where our solutions may fit. The right equipment depends on your application—our team can help you discuss the details.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section demand-section" id="pump-demand" aria-labelledby="demand-title">
+      <div class="container demand-panel reveal">
+        <div class="demand-copy">
+          <span class="eyebrow">Illustrative affordability fit</span>
+          <h2 id="demand-title">Who may invest in Milton Roy dosing pumps?</h2>
+          <p>Large-scale, high-consequence processes may be better positioned to consider premium metering pumps. The chart highlights an indicative relative fit across sectors, not their ability or willingness to buy.</p>
+          <p class="demand-note">Best-fit prospects often include pharmaceutical and biotech plants, oil &amp; gas and petrochemical facilities, chemical manufacturers, power plants, and large water utilities. Actual suitability depends on flow, pressure, chemical compatibility, duty, compliance needs and lifecycle cost.</p>
+        </div>
+        <div class="demand-visual">
+          <div class="pie-scene">
+            <div class="pie-chart" role="img" aria-label="Illustrative 3D pie chart of relative affordability fit, not market data: Pharmaceuticals and biotechnology 24 percent; oil, gas and petrochemicals 23 percent; chemical manufacturing 19 percent; power and energy 14 percent; large water utilities 12 percent; food and beverage 8 percent."></div>
+          </div>
+          <ul class="demand-legend" aria-label="Illustrative relative affordability fit by industry">
+            <li><span class="legend-swatch" style="--slice-color:#24489f"></span><span>Pharma &amp; biotech</span><span class="demand-value">24% relative fit</span></li>
+            <li><span class="legend-swatch" style="--slice-color:#48a9d2"></span><span>Oil, gas &amp; petrochemicals</span><span class="demand-value">23% relative fit</span></li>
+            <li><span class="legend-swatch" style="--slice-color:#36a69d"></span><span>Chemical manufacturing</span><span class="demand-value">19% relative fit</span></li>
+            <li><span class="legend-swatch" style="--slice-color:#f0ad4e"></span><span>Power &amp; energy</span><span class="demand-value">14% relative fit</span></li>
+            <li><span class="legend-swatch" style="--slice-color:#8669c4"></span><span>Large water utilities</span><span class="demand-value">12% relative fit</span></li>
+            <li><span class="legend-swatch" style="--slice-color:#e17c55"></span><span>Food &amp; beverage</span><span class="demand-value">8% relative fit</span></li>
+          </ul>
+        </div>
+        <p class="demand-footnote">Percentages are a visual illustration only—not actual affordability, sales, market-share or forecast data. The relative fit score is not a financial assessment and should not be used to qualify individual buyers.</p>
+      </div>
+    </section>
+
+    <section class="section application-section" id="application-range">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Where we work</span>
+          <h2>Solutions for a broad range of applications.</h2>
+          <p>Explore common application areas across water, utilities, process industries, agriculture, food and life sciences.</p>
+        </div>
+        <div class="application-groups">
+          <article class="application-group reveal" id="water">
+            <div class="group-heading">
+              <span class="group-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s7 7.2 7 12a7 7 0 0 1-14 0c0-4.8 7-12 7-12Z"/><path d="M8.5 15a3.5 3.5 0 0 0 3.5 3.5"/></svg></span>
+              <h3>Water, wastewater &amp; utilities</h3>
+            </div>
+            <ul class="application-list">
+              <li>Water and wastewater treatment<span>ETP, STP and related treatment processes</span></li>
+              <li>Cooling tower water treatment</li>
+              <li>Scrubber water treatment</li>
+              <li>Boiler dosing systems<span>Low- and high-pressure boiler dosing</span></li>
+              <li>On-site hypochlorite preparation</li>
+              <li>Humidification control &amp; environmental fog</li>
+            </ul>
+          </article>
+
+          <article class="application-group reveal" id="process">
+            <div class="group-heading">
+              <span class="group-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V8l8-4 8 4v12M8 20v-6h8v6M4 10h16"/><path d="M9 10h.01M12 10h.01M15 10h.01"/></svg></span>
+              <h3>Process control &amp; manufacturing</h3>
+            </div>
+            <ul class="application-list">
+              <li>pH, chlorination, conductivity &amp; TDS control</li>
+              <li>Turbidity, color &amp; slurry solids control</li>
+              <li>Petrochemical dosing<span>Additives and blue dye dosing</span></li>
+              <li>Metalworking industries</li>
+              <li>Dosing and mixing of water-soluble oils</li>
+              <li>Adhesive dosing for packaging</li>
+              <li>Perfume and fragrance dosing</li>
+              <li>Chemical dosing in the paper industry</li>
+            </ul>
+          </article>
+
+          <article class="application-group reveal" id="agriculture">
+            <div class="group-heading">
+              <span class="group-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21V11M12 15c-5 0-7-3-7-7 5 0 7 3 7 7Zm0-4c0-5 3-7 7-7 0 5-3 7-7 7ZM5 21h14"/></svg></span>
+              <h3>Agriculture &amp; animal care</h3>
+            </div>
+            <ul class="application-list">
+              <li>Fertigation &amp; chemigation</li>
+              <li>Agro-tech industry</li>
+              <li>Feed dosing for poultry</li>
+              <li>Floriculture &amp; horticulture water treatment</li>
+            </ul>
+          </article>
+
+          <article class="application-group reveal" id="food-pharma">
+            <div class="group-heading">
+              <span class="group-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V8l8-4 8 4v12M8 20v-6h8v6M4 10h16"/><path d="M12 4v6"/></svg></span>
+              <h3>Food, dairy, pharma &amp; biotech</h3>
+            </div>
+            <ul class="application-list">
+              <li>Food processing</li>
+              <li>Whey extraction in the dairy industry</li>
+              <li>Sanitization &amp; treatment in pharma and biotech</li>
+            </ul>
+          </article>
+        </div>
+        <div class="application-count reveal"><strong>21</strong> application areas listed in our reference catalog</div>
+      </div>
+    </section>
+
+    <section class="section approach-section">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">How we help</span>
+          <h2>From process details to a considered solution.</h2>
+          <p>A useful recommendation starts with understanding what you need to achieve and the conditions your system operates in.</p>
+        </div>
+        <div class="approach-grid">
+          <article class="approach-card reveal"><span class="approach-number">01 / UNDERSTAND</span><h3>Tell us about your process</h3><p>Share the application, fluid or chemical, target, flow or dosing rate and operating conditions.</p></article>
+          <article class="approach-card reveal"><span class="approach-number">02 / REVIEW</span><h3>Explore suitable equipment</h3><p>Discuss relevant pump, mixer, valve or control-system options for your requirements.</p></article>
+          <article class="approach-card reveal"><span class="approach-number">03 / PLAN</span><h3>Move forward with confidence</h3><p>Get product information and a quote request underway with support from our team.</p></article>
+        </div>
+        <div class="product-links reveal" aria-label="Explore products">
+          <a href="dosing.html">Dosing Pumps</a>
+          <a href="controller.html">Controllers</a>
+          <a href="industrial-mixer.html">Industrial Mixers</a>
+          <a href="valves.html">Industrial Valves</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section projects-section" id="projects" aria-labelledby="projects-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Project areas</span>
+          <h2 id="projects-title">Where our solutions can fit.</h2>
+          <p>Explore common project categories for dosing, mixing and process-control solutions. These are general areas of application, not individual project case studies.</p>
+        </div>
+        <div class="approach-grid">
+          <article class="approach-card reveal">
+            <span class="approach-number">WATER &amp; WASTEWATER</span>
+            <h3>Treatment plant systems</h3>
+            <p>Dosing and process support for water treatment, wastewater treatment, ETP, STP, boilers and cooling towers.</p>
+          </article>
+          <article class="approach-card reveal">
+            <span class="approach-number">PROCESS INDUSTRIES</span>
+            <h3>Chemical dosing &amp; mixing</h3>
+            <p>Application-led pump and mixer requirements for chemical, petrochemical, paper, textile and manufacturing processes.</p>
+          </article>
+          <article class="approach-card reveal">
+            <span class="approach-number">PLANT UTILITIES</span>
+            <h3>Monitoring &amp; control</h3>
+            <p>Equipment considerations for process measurement, water-quality control, and dependable plant operation.</p>
+          </article>
+        </div>
+        <div class="product-links reveal" aria-label="Discuss a project">
+          <a href="#contact">Discuss your project</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section" id="contact">
+      <div class="container cta-panel reveal">
+        <div class="cta-copy">
+          <span class="eyebrow">Get your queries solved</span>
+          <h2>Have an application in mind?</h2>
+          <p>Tell us what you are treating, dosing, mixing or monitoring. We’ll help you identify the information needed to review suitable options for your process.</p>
+        </div>
+        <div class="cta-actions">
+          <a class="button" href="mailto:sales@waterinnovation.co.in?subject=Application%20enquiry">Request a callback
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="button button-outline" href="tel:+919739950961">Call +91 97399 50961</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-links">
+        <a href="https://waterinnovation.co.in/about/">About</a>
+        <a href="https://waterinnovation.co.in/contact-us/">Contact</a>
+        <a href="https://waterinnovation.co.in/privacy-policy/">Privacy</a>
+        <a href="https://www.linkedin.com/company/waterinnovationsystems/" target="_blank" rel="noreferrer">LinkedIn</a>
+      </div>
+    </div>
+    <div class="container footer-partner">
+            <img src="logo/Milton Roy logo.png" alt="Milton Roy">
+      <span>Delivering reliable water treatment, chemical dosing and industrial process solutions through innovation and quality.</span>  
+      </a>
+      
+      <p class="footer-copyright">Copyright © Water Innovation System 2027</p>
+    </div>
+    <div class="container footer-credit"><p>Developed by Water Innovation Systems</p></div>
+  </footer>
+
+  <script src="site-language-data.js"></script>
+  <script src="site-language.js"></script>
+  <script>
+    const menuButton = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+    const productsDropdown = document.querySelector(".nav-dropdown");
+    const productsToggle = document.querySelector(".dropdown-toggle");
+
+    menuButton.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      menuButton.setAttribute("aria-expanded", String(isOpen));
+      menuButton.setAttribute("aria-label", isOpen ? "Close navigation menu" : "Open navigation menu");
+    });
+
+    productsToggle.addEventListener("click", () => {
+      const isOpen = productsDropdown.classList.toggle("open");
+      productsToggle.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    navLinks.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        productsDropdown.classList.remove("open");
+        productsToggle.setAttribute("aria-expanded", "false");
+        menuButton.setAttribute("aria-expanded", "false");
+        menuButton.setAttribute("aria-label", "Open navigation menu");
+      });
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        productsDropdown.classList.remove("open");
+        productsToggle.setAttribute("aria-expanded", "false");
+        navLinks.classList.remove("open");
+        menuButton.setAttribute("aria-expanded", "false");
+        menuButton.setAttribute("aria-label", "Open navigation menu");
+        productsToggle.focus();
+      }
+    });
+
+    if ("IntersectionObserver" in window) {
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      document.querySelectorAll(".reveal").forEach((element) => revealObserver.observe(element));
+    } else {
+      document.querySelectorAll(".reveal").forEach((element) => element.classList.add("visible"));
+    }
+  </script>
+</body>
+</html>
