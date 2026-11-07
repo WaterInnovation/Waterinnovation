@@ -1,0 +1,601 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f4f8fc">
+<meta name="description" content="Water Innovation Systems – Loading your experience.">
+<title>Loading | Water Innovation Systems</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --ink: #172f69;
+  --blue: #24489f;
+  --blue-dark: #183776;
+  --sky: #c9eaf8;
+  --paper: #f4f8fc;
+  --muted: #66758d;
+  --line: #dfe8f2;
+  font-family: "DM Sans", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 15% 15%, #e5f3fc 0, transparent 35%),
+    radial-gradient(circle at 85% 85%, #dceefa 0, transparent 35%),
+    var(--paper);
+}
+
+/* Background decoration */
+
+.background-orbit {
+  position: fixed;
+  width: 520px;
+  height: 520px;
+  border: 1px solid rgba(36,72,159,.08);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.background-orbit::before,
+.background-orbit::after {
+  position: absolute;
+  inset: 35px;
+  border: 1px solid rgba(36,72,159,.06);
+  border-radius: 50%;
+  content: "";
+}
+
+.background-orbit::after {
+  inset: 75px;
+}
+
+.orbit-left {
+  top: -280px;
+  left: -230px;
+}
+
+.orbit-right {
+  right: -280px;
+  bottom: -280px;
+}
+
+/* Main container */
+
+.loading-container {
+  position: relative;
+  z-index: 2;
+  width: min(460px, calc(100% - 38px));
+  padding: 40px 35px;
+  text-align: center;
+  animation: containerAppear 1s ease both;
+}
+
+@keyframes containerAppear {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Logo */
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 35px;
+}
+
+.brand img {
+  width: min(260px, 80%);
+  height: 75px;
+  object-fit: contain;
+}
+
+.brand span {
+  color: #526882;
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .035em;
+}
+
+/* Loader */
+
+.loader-area {
+  position: relative;
+  display: grid;
+  width: 210px;
+  height: 210px;
+  margin: 0 auto 25px;
+  place-items: center;
+}
+
+.loader-ring {
+  position: absolute;
+  width: 190px;
+  height: 190px;
+  border: 2px solid rgba(36,72,159,.10);
+  border-radius: 50%;
+}
+
+.loader-ring.one {
+  border-top-color: var(--blue);
+  border-right-color: #75bfe1;
+  animation: rotate 2.5s linear infinite;
+}
+
+.loader-ring.two {
+  width: 155px;
+  height: 155px;
+  border: 2px dashed rgba(36,72,159,.25);
+  animation: rotateReverse 8s linear infinite;
+}
+
+.loader-ring.three {
+  width: 120px;
+  height: 120px;
+  border: 1px solid rgba(72,169,210,.25);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes rotate {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes rotateReverse {
+  to { transform: rotate(-360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(.94);
+    opacity: .5;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 1;
+  }
+}
+
+/* Water drop */
+
+.drop {
+  position: relative;
+  display: grid;
+  width: 75px;
+  height: 75px;
+  place-items: center;
+  color: white;
+  background: linear-gradient(145deg, #48a9d2, #24489f);
+  border-radius: 50% 50% 50% 8%;
+  box-shadow: 0 12px 35px rgba(36,72,159,.25);
+  transform: rotate(-45deg);
+  animation: dropFloat 2s ease-in-out infinite;
+}
+
+.drop svg {
+  width: 39px;
+  height: 39px;
+  transform: rotate(45deg);
+}
+
+@keyframes dropFloat {
+  0%, 100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -9px;
+  }
+}
+
+/* Orbit particles */
+
+.particle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border: 2px solid white;
+  border-radius: 50%;
+  background: #48a9d2;
+  box-shadow: 0 2px 8px rgba(36,72,159,.2);
+}
+
+.particle.p1 {
+  top: 24px;
+  right: 32px;
+}
+
+.particle.p2 {
+  bottom: 32px;
+  left: 24px;
+  width: 8px;
+  height: 8px;
+  background: #36a69d;
+}
+
+.particle.p3 {
+  top: 65px;
+  left: 8px;
+  width: 7px;
+  height: 7px;
+  background: #f0ad4e;
+}
+
+/* Text */
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--blue);
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+
+.eyebrow::before,
+.eyebrow::after {
+  width: 17px;
+  height: 1px;
+  background: #8cb8dc;
+  content: "";
+}
+
+h1 {
+  margin: 13px 0 9px;
+  font: 800 clamp(1.7rem, 5vw, 2.2rem)/1.2 "Manrope", sans-serif;
+  letter-spacing: -.055em;
+}
+
+h1 span {
+  color: var(--blue);
+}
+
+.description {
+  max-width: 350px;
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: .9rem;
+  line-height: 1.7;
+}
+
+/* Progress bar */
+
+.progress-area {
+  width: 100%;
+  max-width: 300px;
+  margin: 30px auto 0;
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 9px;
+  color: #526882;
+  font-size: .73rem;
+  font-weight: 700;
+}
+
+#percentage {
+  color: var(--blue);
+  font-variant-numeric: tabular-nums;
+}
+
+.progress-track {
+  width: 100%;
+  height: 5px;
+  overflow: hidden;
+  border-radius: 99px;
+  background: #dce8f3;
+}
+
+.progress-fill {
+  width: 0%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #24489f, #48a9d2);
+  transition: width .12s linear;
+}
+
+/* Loading status */
+
+.status {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  color: #718198;
+  font-size: .76rem;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #36a69d;
+  animation: blink 1.2s ease-in-out infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: .3;
+    transform: scale(.7);
+  }
+}
+
+/* Footer */
+
+.footer {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 20px;
+  text-align: center;
+}
+
+.partner {
+  color: #718198;
+  font-size: .68rem;
+  font-weight: 600;
+}
+
+.partner strong {
+  color: var(--blue);
+}
+
+.copyright {
+  margin-top: 5px;
+  color: #9aa9bb;
+  font-size: .65rem;
+}
+
+/* Mobile */
+
+@media (max-width: 480px) {
+  .loading-container {
+    padding: 25px 20px;
+  }
+
+  .brand {
+    margin-bottom: 25px;
+  }
+
+  .brand img {
+    height: 65px;
+  }
+
+  .loader-area {
+    width: 185px;
+    height: 185px;
+  }
+
+  .loader-ring {
+    width: 170px;
+    height: 170px;
+  }
+
+  .loader-ring.two {
+    width: 140px;
+    height: 140px;
+  }
+
+  .loader-ring.three {
+    width: 110px;
+    height: 110px;
+  }
+
+  .footer {
+    padding-bottom: 15px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="background-orbit orbit-left"></div>
+<div class="background-orbit orbit-right"></div>
+
+<main class="loading-container">
+
+  <!-- Company branding -->
+  <div class="brand">
+    <img src="logo/logo_color.png"
+         alt="Water Innovation Systems">
+</div>
+
+  <!-- Animated loader -->
+  <div class="loader-area">
+
+    <div class="loader-ring"></div>
+    <div class="loader-ring two"></div>
+    <div class="loader-ring three"></div>
+
+    <div class="drop">
+      <svg viewBox="0 0 24 24" fill="none"
+           stroke="currentColor" stroke-width="1.8"
+           stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 3s7 7.2 7 12a7 7 0 0 1-14 0c0-4.8 7-12 7-12Z"/>
+        <path d="M8.5 15a3.5 3.5 0 0 0 3.5 3.5"/>
+      </svg>
+    </div>
+
+    <span class="particle p1"></span>
+    <span class="particle p2"></span>
+    <span class="particle p3"></span>
+
+  </div>
+
+  <!-- Loading message -->
+  <div class="eyebrow">Water Innovation Systems</div>
+
+  <h1>Smarter water.<br><span>Better industry.</span></h1>
+
+  <p class="description" id="loading-message">
+    Preparing your experience. Please wait while we connect you to our solutions.
+  </p>
+
+  <!-- Progress -->
+  <div class="progress-area">
+
+    <div class="progress-info">
+      <span id="progress-label">INITIALIZING</span>
+      <span id="percentage">0%</span>
+    </div>
+
+    <div class="progress-track">
+      <div class="progress-fill" id="progress-fill"></div>
+    </div>
+
+  </div>
+
+  <div class="status">
+    <span class="status-dot"></span>
+    <span id="status-message">Establishing secure connection...</span>
+  </div>
+
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="partner">
+    Powered by <strong>Water Innovation Systems</strong>
+  </div>
+  <div class="copyright">
+    © 2027 Water Innovation Systems. All rights reserved.
+  </div>
+</footer>
+
+<script>
+/* =================================
+   LOADING PAGE CONFIGURATION
+================================= */
+
+// Change this to your destination page.
+const redirectURL = "index.html";
+
+// Total loading duration in milliseconds.
+const loadingDuration = 2800;
+
+// Automatically redirect after loading.
+const autoRedirect = true;
+
+
+/* =================================
+   PROGRESS ANIMATION
+================================= */
+
+const fill = document.getElementById("progress-fill");
+const percentage = document.getElementById("percentage");
+const label = document.getElementById("progress-label");
+const status = document.getElementById("status-message");
+const message = document.getElementById("loading-message");
+
+const stages = [
+  {
+    value: 15,
+    label: "INITIALIZING",
+    status: "Establishing secure connection..."
+  },
+  {
+    value: 35,
+    label: "CONNECTING",
+    status: "Connecting to our services..."
+  },
+  {
+    value: 60,
+    label: "PREPARING",
+    status: "Preparing your experience..."
+  },
+  {
+    value: 85,
+    label: "OPTIMIZING",
+    status: "Optimizing page resources..."
+  },
+  {
+    value: 100,
+    label: "COMPLETED",
+    status: "Your experience is ready!"
+  }
+];
+
+let progress = 0;
+const startTime = Date.now();
+
+function updateLoader() {
+
+  const elapsed = Date.now() - startTime;
+
+  progress = Math.min(
+    100,
+    Math.floor((elapsed / loadingDuration) * 100)
+  );
+
+  fill.style.width = progress + "%";
+  percentage.textContent = progress + "%";
+
+  const stage = stages.find(
+    item => progress <= item.value
+  ) || stages[stages.length - 1];
+
+  label.textContent = stage.label;
+  status.textContent = stage.status;
+
+  if (progress < 100) {
+    requestAnimationFrame(updateLoader);
+  } else {
+    message.textContent =
+      "Thank you for visiting Water Innovation Systems. Redirecting you now...";
+
+    if (autoRedirect) {
+      setTimeout(() => {
+        window.location.replace(redirectURL);
+      }, 350);
+    }
+  }
+}
+
+requestAnimationFrame(updateLoader);
+</script>
+
+</body>
+</html>
