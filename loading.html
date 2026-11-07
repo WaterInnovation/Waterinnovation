@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#f4f8fc">
-<meta name="description" content="Water Innovation Systems - Loading your website experience.">
+<meta name="description" content="Water Innovation Systems – Adaptive Smart Loading.">
 <title>Loading | Water Innovation Systems</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,14 +17,17 @@
   --ink: #172f69;
   --blue: #24489f;
   --blue-dark: #183776;
-  --sky: #c9eaf8;
+  --sky: #48a9d2;
   --paper: #f4f8fc;
   --muted: #66758d;
   --line: #dfe8f2;
+  --green: #36a69d;
   font-family: "DM Sans", sans-serif;
 }
 
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
 html, body {
   width: 100%;
@@ -34,11 +37,10 @@ html, body {
 
 body {
   min-height: 100vh;
-  min-height: 100svh;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow-x: hidden;
+  overflow: hidden;
   color: var(--ink);
   background:
     radial-gradient(circle at 15% 15%, #e5f3fc 0, transparent 35%),
@@ -66,10 +68,19 @@ body {
   content: "";
 }
 
-.background-orbit::after { inset: 75px; }
+.background-orbit::after {
+  inset: 75px;
+}
 
-.orbit-left { top: -280px; left: -230px; }
-.orbit-right { right: -280px; bottom: -280px; }
+.orbit-left {
+  top: -280px;
+  left: -230px;
+}
+
+.orbit-right {
+  right: -280px;
+  bottom: -280px;
+}
 
 /* Main container */
 
@@ -77,24 +88,30 @@ body {
   position: relative;
   z-index: 2;
   width: min(460px, calc(100% - 38px));
-  padding: 30px 35px;
+  padding: 35px;
   text-align: center;
-  animation: containerAppear .8s ease both;
+  animation: appear .8s ease both;
 }
 
-@keyframes containerAppear {
-  from { opacity: 0; transform: translateY(18px); }
-  to { opacity: 1; transform: translateY(0); }
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* Branding */
+/* Logo */
 
 .brand {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 5px;
-  margin-bottom: 24px;
+  margin-bottom: 30px;
 }
 
 .brand img {
@@ -107,24 +124,23 @@ body {
   color: #526882;
   font-size: .7rem;
   font-weight: 700;
-  letter-spacing: .035em;
 }
 
-/* Loader */
+/* Animated loader */
 
 .loader-area {
   position: relative;
   display: grid;
-  width: 190px;
-  height: 190px;
-  margin: 0 auto 20px;
+  width: 210px;
+  height: 210px;
+  margin: 0 auto 22px;
   place-items: center;
 }
 
 .loader-ring {
   position: absolute;
-  width: 175px;
-  height: 175px;
+  width: 190px;
+  height: 190px;
   border: 2px solid rgba(36,72,159,.10);
   border-radius: 50%;
 }
@@ -136,15 +152,15 @@ body {
 }
 
 .loader-ring.two {
-  width: 145px;
-  height: 145px;
+  width: 155px;
+  height: 155px;
   border: 2px dashed rgba(36,72,159,.25);
-  animation: rotateReverse 8s linear infinite;
+  animation: reverseRotate 8s linear infinite;
 }
 
 .loader-ring.three {
-  width: 115px;
-  height: 115px;
+  width: 120px;
+  height: 120px;
   border: 1px solid rgba(72,169,210,.25);
   animation: pulse 2s ease-in-out infinite;
 }
@@ -153,18 +169,25 @@ body {
   to { transform: rotate(360deg); }
 }
 
-@keyframes rotateReverse {
+@keyframes reverseRotate {
   to { transform: rotate(-360deg); }
 }
 
 @keyframes pulse {
-  0%,100% { transform: scale(.94); opacity: .5; }
-  50% { transform: scale(1.08); opacity: 1; }
+  0%, 100% {
+    transform: scale(.94);
+    opacity: .5;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 1;
+  }
 }
 
 /* Water drop */
 
 .drop {
+  position: relative;
   display: grid;
   width: 75px;
   height: 75px;
@@ -174,7 +197,7 @@ body {
   border-radius: 50% 50% 50% 8%;
   box-shadow: 0 12px 35px rgba(36,72,159,.25);
   transform: rotate(-45deg);
-  animation: dropFloat 2s ease-in-out infinite;
+  animation: float 2s ease-in-out infinite;
 }
 
 .drop svg {
@@ -183,12 +206,12 @@ body {
   transform: rotate(45deg);
 }
 
-@keyframes dropFloat {
-  0%,100% { translate: 0 0; }
+@keyframes float {
+  0%, 100% { translate: 0 0; }
   50% { translate: 0 -9px; }
 }
 
-/* Orbit particles */
+/* Particles */
 
 .particle {
   position: absolute;
@@ -196,7 +219,7 @@ body {
   height: 10px;
   border: 2px solid white;
   border-radius: 50%;
-  background: #48a9d2;
+  background: var(--sky);
   box-shadow: 0 2px 8px rgba(36,72,159,.2);
 }
 
@@ -207,7 +230,7 @@ body {
   left: 24px;
   width: 8px;
   height: 8px;
-  background: #36a69d;
+  background: var(--green);
 }
 
 .p3 {
@@ -218,7 +241,7 @@ body {
   background: #f0ad4e;
 }
 
-/* Typography */
+/* Heading and description */
 
 .eyebrow {
   display: inline-flex;
@@ -241,15 +264,16 @@ body {
 
 h1 {
   margin: 13px 0 9px;
-  font: 800 clamp(1.7rem,5vw,2.2rem)/1.2 "Manrope",sans-serif;
+  font: 800 clamp(1.7rem, 5vw, 2.2rem)/1.2 "Manrope", sans-serif;
   letter-spacing: -.055em;
 }
 
-h1 span { color: var(--blue); }
+h1 span {
+  color: var(--blue);
+}
 
 .description {
   max-width: 350px;
-  min-height: 48px;
   margin: 0 auto;
   color: var(--muted);
   font-size: .9rem;
@@ -261,7 +285,7 @@ h1 span { color: var(--blue); }
 .progress-area {
   width: 100%;
   max-width: 300px;
-  margin: 27px auto 0;
+  margin: 30px auto 0;
 }
 
 .progress-info {
@@ -291,7 +315,7 @@ h1 span { color: var(--blue); }
   width: 0%;
   height: 100%;
   border-radius: inherit;
-  background: linear-gradient(90deg,#24489f,#48a9d2);
+  background: linear-gradient(90deg, #24489f, #48a9d2);
   transition: width .25s ease;
 }
 
@@ -302,7 +326,7 @@ h1 span { color: var(--blue); }
   justify-content: center;
   align-items: center;
   gap: 8px;
-  margin-top: 17px;
+  margin-top: 20px;
   color: #718198;
   font-size: .76rem;
 }
@@ -312,62 +336,46 @@ h1 span { color: var(--blue); }
   height: 7px;
   flex-shrink: 0;
   border-radius: 50%;
-  background: #36a69d;
+  background: var(--green);
   animation: blink 1.2s ease-in-out infinite;
 }
 
 @keyframes blink {
-  50% { opacity: .3; transform: scale(.7); }
+  50% {
+    opacity: .3;
+    transform: scale(.7);
+  }
 }
 
-/* Network information */
+/* Connection information */
 
-.network-info {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  margin-top: 17px;
-  padding: 7px 13px;
-  border: 1px solid var(--line);
-  border-radius: 30px;
-  background: rgba(255,255,255,.7);
-  color: #526882;
+.connection-info {
+  margin-top: 13px;
+  color: #8291a5;
   font-size: .68rem;
-  font-weight: 600;
 }
 
-.network-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #36a69d;
+.connection-info strong {
+  color: var(--blue);
+  font-weight: 700;
 }
 
-.network-dot.slow { background: #f0ad4e; }
-.network-dot.offline { background: #d9534f; }
-
-/* Retry */
+/* Retry button */
 
 .retry-button {
   display: none;
-  margin: 17px auto 0;
-  padding: 11px 22px;
+  margin: 18px auto 0;
+  padding: 10px 22px;
+  color: white;
+  background: var(--blue);
   border: 0;
   border-radius: 30px;
-  background: var(--blue);
-  color: white;
-  font: 700 .8rem "DM Sans",sans-serif;
+  font: 600 .8rem "DM Sans", sans-serif;
   cursor: pointer;
 }
 
-.retry-button:hover { background: var(--blue-dark); }
-
-.home-link {
-  display: none;
-  margin-top: 13px;
-  color: var(--blue);
-  font-size: .78rem;
-  font-weight: 700;
+.retry-button:hover {
+  background: var(--blue-dark);
 }
 
 /* Footer */
@@ -377,7 +385,7 @@ h1 span { color: var(--blue); }
   right: 0;
   bottom: 0;
   left: 0;
-  padding: 16px;
+  padding: 18px;
   text-align: center;
 }
 
@@ -387,7 +395,9 @@ h1 span { color: var(--blue); }
   font-weight: 600;
 }
 
-.partner strong { color: var(--blue); }
+.partner strong {
+  color: var(--blue);
+}
 
 .copyright {
   margin-top: 5px;
@@ -397,35 +407,49 @@ h1 span { color: var(--blue); }
 
 /* Mobile */
 
-@media(max-width:480px) {
-  .loading-container { padding: 20px; }
-  .brand { margin-bottom: 20px; }
-  .brand img { height: 65px; }
-  .loader-area { width: 175px; height: 175px; }
-  .loader-ring { width: 165px; height: 165px; }
-  .loader-ring.two { width: 135px; height: 135px; }
-  .loader-ring.three { width: 105px; height: 105px; }
-  .footer { padding-bottom: 12px; }
+@media (max-width: 480px) {
+  .loading-container {
+    padding: 22px 20px;
+  }
+
+  .brand {
+    margin-bottom: 23px;
+  }
+
+  .brand img {
+    height: 65px;
+  }
+
+  .loader-area {
+    width: 185px;
+    height: 185px;
+  }
+
+  .loader-ring {
+    width: 170px;
+    height: 170px;
+  }
+
+  .loader-ring.two {
+    width: 140px;
+    height: 140px;
+  }
+
+  .loader-ring.three {
+    width: 110px;
+    height: 110px;
+  }
+
+  .footer {
+    padding-bottom: 12px;
+  }
 }
 
-@media(max-height:720px) {
-  .loading-container { padding-block: 10px; }
-  .brand { margin-bottom: 10px; }
-  .brand img { height: 55px; }
-  .loader-area { width: 145px; height: 145px; margin-bottom: 12px; }
-  .loader-ring { width: 140px; height: 140px; }
-  .loader-ring.two { width: 115px; height: 115px; }
-  .loader-ring.three { width: 90px; height: 90px; }
-  .drop { width: 60px; height: 60px; }
-  .drop svg { width: 32px; }
-  .progress-area { margin-top: 16px; }
-}
-
-@media(prefers-reduced-motion:reduce) {
-  *,*::before,*::after {
-    animation-duration:.01ms!important;
-    animation-iteration-count:1!important;
-    transition-duration:.01ms!important;
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
   }
 }
 </style>
@@ -439,19 +463,24 @@ h1 span { color: var(--blue); }
 <main class="loading-container">
 
   <div class="brand">
-    <img src="logo/logo_color.png" alt="Water Innovation Systems">
+    <img src="logo/logo_color.png"
+         alt="Water Innovation Systems">
     
   </div>
 
   <div class="loader-area">
+
     <div class="loader-ring one"></div>
     <div class="loader-ring two"></div>
     <div class="loader-ring three"></div>
 
     <div class="drop">
-      <svg viewBox="0 0 24 24" fill="none"
-           stroke="currentColor" stroke-width="1.8"
-           stroke-linecap="round" stroke-linejoin="round">
+      <svg viewBox="0 0 24 24"
+           fill="none"
+           stroke="currentColor"
+           stroke-width="1.8"
+           stroke-linecap="round"
+           stroke-linejoin="round">
         <path d="M12 3s7 7.2 7 12a7 7 0 0 1-14 0c0-4.8 7-12 7-12Z"/>
         <path d="M8.5 15a3.5 3.5 0 0 0 3.5 3.5"/>
       </svg>
@@ -460,50 +489,45 @@ h1 span { color: var(--blue); }
     <span class="particle p1"></span>
     <span class="particle p2"></span>
     <span class="particle p3"></span>
+
   </div>
 
   <div class="eyebrow">Water Innovation Systems</div>
 
   <h1>Smarter water.<br><span>Better industry.</span></h1>
 
-  <p class="description" id="loading-message" aria-live="polite">
-    Preparing your experience. Please wait while we connect you to our solutions.
+  <p class="description" id="loading-message">
+    Preparing your experience. Connecting you to our solutions.
   </p>
 
   <div class="progress-area">
+
     <div class="progress-info">
       <span id="progress-label">INITIALIZING</span>
       <span id="percentage">0%</span>
     </div>
 
-    <div class="progress-track"
-         role="progressbar"
-         aria-label="Website preparation progress"
-         aria-valuemin="0"
-         aria-valuemax="100"
-         aria-valuenow="0"
-         id="progress-track">
+    <div class="progress-track">
       <div class="progress-fill" id="progress-fill"></div>
     </div>
+
   </div>
 
+ 
   <div class="status">
     <span class="status-dot" id="status-dot"></span>
     <span id="status-message">Checking your internet connection...</span>
   </div>
 
-  <div class="network-info">
-    <span class="network-dot" id="network-dot"></span>
-    <span id="network-message">Checking network speed...</span>
+  <div class="connection-info">
+    Connection: <strong id="connection-type">Detecting...</strong>
+    &nbsp;|&nbsp;
+    Destination: <strong id="destination-name">Home</strong>
   </div>
 
   <button class="retry-button" id="retry-button" type="button">
-    Retry connection
+    Retry Connection
   </button>
-
-  <a class="home-link" id="home-link" href="home.html">
-    Return to homepage
-  </a>
 
 </main>
 
@@ -518,547 +542,738 @@ h1 span { color: var(--blue); }
 
 <script>
 /* ==========================================
-   1. WEBSITE CONFIGURATION
+   WATER INNOVATION SYSTEMS
+   ADAPTIVE SMART LOADING ENGINE
 ========================================== */
 
-// Actual homepage filename.
-// Rename your old index.html to home.html.
-const DEFAULT_PAGE = "home.html";
+(() => {
+  "use strict";
 
-// Website pages allowed through this loader.
-const ALLOWED_PAGES = [
-  "index.html",
-  "dosing.html",
-  "industrial-mixer.html",
-  "valves.html",
-  "application.html",
-  "projects.html",
-  "support.html",
-  "sales.html",
-  "about.html",
-  "contact.html",
-  "privacy.html",
-  "terms&conditions.html",
-  "careers.html"
-];
+  /* ----------------------------------------
+     1. WEBSITE CONFIGURATION
+  ---------------------------------------- */
 
-// Maximum time to wait for the destination page
-// and its selected local resources.
-const MAX_LOADING_TIME = 30000;
+  const DEFAULT_PAGE = "index.html";
 
-// Maximum time for an individual request.
-const REQUEST_TIMEOUT = 12000;
+  const ALLOWED_PAGES = [
+    "index.html",
+    "dosingpage.html",
+    "industrial-mixer.html",
+    "valve.html",
+    "application.html",
+    "projects.html",
+    "support.html",
+    "sales.html",
+    "about.html",
+    "contact.html",
+    "privacy.html",
+    "terms.html",
+    "careers.html"
+  ];
 
+  // Maximum time allowed for preparing resources.
+  const MAX_LOADING_TIME = 18000;
 
-/* ==========================================
-   2. ELEMENTS
-========================================== */
+  // Individual resource timeout.
+  const RESOURCE_TIMEOUT = 6500;
 
-const fill = document.getElementById("progress-fill");
-const percentage = document.getElementById("percentage");
-const label = document.getElementById("progress-label");
-const status = document.getElementById("status-message");
-const message = document.getElementById("loading-message");
-const networkMessage = document.getElementById("network-message");
-const networkDot = document.getElementById("network-dot");
-const statusDot = document.getElementById("status-dot");
-const retryButton = document.getElementById("retry-button");
-const homeLink = document.getElementById("home-link");
-const progressTrack = document.getElementById("progress-track");
+  // Fallback when a connection is too slow.
+  const FALLBACK_TO_NAVIGATION = true;
 
+  /* ----------------------------------------
+     2. ELEMENTS
+  ---------------------------------------- */
 
-/* ==========================================
-   3. DESTINATION PAGE
-========================================== */
+  const fill = document.getElementById("progress-fill");
+  const percentage = document.getElementById("percentage");
+  const label = document.getElementById("progress-label");
+  const status = document.getElementById("status-message");
+  const message = document.getElementById("loading-message");
+  const connectionType = document.getElementById("connection-type");
+  const destinationName = document.getElementById("destination-name");
+  const retryButton = document.getElementById("retry-button");
+  const statusDot = document.getElementById("status-dot");
 
-const requestedPage =
-  new URLSearchParams(window.location.search).get("page");
+  /* ----------------------------------------
+     3. DESTINATION MANAGEMENT
+  ---------------------------------------- */
 
-const destination =
-  ALLOWED_PAGES.includes(requestedPage)
-    ? requestedPage
-    : DEFAULT_PAGE;
+  const params = new URLSearchParams(window.location.search);
 
-const destinationURL = new URL(destination, window.location.href);
+  let requestedPage = params.get("page") || DEFAULT_PAGE;
 
-if (destinationURL.origin !== window.location.origin) {
-  throw new Error("Invalid destination.");
-}
+  // Only permit predefined local destination pages.
+  requestedPage = requestedPage.split("/").pop();
 
-homeLink.href = "index.html";
+  if (!ALLOWED_PAGES.includes(requestedPage)) {
+    requestedPage = DEFAULT_PAGE;
+  }
 
+  const destinationURL = new URL(
+    requestedPage,
+    window.location.href
+  );
 
-/* ==========================================
-   4. NETWORK DETECTION
-========================================== */
+  destinationName.textContent = requestedPage
+    .replace(".html", "")
+    .replace(/[-_]/g, " ")
+    .replace(/\b\w/g, c => c.toUpperCase());
 
-function getNetworkInformation() {
+  /* ----------------------------------------
+     4. NETWORK DETECTION
+  ---------------------------------------- */
+
   const connection =
     navigator.connection ||
     navigator.mozConnection ||
-    navigator.webkitConnection;
+    navigator.webkitConnection ||
+    null;
 
-  if (!navigator.onLine) {
+  function getNetworkProfile() {
+
+    if (!navigator.onLine) {
+      return {
+        name: "Offline",
+        concurrency: 1,
+        timeout: RESOURCE_TIMEOUT
+      };
+    }
+
+    if (!connection) {
+      return {
+        name: "Unknown / Adaptive",
+        concurrency: 3,
+        timeout: RESOURCE_TIMEOUT
+      };
+    }
+
+    const type = connection.effectiveType || "unknown";
+    const downlink = connection.downlink || 0;
+    const saveData = connection.saveData || false;
+
+    if (saveData || type === "slow-2g" || type === "2g" ||
+        (downlink > 0 && downlink < 0.5)) {
+
+      return {
+        name: "Low Speed",
+        concurrency: 1,
+        timeout: RESOURCE_TIMEOUT
+      };
+    }
+
+    if (type === "3g" || (downlink > 0 && downlink < 5)) {
+
+      return {
+        name: "Medium Speed",
+        concurrency: 2,
+        timeout: RESOURCE_TIMEOUT
+      };
+    }
+
+    if (type === "4g" || downlink >= 5) {
+
+      return {
+        name: "High Speed",
+        concurrency: 6,
+        timeout: RESOURCE_TIMEOUT
+      };
+    }
+
     return {
-      type: "offline",
-      speed: 0,
-      label: "Offline"
+      name: "Adaptive",
+      concurrency: 3,
+      timeout: RESOURCE_TIMEOUT
     };
   }
 
-  if (!connection) {
-    return {
-      type: "unknown",
-      speed: null,
-      label: "Network speed checking"
-    };
+  let network = getNetworkProfile();
+
+  function updateNetworkDisplay() {
+    network = getNetworkProfile();
+    connectionType.textContent = network.name;
   }
 
-  const effectiveType = connection.effectiveType || "";
-  const downlink = connection.downlink || 0;
-  const saveData = connection.saveData || false;
+  updateNetworkDisplay();
 
-  if (
-    saveData ||
-    effectiveType === "slow-2g" ||
-    effectiveType === "2g" ||
-    downlink < 0.5
-  ) {
-    return {
-      type: "slow",
-      speed: downlink,
-      label: "Slow connection"
-    };
+  if (connection) {
+    connection.addEventListener("change", updateNetworkDisplay);
   }
 
-  if (
-    effectiveType === "3g" ||
-    downlink < 2
-  ) {
-    return {
-      type: "medium",
-      speed: downlink,
-      label: "Moderate connection"
-    };
-  }
+  /* ----------------------------------------
+     5. PROGRESS MANAGEMENT
+  ---------------------------------------- */
 
-  return {
-    type: "fast",
-    speed: downlink,
-    label: "High-speed connection"
-  };
-}
+  let currentProgress = 0;
 
-function updateNetworkDisplay(network) {
-  networkDot.className = "network-dot";
+  function updateProgress(value, title, statusText) {
 
-  if (network.type === "offline") {
-    networkDot.classList.add("offline");
-  } else if (network.type === "slow") {
-    networkDot.classList.add("slow");
-  }
-
-  if (network.speed !== null && network.speed > 0) {
-    networkMessage.textContent =
-      network.label + " · " + network.speed + " Mbps";
-  } else {
-    networkMessage.textContent = network.label;
-  }
-}
-
-
-/* ==========================================
-   5. PROGRESS DISPLAY
-========================================== */
-
-let progress = 0;
-
-function updateProgress(value, stage, statusText) {
-  progress = Math.max(progress, Math.min(98, value));
-
-  fill.style.width = progress + "%";
-  percentage.textContent = Math.floor(progress) + "%";
-  label.textContent = stage;
-  status.textContent = statusText;
-
-  progressTrack.setAttribute(
-    "aria-valuenow",
-    Math.floor(progress)
-  );
-}
-
-function completeProgress() {
-  progress = 100;
-  fill.style.width = "100%";
-  percentage.textContent = "100%";
-  label.textContent = "COMPLETED";
-  status.textContent = "Your page is ready!";
-
-  progressTrack.setAttribute("aria-valuenow", "100");
-
-  message.textContent =
-    "Your selected page is ready. Opening your experience...";
-}
-
-
-/* ==========================================
-   6. REQUEST WITH TIMEOUT
-========================================== */
-
-async function fetchWithTimeout(url, timeout = REQUEST_TIMEOUT) {
-  const controller = new AbortController();
-  const timer = setTimeout(
-    () => controller.abort(),
-    timeout
-  );
-
-  try {
-    return await fetch(url, {
-      method: "GET",
-      cache: "force-cache",
-      credentials: "same-origin",
-      signal: controller.signal
-    });
-  } finally {
-    clearTimeout(timer);
-  }
-}
-
-
-/* ==========================================
-   7. LOAD DESTINATION HTML
-========================================== */
-
-async function loadDestination() {
-  const response = await fetchWithTimeout(destinationURL.href);
-
-  if (!response.ok) {
-    throw new Error(
-      "Destination page returned HTTP " + response.status
+    currentProgress = Math.max(
+      currentProgress,
+      Math.min(99, Math.round(value))
     );
+
+    fill.style.width = currentProgress + "%";
+    percentage.textContent = currentProgress + "%";
+
+    if (title) label.textContent = title;
+    if (statusText) status.textContent = statusText;
   }
 
-  const contentType = response.headers.get("content-type") || "";
+  function completeProgress() {
 
-  if (!contentType.includes("text/html")) {
-    throw new Error("Destination is not a valid HTML page.");
+    currentProgress = 100;
+
+    fill.style.width = "100%";
+    percentage.textContent = "100%";
+
+    label.textContent = "COMPLETED";
+    status.textContent = "Your experience is ready!";
+
+    message.textContent =
+      "Thank you for visiting Water Innovation Systems. Redirecting you now.";
+
+    statusDot.style.background = "#36a69d";
   }
 
-  const html = await response.text();
+  /* ----------------------------------------
+     6. RESOURCE UTILITIES
+  ---------------------------------------- */
 
-  if (!html.trim()) {
-    throw new Error("Destination page is empty.");
-  }
+  function absoluteURL(value, base) {
 
-  return html;
-}
+    if (!value) return null;
 
+    try {
+      const url = new URL(value, base);
 
-/* ==========================================
-   8. WARM UP PAGE RESOURCES
-========================================== */
-
-function getPageResources(html) {
-  const parser = new DOMParser();
-  const documentPage = parser.parseFromString(
-    html,
-    "text/html"
-  );
-
-  const resources = new Set();
-
-  // CSS files
-  documentPage.querySelectorAll(
-    'link[rel="stylesheet"][href]'
-  ).forEach(element => {
-    resources.add(element.getAttribute("href"));
-  });
-
-  // JavaScript files
-  documentPage.querySelectorAll("script[src]").forEach(element => {
-    resources.add(element.getAttribute("src"));
-  });
-
-  // Images
-  documentPage.querySelectorAll("img[src]").forEach(element => {
-    resources.add(element.getAttribute("src"));
-  });
-
-  // Source images
-  documentPage.querySelectorAll("source[src]").forEach(element => {
-    resources.add(element.getAttribute("src"));
-  });
-
-  return [...resources]
-    .map(path => {
-      try {
-        return new URL(path, destinationURL.href);
-      } catch {
+      if (!["http:", "https:"].includes(url.protocol)) {
         return null;
       }
-    })
-    .filter(url =>
-      url &&
-      url.origin === window.location.origin &&
-      !url.href.startsWith("data:")
-    );
-}
 
-async function warmPageResources(resources, network) {
+      return url.href;
 
-  // Avoid overwhelming slow connections.
-  let concurrency = 5;
-
-  if (network.type === "slow") {
-    concurrency = 1;
-  } else if (network.type === "medium") {
-    concurrency = 2;
+    } catch {
+      return null;
+    }
   }
 
-  let completed = 0;
-  let nextIndex = 0;
+  function uniqueURLs(items) {
+    return [...new Set(items.filter(Boolean))];
+  }
 
-  const workers = Array.from(
-    { length: Math.min(concurrency, resources.length) },
-    async () => {
-      while (nextIndex < resources.length) {
-        const index = nextIndex++;
-        const url = resources[index];
+  function timeoutPromise(promise, milliseconds) {
+
+    return Promise.race([
+      promise,
+      new Promise(resolve => {
+        setTimeout(() => resolve(false), milliseconds);
+      })
+    ]);
+  }
+
+  /* ----------------------------------------
+     7. DISCOVER DESTINATION RESOURCES
+  ---------------------------------------- */
+
+  async function discoverResources(html, baseURL) {
+
+    const documentPage = new DOMParser().parseFromString(
+      html,
+      "text/html"
+    );
+
+    const stylesheets = [];
+    const images = [];
+    const scripts = [];
+    const otherResources = [];
+
+    // External CSS.
+    documentPage.querySelectorAll(
+      'link[rel="stylesheet"][href]'
+    ).forEach(link => {
+
+      const url = absoluteURL(link.getAttribute("href"), baseURL);
+
+      if (url) stylesheets.push(url);
+    });
+
+    // Images.
+    documentPage.querySelectorAll("img[src]").forEach(img => {
+
+      const url = absoluteURL(img.getAttribute("src"), baseURL);
+
+      if (url) images.push(url);
+    });
+
+    // Picture sources.
+    documentPage.querySelectorAll("source[src]").forEach(source => {
+
+      const url = absoluteURL(
+        source.getAttribute("src"),
+        baseURL
+      );
+
+      if (url) otherResources.push(url);
+    });
+
+    // Video posters.
+    documentPage.querySelectorAll("video[poster]").forEach(video => {
+
+      const url = absoluteURL(
+        video.getAttribute("poster"),
+        baseURL
+      );
+
+      if (url) images.push(url);
+    });
+
+    // External JavaScript.
+    documentPage.querySelectorAll("script[src]").forEach(script => {
+
+      const url = absoluteURL(
+        script.getAttribute("src"),
+        baseURL
+      );
+
+      if (url) scripts.push(url);
+    });
+
+    // Preload fonts and other declared resources.
+    documentPage.querySelectorAll(
+      'link[rel="preload"][href]'
+    ).forEach(link => {
+
+      const url = absoluteURL(
+        link.getAttribute("href"),
+        baseURL
+      );
+
+      if (url) otherResources.push(url);
+    });
+
+    // Include common CSS background-image URLs.
+    // Only external stylesheet URLs are collected here;
+    // their background assets will be handled by the browser.
+
+    return {
+      stylesheets: uniqueURLs(stylesheets),
+      images: uniqueURLs(images),
+      scripts: uniqueURLs(scripts),
+      other: uniqueURLs(otherResources)
+    };
+  }
+
+  /* ----------------------------------------
+     8. PRELOAD STYLESHEETS
+  ---------------------------------------- */
+
+  function preloadStylesheet(url) {
+
+    return new Promise(resolve => {
+
+      const link = document.createElement("link");
+
+      link.rel = "preload";
+      link.as = "style";
+      link.href = url;
+
+      let completed = false;
+
+      function finish(result) {
+
+        if (completed) return;
+
+        completed = true;
+        resolve(result);
+      }
+
+      link.onload = () => finish(true);
+      link.onerror = () => finish(false);
+
+      document.head.appendChild(link);
+
+      setTimeout(() => finish(false), RESOURCE_TIMEOUT);
+    });
+  }
+
+  /* ----------------------------------------
+     9. PRELOAD IMAGES
+  ---------------------------------------- */
+
+  function preloadImage(url) {
+
+    return new Promise(resolve => {
+
+      const img = new Image();
+
+      let completed = false;
+
+      function finish(result) {
+
+        if (completed) return;
+
+        completed = true;
+        resolve(result);
+      }
+
+      img.onload = async () => {
 
         try {
-          await fetchWithTimeout(url.href, REQUEST_TIMEOUT);
-        } catch {
-          // The browser will retry or load this resource
-          // naturally after navigation.
-        }
+          if (img.decode) await img.decode();
+        } catch {}
+
+        finish(true);
+      };
+
+      img.onerror = () => finish(false);
+
+      img.src = url;
+
+      if (img.complete && img.naturalWidth > 0) {
+        finish(true);
+      }
+
+      setTimeout(() => finish(false), RESOURCE_TIMEOUT);
+    });
+  }
+
+  /* ----------------------------------------
+     10. PRELOAD EXTERNAL RESOURCES
+  ---------------------------------------- */
+
+  function prefetchResource(url, asType) {
+
+    return new Promise(resolve => {
+
+      const link = document.createElement("link");
+
+      link.rel = "prefetch";
+      link.href = url;
+
+      if (asType) {
+        link.as = asType;
+      }
+
+      link.onload = () => resolve(true);
+      link.onerror = () => resolve(false);
+
+      document.head.appendChild(link);
+
+      // Prefetch is opportunistic; don't wait indefinitely.
+      setTimeout(() => resolve(false), 3000);
+    });
+  }
+
+  /* ----------------------------------------
+     11. CONTROLLED CONCURRENCY
+  ---------------------------------------- */
+
+  async function runQueue(items, worker, concurrency, onProgress) {
+
+    let index = 0;
+    let completed = 0;
+
+    async function runWorker() {
+
+      while (index < items.length) {
+
+        const currentIndex = index++;
+
+        try {
+          await worker(items[currentIndex]);
+        } catch {}
 
         completed++;
 
-        const percent = resources.length
-          ? 75 + (completed / resources.length) * 20
-          : 95;
-
-        updateProgress(
-          percent,
-          "PREPARING",
-          "Preparing website resources (" +
-          completed + "/" + resources.length + ")..."
-        );
+        if (onProgress) {
+          onProgress(completed, items.length);
+        }
       }
     }
-  );
 
-  await Promise.all(workers);
-}
+    const workers = Array.from(
+      {
+        length: Math.min(concurrency, items.length)
+      },
+      () => runWorker()
+    );
 
-
-/* ==========================================
-   9. NETWORK-AWARE LOADING
-========================================== */
-
-let activeController = null;
-let navigationStarted = false;
-
-function navigateToDestination() {
-  if (navigationStarted) return;
-
-  navigationStarted = true;
-  completeProgress();
-
-  setTimeout(() => {
-    window.location.replace(destinationURL.href);
-  }, 250);
-}
-
-async function startLoading() {
-
-  if (navigationStarted) return;
-
-  retryButton.style.display = "none";
-  homeLink.style.display = "none";
-
-  progress = 0;
-  updateProgress(
-    3,
-    "INITIALIZING",
-    "Checking your internet connection..."
-  );
-
-  let network = getNetworkInformation();
-  updateNetworkDisplay(network);
-
-  if (network.type === "offline") {
-    showOfflineMessage();
-    return;
+    await Promise.all(workers);
   }
 
-  const startTime = Date.now();
+  /* ----------------------------------------
+     12. FETCH DESTINATION HTML
+  ---------------------------------------- */
 
-  try {
-    updateProgress(
-      12,
-      "CONNECTING",
-      "Connecting to Water Innovation Systems..."
+  async function fetchDestination() {
+
+    const controller = new AbortController();
+
+    const timer = setTimeout(
+      () => controller.abort(),
+      MAX_LOADING_TIME
     );
 
-    // Measure real response time by retrieving destination HTML.
-    const html = await loadDestination();
+    try {
 
-    const responseTime = Date.now() - startTime;
+      const response = await fetch(destinationURL.href, {
+        method: "GET",
+        cache: "no-cache",
+        credentials: "same-origin",
+        signal: controller.signal
+      });
 
-    // A real request measurement helps when the browser
-    // does not provide Network Information API.
-    if (network.type === "unknown") {
-      if (responseTime < 500) {
-        network = {
-          type: "fast",
-          speed: null,
-          label: "Fast response"
-        };
-      } else if (responseTime < 1800) {
-        network = {
-          type: "medium",
-          speed: null,
-          label: "Moderate response"
-        };
-      } else {
-        network = {
-          type: "slow",
-          speed: null,
-          label: "Slow response"
-        };
+      if (!response.ok) {
+        throw new Error("Page returned " + response.status);
       }
 
-      updateNetworkDisplay(network);
+      return await response.text();
+
+    } finally {
+      clearTimeout(timer);
     }
+  }
 
-    updateProgress(
-      65,
-      "CONNECTED",
-      "Website connected successfully. Preparing resources..."
-    );
+  /* ----------------------------------------
+     13. MAIN ADAPTIVE LOADING ENGINE
+  ---------------------------------------- */
 
-    // Prepare local CSS, JS and image resources.
-    const resources = getPageResources(html);
+  let isRedirecting = false;
+  let isRunning = false;
 
-    // Limit the waiting time for resource preparation.
-    const remainingTime = Math.max(
-      0,
-      MAX_LOADING_TIME - (Date.now() - startTime)
-    );
+  function redirectToDestination() {
 
-    await Promise.race([
-      warmPageResources(resources, network),
-      new Promise(resolve => setTimeout(resolve, remainingTime))
-    ]);
+    if (isRedirecting) return;
 
-    if (navigationStarted) return;
+    isRedirecting = true;
 
-    updateProgress(
-      96,
-      "READY",
-      "Finalizing your website experience..."
-    );
+    completeProgress();
 
-    navigateToDestination();
+    setTimeout(() => {
 
-  } catch (error) {
-    console.error("Website loading error:", error);
+      window.location.replace(destinationURL.href);
+
+    }, 180);
+  }
+
+  async function startLoading() {
+
+    if (isRunning || isRedirecting) return;
+
+    isRunning = true;
+    retryButton.style.display = "none";
+
+    updateNetworkDisplay();
 
     if (!navigator.onLine) {
+
       showOfflineMessage();
+      isRunning = false;
       return;
     }
 
-    showErrorMessage(error);
+    try {
+
+      updateProgress(
+        5,
+        "CONNECTING",
+        "Connecting to Water Innovation Systems..."
+      );
+
+      // Step 1: Download destination HTML.
+      const html = await fetchDestination();
+
+      updateProgress(
+        25,
+        "ANALYZING",
+        "Analyzing destination page resources..."
+      );
+
+      // Step 2: Discover assets.
+      const resources = await discoverResources(
+        html,
+        destinationURL.href
+      );
+
+      updateProgress(
+        35,
+        "PREPARING",
+        "Preparing stylesheets and images..."
+      );
+
+      // Step 3: Prioritize stylesheets.
+      await timeoutPromise(
+        runQueue(
+          resources.stylesheets,
+          preloadStylesheet,
+          network.concurrency
+        ),
+        9000
+      );
+
+      updateProgress(
+        60,
+        "LOADING IMAGES",
+        "Loading important page images..."
+      );
+
+      // Step 4: Load images according to connection.
+      // Prioritize the first four images.
+      const priorityImages = resources.images.slice(0, 4);
+
+      await timeoutPromise(
+        runQueue(
+          priorityImages,
+          preloadImage,
+          network.concurrency
+        ),
+        9000
+      );
+
+      updateProgress(
+        78,
+        "OPTIMIZING",
+        "Preparing external resources..."
+      );
+
+      // Step 5: Prefetch scripts and other resources.
+      // These are opportunistic and are not required
+      // for navigation to continue.
+      const backgroundResources = [
+        ...resources.scripts.map(url => ({
+          url,
+          type: "script"
+        })),
+        ...resources.other.map(url => ({
+          url,
+          type: "fetch"
+        }))
+      ];
+
+      // Avoid spending unnecessary time on slow connections.
+      const prefetchItems = backgroundResources.slice(
+        0,
+        network.concurrency * 2
+      );
+
+      await timeoutPromise(
+        runQueue(
+          prefetchItems,
+          item => prefetchResource(item.url, item.type),
+          network.concurrency
+        ),
+        2500
+      );
+
+      updateProgress(
+        95,
+        "FINALIZING",
+        "Finalizing your website experience..."
+      );
+
+      if (!navigator.onLine) {
+        showOfflineMessage();
+        isRunning = false;
+        return;
+      }
+
+      redirectToDestination();
+
+    } catch (error) {
+
+      console.warn("Adaptive loading:", error);
+
+      if (!navigator.onLine) {
+        showOfflineMessage();
+        isRunning = false;
+        return;
+      }
+
+      if (FALLBACK_TO_NAVIGATION) {
+
+        updateProgress(
+          95,
+          "CONTINUING",
+          "Opening your requested page..."
+        );
+
+        redirectToDestination();
+
+      } else {
+
+        status.textContent =
+          "Unable to load the page. Please try again.";
+
+        retryButton.style.display = "inline-block";
+        isRunning = false;
+      }
+    }
   }
-}
 
+  /* ----------------------------------------
+     14. OFFLINE HANDLING
+  ---------------------------------------- */
 
-/* ==========================================
-   10. OFFLINE MESSAGE
-========================================== */
+  function showOfflineMessage() {
 
-function showOfflineMessage() {
+    label.textContent = "CONNECTION LOST";
 
-  networkDot.className = "network-dot offline";
+    status.textContent =
+      "No internet connection. Waiting for your network...";
 
-  networkMessage.textContent = "No internet connection";
+    message.textContent =
+      "Please check your Wi-Fi or mobile data. We will retry when your internet connection is restored.";
 
-  label.textContent = "CONNECTION LOST";
-  percentage.textContent = "0%";
+    connectionType.textContent = "Offline";
 
-  fill.style.width = "0%";
+    statusDot.style.background = "#e39a42";
 
-  statusDot.style.background = "#d9534f";
-
-  status.textContent =
-    "Please check your internet connection.";
-
-  message.textContent =
-    "We couldn't connect to Water Innovation Systems. Please reconnect and try again.";
-
-  retryButton.style.display = "inline-block";
-  homeLink.style.display = "inline-block";
-}
-
-
-/* ==========================================
-   11. ERROR HANDLING
-========================================== */
-
-function showErrorMessage(error) {
-
-  label.textContent = "LOADING INTERRUPTED";
-
-  statusDot.style.background = "#d9534f";
-
-  status.textContent =
-    "Unable to prepare the selected page.";
-
-  message.textContent =
-    "The page could not be loaded. Please try again or return to the homepage.";
-
-  retryButton.style.display = "inline-block";
-  homeLink.style.display = "inline-block";
-}
-
-
-/* ==========================================
-   12. RETRY AND NETWORK EVENTS
-========================================== */
-
-retryButton.addEventListener("click", () => {
-  startLoading();
-});
-
-window.addEventListener("online", () => {
-  if (!navigationStarted) {
-    startLoading();
+    retryButton.style.display = "inline-block";
   }
-});
 
-window.addEventListener("offline", () => {
-  if (!navigationStarted) {
-    showOfflineMessage();
-  }
-});
+  window.addEventListener("offline", () => {
 
-// Refresh the network indicator if the browser supports it.
-if (navigator.connection) {
-  navigator.connection.addEventListener("change", () => {
-    const network = getNetworkInformation();
-    updateNetworkDisplay(network);
+    if (!isRedirecting) {
+      showOfflineMessage();
+    }
   });
-}
 
+  window.addEventListener("online", () => {
 
-/* ==========================================
-   13. START
-========================================== */
+    if (!isRedirecting) {
 
-startLoading();
+      isRunning = false;
 
+      updateNetworkDisplay();
+
+      message.textContent =
+        "Connection restored. Preparing your requested page...";
+
+      startLoading();
+    }
+  });
+
+  retryButton.addEventListener("click", () => {
+
+    isRunning = false;
+
+    currentProgress = 0;
+    fill.style.width = "0%";
+    percentage.textContent = "0%";
+
+    message.textContent =
+      "Retrying your connection...";
+
+    startLoading();
+  });
+
+  /* ----------------------------------------
+     15. START
+  ---------------------------------------- */
+
+  startLoading();
+
+})();
 </script>
 
 </body>
