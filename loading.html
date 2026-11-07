@@ -1,1525 +1,1285 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#f4f8fc">
-<meta name="description" content="Water Innovation Systems – Adaptive Smart Loading.">
-<title>Loading | Water Innovation Systems</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-<style>
-:root {
-  --ink: #172f69;
-  --blue: #24489f;
-  --blue-dark: #183776;
-  --sky: #48a9d2;
-  --paper: #f4f8fc;
-  --muted: #66758d;
-  --line: #dfe8f2;
-  --green: #36a69d;
-  font-family: "DM Sans", sans-serif;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-
-
-/* Website File Integrity Checker */
-
-.file-checker {
-  width: 100%;
-  max-width: 330px;
-  margin: 18px auto 0;
-  padding: 12px 14px;
-  text-align: left;
-  background: rgba(255,255,255,.65);
-  border: 1px solid #dfe8f2;
-  border-radius: 12px;
-}
-
-.file-checker-heading {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  color: #24489f;
-  font-size: .72rem;
-  font-weight: 700;
-}
-
-.file-check-status {
-  margin-top: 8px;
-  color: #66758d;
-  font-size: .7rem;
-}
-
-.file-check-details {
-  display: none;
-  max-height: 110px;
-  overflow-y: auto;
-  margin-top: 8px;
-  padding-top: 7px;
-  border-top: 1px solid #dfe8f2;
-  font-size: .67rem;
-  line-height: 1.8;
-}
-
-.file-checker.has-errors {
-  border-color: #e6a4a4;
-  background: #fff8f8;
-}
-
-.file-checker.has-errors .file-check-status {
-  color: #c0392b;
-}
-
-.file-checker.is-success .file-check-status {
-  color: #238b68;
-}
-
-.file-item-ok {
-  color: #238b68;
-}
-
-.file-item-error {
-  color: #c0392b;
-}
-
-
-
-html, body {
-  width: 100%;
-  min-height: 100%;
-  margin: 0;
-}
-
-body {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  color: var(--ink);
-  background:
-    radial-gradient(circle at 15% 15%, #e5f3fc 0, transparent 35%),
-    radial-gradient(circle at 85% 85%, #dceefa 0, transparent 35%),
-    var(--paper);
-}
-
-/* Background decoration */
-
-.background-orbit {
-  position: fixed;
-  width: 520px;
-  height: 520px;
-  border: 1px solid rgba(36,72,159,.08);
-  border-radius: 50%;
-  pointer-events: none;
-}
-
-.background-orbit::before,
-.background-orbit::after {
-  position: absolute;
-  inset: 35px;
-  border: 1px solid rgba(36,72,159,.06);
-  border-radius: 50%;
-  content: "";
-}
-
-.background-orbit::after {
-  inset: 75px;
-}
-
-.orbit-left {
-  top: -280px;
-  left: -230px;
-}
-
-.orbit-right {
-  right: -280px;
-  bottom: -280px;
-}
-
-/* Main container */
-
-.loading-container {
-  position: relative;
-  z-index: 2;
-  width: min(460px, calc(100% - 38px));
-  padding: 35px;
-  text-align: center;
-  animation: appear .8s ease both;
-}
-
-@keyframes appear {
-  from {
-    opacity: 0;
-    transform: translateY(18px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Logo */
-
-.brand {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 5px;
-  margin-bottom: 30px;
-}
-
-.brand img {
-  width: min(260px, 80%);
-  height: 75px;
-  object-fit: contain;
-}
-
-.brand span {
-  color: #526882;
-  font-size: .7rem;
-  font-weight: 700;
-}
-
-/* Animated loader */
-
-.loader-area {
-  position: relative;
-  display: grid;
-  width: 210px;
-  height: 210px;
-  margin: 0 auto 22px;
-  place-items: center;
-}
-
-.loader-ring {
-  position: absolute;
-  width: 190px;
-  height: 190px;
-  border: 2px solid rgba(36,72,159,.10);
-  border-radius: 50%;
-}
-
-.loader-ring.one {
-  border-top-color: var(--blue);
-  border-right-color: #75bfe1;
-  animation: rotate 2.5s linear infinite;
-}
-
-.loader-ring.two {
-  width: 155px;
-  height: 155px;
-  border: 2px dashed rgba(36,72,159,.25);
-  animation: reverseRotate 8s linear infinite;
-}
-
-.loader-ring.three {
-  width: 120px;
-  height: 120px;
-  border: 1px solid rgba(72,169,210,.25);
-  animation: pulse 2s ease-in-out infinite;
-}
-
-@keyframes rotate {
-  to { transform: rotate(360deg); }
-}
-
-@keyframes reverseRotate {
-  to { transform: rotate(-360deg); }
-}
-
-@keyframes pulse {
-  0%, 100% {
-    transform: scale(.94);
-    opacity: .5;
-  }
-  50% {
-    transform: scale(1.08);
-    opacity: 1;
-  }
-}
-
-/* Water drop */
-
-.drop {
-  position: relative;
-  display: grid;
-  width: 75px;
-  height: 75px;
-  place-items: center;
-  color: white;
-  background: linear-gradient(145deg, #48a9d2, #24489f);
-  border-radius: 50% 50% 50% 8%;
-  box-shadow: 0 12px 35px rgba(36,72,159,.25);
-  transform: rotate(-45deg);
-  animation: float 2s ease-in-out infinite;
-}
-
-.drop svg {
-  width: 39px;
-  height: 39px;
-  transform: rotate(45deg);
-}
-
-@keyframes float {
-  0%, 100% { translate: 0 0; }
-  50% { translate: 0 -9px; }
-}
-
-/* Particles */
-
-.particle {
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  border: 2px solid white;
-  border-radius: 50%;
-  background: var(--sky);
-  box-shadow: 0 2px 8px rgba(36,72,159,.2);
-}
-
-.p1 { top: 24px; right: 32px; }
-
-.p2 {
-  bottom: 32px;
-  left: 24px;
-  width: 8px;
-  height: 8px;
-  background: var(--green);
-}
-
-.p3 {
-  top: 65px;
-  left: 8px;
-  width: 7px;
-  height: 7px;
-  background: #f0ad4e;
-}
-
-/* Heading and description */
-
-.eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  color: var(--blue);
-  font-size: .7rem;
-  font-weight: 700;
-  letter-spacing: .15em;
-  text-transform: uppercase;
-}
-
-.eyebrow::before,
-.eyebrow::after {
-  width: 17px;
-  height: 1px;
-  background: #8cb8dc;
-  content: "";
-}
-
-h1 {
-  margin: 13px 0 9px;
-  font: 800 clamp(1.7rem, 5vw, 2.2rem)/1.2 "Manrope", sans-serif;
-  letter-spacing: -.055em;
-}
-
-h1 span {
-  color: var(--blue);
-}
-
-.description {
-  max-width: 350px;
-  margin: 0 auto;
-  color: var(--muted);
-  font-size: .9rem;
-  line-height: 1.7;
-}
-
-/* Progress */
-
-.progress-area {
-  width: 100%;
-  max-width: 300px;
-  margin: 30px auto 0;
-}
-
-.progress-info {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 9px;
-  color: #526882;
-  font-size: .73rem;
-  font-weight: 700;
-}
-
-#percentage {
-  color: var(--blue);
-  font-variant-numeric: tabular-nums;
-}
-
-.progress-track {
-  width: 100%;
-  height: 5px;
-  overflow: hidden;
-  border-radius: 99px;
-  background: #dce8f3;
-}
-
-.progress-fill {
-  width: 0%;
-  height: 100%;
-  border-radius: inherit;
-  background: linear-gradient(90deg, #24489f, #48a9d2);
-  transition: width .25s ease;
-}
-
-/* Status */
-
-.status {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  margin-top: 20px;
-  color: #718198;
-  font-size: .76rem;
-}
-
-.status-dot {
-  width: 7px;
-  height: 7px;
-  flex-shrink: 0;
-  border-radius: 50%;
-  background: var(--green);
-  animation: blink 1.2s ease-in-out infinite;
-}
-
-@keyframes blink {
-  50% {
-    opacity: .3;
-    transform: scale(.7);
-  }
-}
-
-
-
-
-
-/* Connection information */
-
-.connection-info {
-  margin-top: 13px;
-  color: #8291a5;
-  font-size: .68rem;
-}
-
-.connection-info strong {
-  color: var(--blue);
-  font-weight: 700;
-}
-
-/* Retry button */
-
-.retry-button {
-  display: none;
-  margin: 18px auto 0;
-  padding: 10px 22px;
-  color: white;
-  background: var(--blue);
-  border: 0;
-  border-radius: 30px;
-  font: 600 .8rem "DM Sans", sans-serif;
-  cursor: pointer;
-}
-
-.retry-button:hover {
-  background: var(--blue-dark);
-}
-
-/* Footer */
-
-.footer {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  padding: 18px;
-  text-align: center;
-}
-
-.partner {
-  color: #718198;
-  font-size: .68rem;
-  font-weight: 600;
-}
-
-.partner strong {
-  color: var(--blue);
-}
-
-.copyright {
-  margin-top: 5px;
-  color: #9aa9bb;
-  font-size: .65rem;
-}
-
-/* Mobile */
-
-@media (max-width: 480px) {
-  .loading-container {
-    padding: 22px 20px;
-  }
-
-  .brand {
-    margin-bottom: 23px;
-  }
-
-  .brand img {
-    height: 65px;
-  }
-
-  .loader-area {
-    width: 185px;
-    height: 185px;
-  }
-
-  .loader-ring {
-    width: 170px;
-    height: 170px;
-  }
-
-  .loader-ring.two {
-    width: 140px;
-    height: 140px;
-  }
-
-  .loader-ring.three {
-    width: 110px;
-    height: 110px;
-  }
-
-  .footer {
-    padding-bottom: 12px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: .01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: .01ms !important;
-  }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f8fc">
+  <meta name="description" content="Water Innovation Systems – Adaptive Smart Loading.">
+  <title>Loading | Water Innovation Systems</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --ink: #172f69;
+      --blue: #24489f;
+      --blue-dark: #183776;
+      --sky: #48a9d2;
+      --paper: #f4f8fc;
+      --muted: #66758d;
+      --line: #dfe8f2;
+      --green: #238b68;
+      --red: #c0392b;
+      font-family: "DM Sans", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      width: 100%;
+      min-height: 100%;
+      margin: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow-x: hidden;
+      overflow-y: auto;
+      padding: 28px 0 86px;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 15% 15%, #e5f3fc 0, transparent 35%),
+        radial-gradient(circle at 85% 85%, #dceefa 0, transparent 35%),
+        var(--paper);
+    }
+
+    .background-orbit {
+      position: fixed;
+      width: 520px;
+      height: 520px;
+      border: 1px solid rgba(36,72,159,.08);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .background-orbit::before,
+    .background-orbit::after {
+      position: absolute;
+      inset: 35px;
+      border: 1px solid rgba(36,72,159,.06);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .background-orbit::after { inset: 75px; }
+    .orbit-left { top: -280px; left: -230px; }
+    .orbit-right { right: -280px; bottom: -280px; }
+
+    .loading-container {
+      position: relative;
+      z-index: 2;
+      width: min(460px, calc(100% - 30px));
+      padding: 28px 25px;
+      text-align: center;
+      animation: appear .8s ease both;
+    }
+
+    @keyframes appear {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+      margin-bottom: 24px;
+    }
+
+    .brand img {
+      width: min(260px, 80%);
+      height: 75px;
+      object-fit: contain;
+    }
+
+    .loader-area {
+      position: relative;
+      display: grid;
+      width: 210px;
+      height: 210px;
+      margin: 0 auto 20px;
+      place-items: center;
+    }
+
+    .loader-ring {
+      position: absolute;
+      width: 190px;
+      height: 190px;
+      border: 2px solid rgba(36,72,159,.10);
+      border-radius: 50%;
+    }
+
+    .loader-ring.one {
+      border-top-color: var(--blue);
+      border-right-color: #75bfe1;
+      animation: rotate 2.5s linear infinite;
+    }
+
+    .loader-ring.two {
+      width: 155px;
+      height: 155px;
+      border: 2px dashed rgba(36,72,159,.25);
+      animation: reverseRotate 8s linear infinite;
+    }
+
+    .loader-ring.three {
+      width: 120px;
+      height: 120px;
+      border: 1px solid rgba(72,169,210,.25);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes rotate { to { transform: rotate(360deg); } }
+    @keyframes reverseRotate { to { transform: rotate(-360deg); } }
+    @keyframes pulse {
+      0%, 100% { transform: scale(.94); opacity: .5; }
+      50% { transform: scale(1.08); opacity: 1; }
+    }
+
+    .drop {
+      position: relative;
+      display: grid;
+      width: 75px;
+      height: 75px;
+      place-items: center;
+      color: white;
+      background: linear-gradient(145deg, var(--sky), var(--blue));
+      border-radius: 50% 50% 50% 8%;
+      box-shadow: 0 12px 35px rgba(36,72,159,.25);
+      transform: rotate(-45deg);
+      animation: float 2s ease-in-out infinite;
+    }
+
+    .drop svg {
+      width: 39px;
+      height: 39px;
+      transform: rotate(45deg);
+    }
+
+    @keyframes float {
+      0%, 100% { translate: 0 0; }
+      50% { translate: 0 -9px; }
+    }
+
+    .particle {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border: 2px solid white;
+      border-radius: 50%;
+      background: var(--sky);
+      box-shadow: 0 2px 8px rgba(36,72,159,.2);
+    }
+
+    .p1 { top: 24px; right: 32px; }
+    .p2 {
+      bottom: 32px; left: 24px;
+      width: 8px; height: 8px;
+      background: #36a69d;
+    }
+    .p3 {
+      top: 65px; left: 8px;
+      width: 7px; height: 7px;
+      background: #f0ad4e;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--blue);
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before, .eyebrow::after {
+      width: 17px;
+      height: 1px;
+      background: #8cb8dc;
+      content: "";
+    }
+
+    h1 {
+      margin: 13px 0 9px;
+      font: 800 clamp(1.7rem, 5vw, 2.2rem)/1.2 "Manrope", sans-serif;
+      letter-spacing: -.055em;
+    }
+
+    h1 span { color: var(--blue); }
+
+    .description {
+      max-width: 350px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: .9rem;
+      line-height: 1.7;
+    }
+
+    .progress-area {
+      width: 100%;
+      max-width: 300px;
+      margin: 26px auto 0;
+    }
+
+    .progress-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 9px;
+      color: #526882;
+      font-size: .73rem;
+      font-weight: 700;
+    }
+
+    #percentage {
+      color: var(--blue);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 5px;
+      overflow: hidden;
+      border-radius: 99px;
+      background: #dce8f3;
+    }
+
+    .progress-fill {
+      width: 0%;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--blue), var(--sky));
+      transition: width .25s ease;
+    }
+
+    .status {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      margin-top: 18px;
+      color: #718198;
+      font-size: .76rem;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background: #36a69d;
+      animation: blink 1.2s ease-in-out infinite;
+    }
+
+    @keyframes blink {
+      50% { opacity: .3; transform: scale(.7); }
+    }
+
+    .connection-info {
+      margin-top: 12px;
+      color: #8291a5;
+      font-size: .68rem;
+    }
+
+    .connection-info strong {
+      color: var(--blue);
+      font-weight: 700;
+    }
+
+    .file-checker {
+      width: 100%;
+      max-width: 330px;
+      margin: 18px auto 0;
+      padding: 12px 14px;
+      text-align: left;
+      background: rgba(255,255,255,.72);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(30,65,110,.04);
+    }
+
+    .file-checker-heading {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      color: var(--blue);
+      font-size: .72rem;
+      font-weight: 700;
+    }
+
+    .file-check-status {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: .7rem;
+      line-height: 1.5;
+    }
+
+    .file-check-details {
+      display: none;
+      max-height: 125px;
+      overflow-y: auto;
+      margin-top: 8px;
+      padding-top: 7px;
+      border-top: 1px solid var(--line);
+      font-size: .67rem;
+      line-height: 1.8;
+      overflow-wrap: anywhere;
+    }
+
+    .file-checker.has-errors {
+      border-color: #e6a4a4;
+      background: #fff8f8;
+    }
+
+    .file-checker.has-errors .file-check-status { color: var(--red); }
+    .file-checker.is-success .file-check-status { color: var(--green); }
+    .file-item-ok { color: var(--green); }
+    .file-item-error { color: var(--red); }
+    .file-item-skip { color: #8a6d3b; }
+
+    .retry-button {
+      display: none;
+      margin: 16px auto 0;
+      padding: 10px 22px;
+      color: white;
+      background: var(--blue);
+      border: 0;
+      border-radius: 30px;
+      font: 600 .8rem "DM Sans", sans-serif;
+      cursor: pointer;
+    }
+
+    .retry-button:hover { background: var(--blue-dark); }
+    .retry-button:focus-visible {
+      outline: 3px solid #8cb8dc;
+      outline-offset: 3px;
+    }
+
+    .footer {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 3;
+      padding: 14px;
+      text-align: center;
+      background: linear-gradient(transparent, rgba(244,248,252,.92) 35%);
+    }
+
+    .partner {
+      color: #718198;
+      font-size: .68rem;
+      font-weight: 600;
+    }
+
+    .partner strong { color: var(--blue); }
+    .copyright {
+      margin-top: 5px;
+      color: #9aa9bb;
+      font-size: .65rem;
+    }
+
+    @media (max-width: 480px) {
+      .loading-container { padding: 18px 16px; }
+      .brand { margin-bottom: 18px; }
+      .brand img { height: 65px; }
+      .loader-area { width: 185px; height: 185px; }
+      .loader-ring { width: 170px; height: 170px; }
+      .loader-ring.two { width: 140px; height: 140px; }
+      .loader-ring.three { width: 110px; height: 110px; }
+      body { padding-top: 16px; }
+      .footer { padding-bottom: 10px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
 </head>
 
 <body>
+  <div class="background-orbit orbit-left" aria-hidden="true"></div>
+  <div class="background-orbit orbit-right" aria-hidden="true"></div>
 
-
-<!-- Website File Integrity Checker -->
-<div class="file-checker" id="file-checker">
-
-  <div class="file-checker-heading">
-    <span>Website Integrity Check</span>
-    <span id="file-check-count">0 / 0</span>
-  </div>
-
-  <div class="file-check-status" id="file-check-status">
-    Preparing website files...
-  </div>
-
-  <div class="file-check-details" id="file-check-details"></div>
-
-</div>
-
-
-<div class="background-orbit orbit-left"></div>
-<div class="background-orbit orbit-right"></div>
-
-<main class="loading-container">
-
-  <div class="brand">
-    <img src="logo/logo_color.png"
-         alt="Water Innovation Systems">
-    
-  </div>
-
-  <div class="loader-area">
-
-    <div class="loader-ring one"></div>
-    <div class="loader-ring two"></div>
-    <div class="loader-ring three"></div>
-
-    <div class="drop">
-      <svg viewBox="0 0 24 24"
-           fill="none"
-           stroke="currentColor"
-           stroke-width="1.8"
-           stroke-linecap="round"
-           stroke-linejoin="round">
-        <path d="M12 3s7 7.2 7 12a7 7 0 0 1-14 0c0-4.8 7-12 7-12Z"/>
-        <path d="M8.5 15a3.5 3.5 0 0 0 3.5 3.5"/>
-      </svg>
+  <main class="loading-container">
+    <div class="brand">
+      <img src="logo/logo_color.png" alt="Water Innovation Systems"
+           onerror="this.style.display='none'">
     </div>
 
-    <span class="particle p1"></span>
-    <span class="particle p2"></span>
-    <span class="particle p3"></span>
-
-  </div>
-
-  <div class="eyebrow">Water Innovation Systems</div>
-
-  <h1>Smarter water.<br><span>Better industry.</span></h1>
-
-  <p class="description" id="loading-message">
-    Preparing your experience. Connecting you to our solutions.
-  </p>
-
-  <div class="progress-area">
-
-    <div class="progress-info">
-      <span id="progress-label">INITIALIZING</span>
-      <span id="percentage">0%</span>
+    <div class="loader-area" aria-hidden="true">
+      <div class="loader-ring one"></div>
+      <div class="loader-ring two"></div>
+      <div class="loader-ring three"></div>
+      <div class="drop">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3s7 7.2 7 12a7 7 0 0 1-14 0c0-4.8 7-12 7-12Z"/>
+          <path d="M8.5 15a3.5 3.5 0 0 0 3.5 3.5"/>
+        </svg>
+      </div>
+      <span class="particle p1"></span>
+      <span class="particle p2"></span>
+      <span class="particle p3"></span>
     </div>
 
-    <div class="progress-track">
-      <div class="progress-fill" id="progress-fill"></div>
+    <div class="eyebrow">Water Innovation Systems</div>
+    <h1>Smarter water.<br><span>Better industry.</span></h1>
+
+    <p class="description" id="loading-message" aria-live="polite">
+      Preparing your experience. Connecting you to our solutions.
+    </p>
+
+    <div class="progress-area">
+      <div class="progress-info">
+        <span id="progress-label">INITIALIZING</span>
+        <span id="percentage">0%</span>
+      </div>
+      <div class="progress-track" role="progressbar" aria-label="Website loading progress"
+           aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progress-bar">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
     </div>
 
-  </div>
+    <div class="status">
+      <span class="status-dot" id="status-dot"></span>
+      <span id="status-message">Checking your internet connection...</span>
+    </div>
 
- 
-  <div class="status">
-    <span class="status-dot" id="status-dot"></span>
-    <span id="status-message">Checking your internet connection...</span>
-  </div>
+    <div class="connection-info">
+      Connection: <strong id="connection-type">Detecting...</strong>
+      &nbsp;|&nbsp;
+      Destination: <strong id="destination-name">Home</strong>
+    </div>
 
-  <div class="connection-info">
-    Connection: <strong id="connection-type">Detecting...</strong>
-    &nbsp;|&nbsp;
-    Destination: <strong id="destination-name">Home</strong>
-  </div>
+    <section class="file-checker" id="file-checker" aria-live="polite">
+      <div class="file-checker-heading">
+        <span>Website Integrity Check</span>
+        <span id="file-check-count">0 / 0</span>
+      </div>
+      <div class="file-check-status" id="file-check-status">
+        Preparing website file verification...
+      </div>
+      <div class="file-check-details" id="file-check-details"></div>
+    </section>
 
-  <button class="retry-button" id="retry-button" type="button">
-    Retry Connection
-  </button>
+    <button class="retry-button" id="retry-button" type="button">
+      Retry Connection
+    </button>
+  </main>
 
-</main>
+  <footer class="footer">
+    <div class="partner">Powered by <strong>Water Innovation Systems</strong></div>
+    <div class="copyright">© <span id="copyright-year"></span> Water Innovation Systems. All rights reserved.</div>
+  </footer>
 
-<footer class="footer">
-  <div class="partner">
-    Powered by <strong>Water Innovation Systems</strong>
-  </div>
-  <div class="copyright">
-    © 2027 Water Innovation Systems. All rights reserved.
-  </div>
-</footer>
+  <script>
+  (() => {
+    "use strict";
 
-<script>
-/* ==========================================
-   WATER INNOVATION SYSTEMS
-   ADAPTIVE SMART LOADING ENGINE
-========================================== */
+    /* =========================================================
+       1. WEBSITE CONFIGURATION
+       Edit REQUIRED_FILES when you add, rename or remove pages.
+       Paths are relative to this loading page's directory.
+    ========================================================= */
 
-(() => {
-  "use strict";
+    const DEFAULT_PAGE = "index.html";
 
-  /* ----------------------------------------
-     1. WEBSITE CONFIGURATION
-  ---------------------------------------- */
+    const ALLOWED_PAGES = [
+      "index.html",
+      "dosing.html",
+      "controller.html",
+      "industrial-mixer.html",
+      "valve.html",
+      "application.html",
+      "projects.html",
+      "support.html",
+      "sales.html",
+      "about.html",
+      "contact.html",
+      "privacy.html",
+      "terms.html",
+      "careers.html"
+    ];
 
-  const DEFAULT_PAGE = "index.html";
+    // These are the files that must exist before the site opens.
+    // Add every important root page, stylesheet, script and asset here.
+    const REQUIRED_FILES = [
+      "index.html",
+      "dosingpage.html",
+      "controller.html",
+      "industrial-mixer.html",
+      "valve.html",
+      "application.html",
+      "projects.html",
+      "support.html",
+      "sales.html",
+      "about.html",
+      "contact.html",
+      "privacy.html",
+      "terms.html",
+      "careers.html",
+      "logo/logo_color.png"
+    ];
 
-  const ALLOWED_PAGES = [
-    "index.html",
-    "dosing.html",
-    "controller.html:,
-    "industrial-mixer.html",
-    "valve.html",
-    "application.html",
-    "projects.html",
-    "support.html",
-    "sales.html",
-    "about.html",
-    "contact.html",
-    "privacy.html",
-    "careers.html",
-    "terms&conditions.html",
-  ];
+    const RESOURCE_TIMEOUT = 7000;
+    const PAGE_TIMEOUT = 12000;
+    const MAX_PREFETCH_COUNT = 12;
+    const REDIRECT_DELAY = 350;
 
-  // Maximum time allowed for preparing resources.
-  const MAX_LOADING_TIME = 18000;
+    /* =========================================================
+       2. ELEMENT REFERENCES
+    ========================================================= */
 
-  // Individual resource timeout.
-  const RESOURCE_TIMEOUT = 6500;
+    const $ = id => document.getElementById(id);
 
-  // Fallback when a connection is too slow.
-  const FALLBACK_TO_NAVIGATION = true;
+    const fill = $("progress-fill");
+    const progressBar = $("progress-bar");
+    const percentage = $("percentage");
+    const progressLabel = $("progress-label");
+    const statusMessage = $("status-message");
+    const loadingMessage = $("loading-message");
+    const connectionType = $("connection-type");
+    const destinationName = $("destination-name");
+    const retryButton = $("retry-button");
+    const statusDot = $("status-dot");
 
-  /* ----------------------------------------
-     2. ELEMENTS
-  ---------------------------------------- */
+    const checker = $("file-checker");
+    const checkCount = $("file-check-count");
+    const checkStatus = $("file-check-status");
+    const checkDetails = $("file-check-details");
 
-  const fill = document.getElementById("progress-fill");
-  const percentage = document.getElementById("percentage");
-  const label = document.getElementById("progress-label");
-  const status = document.getElementById("status-message");
-  const message = document.getElementById("loading-message");
-  const connectionType = document.getElementById("connection-type");
-  const destinationName = document.getElementById("destination-name");
-  const retryButton = document.getElementById("retry-button");
-  const statusDot = document.getElementById("status-dot");
+    $("copyright-year").textContent = new Date().getFullYear();
 
-  /* ----------------------------------------
-     3. DESTINATION MANAGEMENT
-  ---------------------------------------- */
+    /* =========================================================
+       3. SAFE DESTINATION RESOLUTION
+    ========================================================= */
 
-  const params = new URLSearchParams(window.location.search);
+    const siteBase = new URL("./", window.location.href);
+    const params = new URLSearchParams(window.location.search);
 
-  let requestedPage = params.get("page") || DEFAULT_PAGE;
+    function resolveDestination() {
+      let requested = params.get("page") || DEFAULT_PAGE;
 
-  // Only permit predefined local destination pages.
-  requestedPage = requestedPage.split("/").pop();
+      try {
+        requested = decodeURIComponent(requested);
+      } catch (_) {
+        requested = DEFAULT_PAGE;
+      }
 
-  if (!ALLOWED_PAGES.includes(requestedPage)) {
-    requestedPage = DEFAULT_PAGE;
-  }
-
-  const destinationURL = new URL(
-    requestedPage,
-    window.location.href
-  );
-
-  destinationName.textContent = requestedPage
-    .replace(".html", "")
-    .replace(/[-_]/g, " ")
-    .replace(/\b\w/g, c => c.toUpperCase());
-
-  /* ----------------------------------------
-     4. NETWORK DETECTION
-  ---------------------------------------- */
-
-  const connection =
-    navigator.connection ||
-    navigator.mozConnection ||
-    navigator.webkitConnection ||
-    null;
-
-  function getNetworkProfile() {
-
-    if (!navigator.onLine) {
-      return {
-        name: "Offline",
-        concurrency: 1,
-        timeout: RESOURCE_TIMEOUT
-      };
-    }
-
-    if (!connection) {
-      return {
-        name: "Unknown / Adaptive",
-        concurrency: 3,
-        timeout: RESOURCE_TIMEOUT
-      };
-    }
-
-    const type = connection.effectiveType || "unknown";
-    const downlink = connection.downlink || 0;
-    const saveData = connection.saveData || false;
-
-    if (saveData || type === "slow-2g" || type === "2g" ||
-        (downlink > 0 && downlink < 0.5)) {
+      // Accept only a filename from the allow-list, not a path or URL.
+      if (requested.includes("/") || requested.includes("\\") ||
+          !ALLOWED_PAGES.includes(requested)) {
+        requested = DEFAULT_PAGE;
+      }
 
       return {
-        name: "Low Speed",
-        concurrency: 1,
-        timeout: RESOURCE_TIMEOUT
+        file: requested,
+        url: new URL(requested, siteBase)
       };
     }
 
-    if (type === "3g" || (downlink > 0 && downlink < 5)) {
+    let destination = resolveDestination();
 
-      return {
-        name: "Medium Speed",
-        concurrency: 2,
-        timeout: RESOURCE_TIMEOUT
-      };
+    destinationName.textContent = destination.file
+      .replace(/\.html?$/i, "")
+      .replace(/[-_]/g, " ")
+      .replace(/\b\w/g, c => c.toUpperCase());
+
+    /* =========================================================
+       4. NETWORK PROFILE
+    ========================================================= */
+
+    const connection = navigator.connection ||
+                       navigator.mozConnection ||
+                       navigator.webkitConnection || null;
+
+    function getNetworkProfile() {
+      if (!navigator.onLine) {
+        return { name: "Offline", concurrency: 1 };
+      }
+
+      if (!connection) {
+        return { name: "Adaptive", concurrency: 3 };
+      }
+
+      const type = connection.effectiveType || "unknown";
+      const downlink = Number(connection.downlink) || 0;
+      const saveData = Boolean(connection.saveData);
+
+      if (saveData || type === "slow-2g" || type === "2g" ||
+          (downlink > 0 && downlink < 0.5)) {
+        return { name: "Low Speed", concurrency: 1 };
+      }
+
+      if (type === "3g" || (downlink > 0 && downlink < 5)) {
+        return { name: "Medium Speed", concurrency: 2 };
+      }
+
+      if (type === "4g" || downlink >= 5) {
+        return { name: "High Speed", concurrency: 6 };
+      }
+
+      return { name: "Adaptive", concurrency: 3 };
     }
 
-    if (type === "4g" || downlink >= 5) {
+    let network = getNetworkProfile();
 
-      return {
-        name: "High Speed",
-        concurrency: 6,
-        timeout: RESOURCE_TIMEOUT
-      };
+    function updateNetworkDisplay() {
+      network = getNetworkProfile();
+      connectionType.textContent = network.name;
     }
-
-    return {
-      name: "Adaptive",
-      concurrency: 3,
-      timeout: RESOURCE_TIMEOUT
-    };
-  }
-
-  let network = getNetworkProfile();
-
-  function updateNetworkDisplay() {
-    network = getNetworkProfile();
-    connectionType.textContent = network.name;
-  }
-
-  updateNetworkDisplay();
-
-  if (connection) {
-    connection.addEventListener("change", updateNetworkDisplay);
-  }
-
-  /* ----------------------------------------
-     5. PROGRESS MANAGEMENT
-  ---------------------------------------- */
-
-  let currentProgress = 0;
-
-  function updateProgress(value, title, statusText) {
-
-    currentProgress = Math.max(
-      currentProgress,
-      Math.min(99, Math.round(value))
-    );
-
-    fill.style.width = currentProgress + "%";
-    percentage.textContent = currentProgress + "%";
-
-    if (title) label.textContent = title;
-    if (statusText) status.textContent = statusText;
-  }
-
-  function completeProgress() {
-
-    currentProgress = 100;
-
-    fill.style.width = "100%";
-    percentage.textContent = "100%";
-
-    label.textContent = "COMPLETED";
-    status.textContent = "Your experience is ready!";
-
-    message.textContent =
-      "Thank you for visiting Water Innovation Systems. Redirecting you now.";
-
-    statusDot.style.background = "#36a69d";
-  }
-
-  /* ----------------------------------------
-     6. RESOURCE UTILITIES
-  ---------------------------------------- */
-
-  function absoluteURL(value, base) {
-
-    if (!value) return null;
-
-    try {
-      const url = new URL(value, base);
-
-      if (!["http:", "https:"].includes(url.protocol)) {
-        return null;
-      }
-
-      return url.href;
-
-    } catch {
-      return null;
-    }
-  }
-
-  function uniqueURLs(items) {
-    return [...new Set(items.filter(Boolean))];
-  }
-
-  function timeoutPromise(promise, milliseconds) {
-
-    return Promise.race([
-      promise,
-      new Promise(resolve => {
-        setTimeout(() => resolve(false), milliseconds);
-      })
-    ]);
-  }
-
-  /* ----------------------------------------
-     7. DISCOVER DESTINATION RESOURCES
-  ---------------------------------------- */
-
-  async function discoverResources(html, baseURL) {
-
-    const documentPage = new DOMParser().parseFromString(
-      html,
-      "text/html"
-    );
-
-    const stylesheets = [];
-    const images = [];
-    const scripts = [];
-    const otherResources = [];
-
-    // External CSS.
-    documentPage.querySelectorAll(
-      'link[rel="stylesheet"][href]'
-    ).forEach(link => {
-
-      const url = absoluteURL(link.getAttribute("href"), baseURL);
-
-      if (url) stylesheets.push(url);
-    });
-
-    // Images.
-    documentPage.querySelectorAll("img[src]").forEach(img => {
-
-      const url = absoluteURL(img.getAttribute("src"), baseURL);
-
-      if (url) images.push(url);
-    });
-
-    // Picture sources.
-    documentPage.querySelectorAll("source[src]").forEach(source => {
-
-      const url = absoluteURL(
-        source.getAttribute("src"),
-        baseURL
-      );
-
-      if (url) otherResources.push(url);
-    });
-
-    // Video posters.
-    documentPage.querySelectorAll("video[poster]").forEach(video => {
-
-      const url = absoluteURL(
-        video.getAttribute("poster"),
-        baseURL
-      );
-
-      if (url) images.push(url);
-    });
-
-    // External JavaScript.
-    documentPage.querySelectorAll("script[src]").forEach(script => {
-
-      const url = absoluteURL(
-        script.getAttribute("src"),
-        baseURL
-      );
-
-      if (url) scripts.push(url);
-    });
-
-    // Preload fonts and other declared resources.
-    documentPage.querySelectorAll(
-      'link[rel="preload"][href]'
-    ).forEach(link => {
-
-      const url = absoluteURL(
-        link.getAttribute("href"),
-        baseURL
-      );
-
-      if (url) otherResources.push(url);
-    });
-
-    // Include common CSS background-image URLs.
-    // Only external stylesheet URLs are collected here;
-    // their background assets will be handled by the browser.
-
-    return {
-      stylesheets: uniqueURLs(stylesheets),
-      images: uniqueURLs(images),
-      scripts: uniqueURLs(scripts),
-      other: uniqueURLs(otherResources)
-    };
-  }
-
-  /* ----------------------------------------
-     8. PRELOAD STYLESHEETS
-  ---------------------------------------- */
-
-  function preloadStylesheet(url) {
-
-    return new Promise(resolve => {
-
-      const link = document.createElement("link");
-
-      link.rel = "preload";
-      link.as = "style";
-      link.href = url;
-
-      let completed = false;
-
-      function finish(result) {
-
-        if (completed) return;
-
-        completed = true;
-        resolve(result);
-      }
-
-      link.onload = () => finish(true);
-      link.onerror = () => finish(false);
-
-      document.head.appendChild(link);
-
-      setTimeout(() => finish(false), RESOURCE_TIMEOUT);
-    });
-  }
-
-  /* ----------------------------------------
-     9. PRELOAD IMAGES
-  ---------------------------------------- */
-
-  function preloadImage(url) {
-
-    return new Promise(resolve => {
-
-      const img = new Image();
-
-      let completed = false;
-
-      function finish(result) {
-
-        if (completed) return;
-
-        completed = true;
-        resolve(result);
-      }
-
-      img.onload = async () => {
-
-        try {
-          if (img.decode) await img.decode();
-        } catch {}
-
-        finish(true);
-      };
-
-      img.onerror = () => finish(false);
-
-      img.src = url;
-
-      if (img.complete && img.naturalWidth > 0) {
-        finish(true);
-      }
-
-      setTimeout(() => finish(false), RESOURCE_TIMEOUT);
-    });
-  }
-
-  /* ----------------------------------------
-     10. PRELOAD EXTERNAL RESOURCES
-  ---------------------------------------- */
-
-  function prefetchResource(url, asType) {
-
-    return new Promise(resolve => {
-
-      const link = document.createElement("link");
-
-      link.rel = "prefetch";
-      link.href = url;
-
-      if (asType) {
-        link.as = asType;
-      }
-
-      link.onload = () => resolve(true);
-      link.onerror = () => resolve(false);
-
-      document.head.appendChild(link);
-
-      // Prefetch is opportunistic; don't wait indefinitely.
-      setTimeout(() => resolve(false), 3000);
-    });
-  }
-
-  /* ----------------------------------------
-     11. CONTROLLED CONCURRENCY
-  ---------------------------------------- */
-
-  async function runQueue(items, worker, concurrency, onProgress) {
-
-    let index = 0;
-    let completed = 0;
-
-    async function runWorker() {
-
-      while (index < items.length) {
-
-        const currentIndex = index++;
-
-        try {
-          await worker(items[currentIndex]);
-        } catch {}
-
-        completed++;
-
-        if (onProgress) {
-          onProgress(completed, items.length);
-        }
-      }
-    }
-
-    const workers = Array.from(
-      {
-        length: Math.min(concurrency, items.length)
-      },
-      () => runWorker()
-    );
-
-    await Promise.all(workers);
-  }
-
-  /* ----------------------------------------
-     12. FETCH DESTINATION HTML
-  ---------------------------------------- */
-
-  async function fetchDestination() {
-
-    const controller = new AbortController();
-
-    const timer = setTimeout(
-      () => controller.abort(),
-      MAX_LOADING_TIME
-    );
-
-    try {
-
-      const response = await fetch(destinationURL.href, {
-        method: "GET",
-        cache: "no-cache",
-        credentials: "same-origin",
-        signal: controller.signal
-      });
-
-      if (!response.ok) {
-        throw new Error("Page returned " + response.status);
-      }
-
-      return await response.text();
-
-    } finally {
-      clearTimeout(timer);
-    }
-  }
-
-  /* ----------------------------------------
-     13. MAIN ADAPTIVE LOADING ENGINE
-  ---------------------------------------- */
-
-  let isRedirecting = false;
-  let isRunning = false;
-
-  function redirectToDestination() {
-
-    if (isRedirecting) return;
-
-    isRedirecting = true;
-
-    completeProgress();
-
-    setTimeout(() => {
-
-      window.location.replace(destinationURL.href);
-
-    }, 180);
-  }
-
-
-/* ==========================================
-   WEBSITE ROOT FILE INTEGRITY CHECKER
-========================================== */
-
-// Files that must exist in the website root.
-const REQUIRED_FILES = [
-  "index.html",
-  "dosingpage.html",
-  "industrial-mixer.html",
-  "valve.html",
-  "application.html",
-  "projects.html",
-  "support.html",
-  "sales.html",
-  "about.html",
-  "contact.html",
-  "privacy.html",
-  "terms.html",
-  "careers.html",
-
-  // Important website assets.
-  "logo/logo_color.png"
-];
-
-// Add other required files here if applicable.
-// Example:
-// "css/style.css",
-// "js/main.js",
-// "images/banner.webp"
-
-async function checkFileExists(file) {
-
-  try {
-
-    const url = new URL(file, window.location.href);
-
-    const response = await fetch(url.href, {
-      method: "HEAD",
-      cache: "no-cache",
-      credentials: "same-origin"
-    });
-
-    return {
-      file: file,
-      exists: response.ok,
-      status: response.status
-    };
-
-  } catch (error) {
-
-    return {
-      file: file,
-      exists: false,
-      status: "Network Error"
-    };
-  }
-}
-
-
-async function checkWebsiteFiles() {
-
-  const checker = document.getElementById("file-checker");
-  const count = document.getElementById("file-check-count");
-  const checkStatus = document.getElementById("file-check-status");
-  const details = document.getElementById("file-check-details");
-
-  const missingFiles = [];
-  let completed = 0;
-
-  checker.classList.remove("has-errors", "is-success");
-
-  details.style.display = "block";
-  details.innerHTML = "";
-
-  checkStatus.textContent = "Checking website root files...";
-
-  count.textContent = "0 / " + REQUIRED_FILES.length;
-
-  for (const file of REQUIRED_FILES) {
-
-    const result = await checkFileExists(file);
-
-    completed++;
-
-    count.textContent =
-      completed + " / " + REQUIRED_FILES.length;
-
-    const item = document.createElement("div");
-
-    if (result.exists) {
-
-      item.className = "file-item-ok";
-      item.textContent = "✓ " + file;
-
-    } else {
-
-      item.className = "file-item-error";
-      item.textContent =
-        "✕ " + file + " (Missing: " + result.status + ")";
-
-      missingFiles.push(file);
-    }
-
-    details.appendChild(item);
-  }
-
-  // All required files exist.
-  if (missingFiles.length === 0) {
-
-    checker.classList.add("is-success");
-
-    checkStatus.textContent =
-      "All " + completed + " required files verified successfully.";
-
-    return {
-      ok: true,
-      missing: []
-    };
-  }
-
-  // Some files are missing.
-  checker.classList.add("has-errors");
-
-  checkStatus.textContent =
-    missingFiles.length + " missing file(s) detected. Please fix them.";
-
-  message.textContent =
-    "Website verification failed. Some required files are missing from your root directory.";
-
-  label.textContent = "FILE CHECK FAILED";
-
-  status.textContent =
-    "Please upload the missing files to your website.";
-
-  statusDot.style.background = "#c0392b";
-
-  retryButton.style.display = "inline-block";
-
-  return {
-    ok: false,
-    missing: missingFiles
-  };
-}
-
-
-
-  async function startLoading() {
-
-    if (isRunning || isRedirecting) return;
-
-    isRunning = true;
-    retryButton.style.display = "none";
 
     updateNetworkDisplay();
 
-    if (!navigator.onLine) {
-
-      showOfflineMessage();
-      isRunning = false;
-      return;
+    if (connection) {
+      connection.addEventListener("change", updateNetworkDisplay);
     }
 
+    /* =========================================================
+       5. PROGRESS AND STATUS
+    ========================================================= */
 
-    try {
+    let currentProgress = 0;
+    let isRunning = false;
+    let isRedirecting = false;
+    let runToken = 0;
 
-      updateProgress(
-        5,
-        "CONNECTING",
-        "Connecting to Water Innovation Systems..."
+    function setProgress(value, phase, statusText) {
+      currentProgress = Math.max(
+        currentProgress,
+        Math.min(99, Math.round(value))
       );
 
-      // Step 1: Download destination HTML.
-      const html = await fetchDestination();
+      fill.style.width = currentProgress + "%";
+      percentage.textContent = currentProgress + "%";
+      progressBar.setAttribute("aria-valuenow", String(currentProgress));
 
-      updateProgress(
-        25,
-        "ANALYZING",
-        "Analyzing destination page resources..."
-      );
+      if (phase) progressLabel.textContent = phase;
+      if (statusText) statusMessage.textContent = statusText;
+    }
 
+    function completeProgress() {
+      currentProgress = 100;
+      fill.style.width = "100%";
+      percentage.textContent = "100%";
+      progressBar.setAttribute("aria-valuenow", "100");
+      progressLabel.textContent = "COMPLETED";
+      statusMessage.textContent = "Your experience is ready!";
+      loadingMessage.textContent =
+        "Thank you for visiting Water Innovation Systems. Redirecting you now.";
+      statusDot.style.background = "#238b68";
+    }
 
-	// Verify all required website files before continuing.
-	const integrity = await checkWebsiteFiles();
+    function showOfflineMessage() {
+      progressLabel.textContent = "CONNECTION LOST";
+      statusMessage.textContent =
+        "No internet connection. Waiting for your network...";
+      loadingMessage.textContent =
+        "Please check your Wi-Fi or mobile data. We will retry when your connection is restored.";
+      connectionType.textContent = "Offline";
+      statusDot.style.background = "#e39a42";
+      retryButton.style.display = "inline-block";
+    }
 
-	if (!integrity.ok) {
-  	isRunning = false;
-  	return;
-	}     
+    function showFailure(message) {
+      checker.classList.add("has-errors");
+      progressLabel.textContent = "VERIFICATION FAILED";
+      statusMessage.textContent = message;
+      loadingMessage.textContent =
+        "Some required website files could not be verified. Please correct the missing files and retry.";
+      statusDot.style.background = "#c0392b";
+      retryButton.style.display = "inline-block";
+    }
 
+    /* =========================================================
+       6. URL AND REQUEST UTILITIES
+    ========================================================= */
 
- // Step 2: Discover assets.
-      const resources = await discoverResources(
-        html,
-        destinationURL.href
-      );
+    function toLocalURL(value, baseURL) {
+      if (!value) return null;
 
-      updateProgress(
-        35,
-        "PREPARING",
-        "Preparing stylesheets and images..."
-      );
+      try {
+        const url = new URL(value, baseURL);
 
-      // Step 3: Prioritize stylesheets.
-      await timeoutPromise(
-        runQueue(
-          resources.stylesheets,
-          preloadStylesheet,
-          network.concurrency
-        ),
-        9000
-      );
+        if (!["http:", "https:"].includes(url.protocol)) return null;
+        if (url.origin !== window.location.origin) return null;
 
-      updateProgress(
-        60,
-        "LOADING IMAGES",
-        "Loading important page images..."
-      );
-
-      // Step 4: Load images according to connection.
-      // Prioritize the first four images.
-      const priorityImages = resources.images.slice(0, 4);
-
-      await timeoutPromise(
-        runQueue(
-          priorityImages,
-          preloadImage,
-          network.concurrency
-        ),
-        9000
-      );
-
-      updateProgress(
-        78,
-        "OPTIMIZING",
-        "Preparing external resources..."
-      );
-
-      // Step 5: Prefetch scripts and other resources.
-      // These are opportunistic and are not required
-      // for navigation to continue.
-      const backgroundResources = [
-        ...resources.scripts.map(url => ({
-          url,
-          type: "script"
-        })),
-        ...resources.other.map(url => ({
-          url,
-          type: "fetch"
-        }))
-      ];
-
-      // Avoid spending unnecessary time on slow connections.
-      const prefetchItems = backgroundResources.slice(
-        0,
-        network.concurrency * 2
-      );
-
-      await timeoutPromise(
-        runQueue(
-          prefetchItems,
-          item => prefetchResource(item.url, item.type),
-          network.concurrency
-        ),
-        2500
-      );
-
-      updateProgress(
-        95,
-        "FINALIZING",
-        "Finalizing your website experience..."
-      );
-
-      if (!navigator.onLine) {
-        showOfflineMessage();
-        isRunning = false;
-        return;
+        // Remove fragments; preserve query strings where present.
+        url.hash = "";
+        return url;
+      } catch (_) {
+        return null;
       }
+    }
 
-      redirectToDestination();
+    function uniqueURLs(values) {
+      return [...new Set(values.filter(Boolean).map(url => url.href))];
+    }
 
-    } catch (error) {
+    async function fetchWithTimeout(url, options = {}, timeout = RESOURCE_TIMEOUT) {
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), timeout);
 
-      console.warn("Adaptive loading:", error);
-
-      if (!navigator.onLine) {
-        showOfflineMessage();
-        isRunning = false;
-        return;
+      try {
+        return await fetch(url, {
+          cache: "no-cache",
+          credentials: "same-origin",
+          ...options,
+          signal: controller.signal
+        });
+      } finally {
+        clearTimeout(timer);
       }
+    }
 
-      if (FALLBACK_TO_NAVIGATION) {
-
-        updateProgress(
-          95,
-          "CONTINUING",
-          "Opening your requested page..."
+    async function verifyURL(url) {
+      // HEAD is efficient for static-hosted files. Some hosts reject HEAD,
+      // so retry with a small ranged GET when necessary.
+      try {
+        let response = await fetchWithTimeout(
+          url, { method: "HEAD" }, RESOURCE_TIMEOUT
         );
 
+        if (response.status === 405 || response.status === 501) {
+          response = await fetchWithTimeout(
+            url,
+            { method: "GET", headers: { "Range": "bytes=0-0" } },
+            RESOURCE_TIMEOUT
+          );
+        }
+
+        return {
+          url: url.href,
+          ok: response.ok,
+          status: response.status
+        };
+      } catch (error) {
+        return {
+          url: url.href,
+          ok: false,
+          status: error.name === "AbortError" ? "Timeout" : "Network/CORS error"
+        };
+      }
+    }
+
+    /* =========================================================
+       7. DISCOVER LOCAL RESOURCES FROM DESTINATION HTML
+       This finds referenced files; it does not enumerate the
+       server's physical directory.
+    ========================================================= */
+
+    function addSrcsetURLs(value, baseURL, output) {
+      if (!value) return;
+
+      value.split(",").forEach(part => {
+        const candidate = part.trim().split(/\s+/)[0];
+        const url = toLocalURL(candidate, baseURL);
+        if (url) output.push(url);
+      });
+    }
+
+    function discoverHTMLResources(html, pageURL) {
+      const parsed = new DOMParser().parseFromString(html, "text/html");
+      const stylesheets = [];
+      const scripts = [];
+      const images = [];
+      const other = [];
+
+      parsed.querySelectorAll('link[rel="stylesheet"][href]').forEach(el => {
+        const url = toLocalURL(el.getAttribute("href"), pageURL);
+        if (url) stylesheets.push(url);
+      });
+
+      parsed.querySelectorAll("script[src]").forEach(el => {
+        const url = toLocalURL(el.getAttribute("src"), pageURL);
+        if (url) scripts.push(url);
+      });
+
+      parsed.querySelectorAll("img[src], img[data-src]").forEach(el => {
+        ["src", "data-src"].forEach(attr => {
+          const url = toLocalURL(el.getAttribute(attr), pageURL);
+          if (url) images.push(url);
+        });
+        addSrcsetURLs(el.getAttribute("srcset"), pageURL, images);
+        addSrcsetURLs(el.getAttribute("data-srcset"), pageURL, images);
+      });
+
+      parsed.querySelectorAll("source[src], source[srcset]").forEach(el => {
+        const url = toLocalURL(el.getAttribute("src"), pageURL);
+        if (url) images.push(url);
+        addSrcsetURLs(el.getAttribute("srcset"), pageURL, images);
+      });
+
+      parsed.querySelectorAll("video[poster], video[src], audio[src]").forEach(el => {
+        ["poster", "src"].forEach(attr => {
+          const url = toLocalURL(el.getAttribute(attr), pageURL);
+          if (url) other.push(url);
+        });
+      });
+
+      parsed.querySelectorAll('link[rel="icon"][href], link[rel="preload"][href], link[rel="manifest"][href]').forEach(el => {
+        const url = toLocalURL(el.getAttribute("href"), pageURL);
+        if (url) other.push(url);
+      });
+
+      parsed.querySelectorAll("[data-background], [data-bg]").forEach(el => {
+        const value = el.getAttribute("data-background") ||
+                      el.getAttribute("data-bg");
+        const url = toLocalURL(value, pageURL);
+        if (url) images.push(url);
+      });
+
+      return {
+        stylesheets: uniqueURLs(stylesheets),
+        scripts: uniqueURLs(scripts),
+        images: uniqueURLs(images),
+        other: uniqueURLs(other)
+      };
+    }
+
+    /* =========================================================
+       8. DISCOVER URL() ASSETS INSIDE LOCAL CSS
+    ========================================================= */
+
+    async function discoverCSSAssets(stylesheetURLs) {
+      const assets = [];
+
+      for (const href of stylesheetURLs) {
+        try {
+          const response = await fetchWithTimeout(
+            new URL(href), { method: "GET" }, RESOURCE_TIMEOUT
+          );
+
+          if (!response.ok) continue;
+
+          const cssText = await response.text();
+          const baseURL = new URL(href);
+
+          // Extract CSS url(...) values, including fonts and backgrounds.
+          const expression = /url\(\s*(['"]?)(.*?)\1\s*\)/gi;
+          let match;
+
+          while ((match = expression.exec(cssText)) !== null) {
+            const raw = match[2].trim();
+            if (!raw || raw.startsWith("data:") || raw.startsWith("#")) continue;
+
+            const url = toLocalURL(raw, baseURL);
+            if (url) assets.push(url);
+          }
+        } catch (_) {
+          // The stylesheet itself is verified separately.
+        }
+      }
+
+      return uniqueURLs(assets);
+    }
+
+    /* =========================================================
+       9. FILE CHECKER UI
+    ========================================================= */
+
+    function resetFileChecker() {
+      checker.classList.remove("has-errors", "is-success");
+      checkDetails.style.display = "block";
+      checkDetails.replaceChildren();
+      checkCount.textContent = "0 / 0";
+      checkStatus.textContent = "Checking required website files...";
+    }
+
+    function addFileResult(label, result) {
+      const item = document.createElement("div");
+      item.className = result.ok ? "file-item-ok" : "file-item-error";
+      item.textContent = (result.ok ? "✓ " : "✕ ") +
+                         label +
+                         (result.ok ? "" : " ( " + result.status + " )");
+      checkDetails.appendChild(item);
+    }
+
+    async function checkRequiredFiles(token) {
+      resetFileChecker();
+
+      const required = [...new Set(REQUIRED_FILES)];
+      const missing = [];
+      let completed = 0;
+
+      checkCount.textContent = `0 / ${required.length}`;
+
+      for (const file of required) {
+        if (token !== runToken) {
+          return { ok: false, cancelled: true, missing };
+        }
+
+        const url = toLocalURL(file, siteBase);
+
+        if (!url) {
+          const invalid = { ok: false, status: "Invalid local path" };
+          missing.push(file);
+          addFileResult(file, invalid);
+        } else {
+          const result = await verifyURL(url);
+          addFileResult(file, result);
+          if (!result.ok) missing.push(file);
+        }
+
+        completed++;
+        checkCount.textContent = `${completed} / ${required.length}`;
+        checkStatus.textContent =
+          `Verifying required files: ${completed} of ${required.length}`;
+      }
+
+      if (missing.length) {
+        checker.classList.add("has-errors");
+        checkStatus.textContent =
+          `${missing.length} required file(s) are missing or unavailable.`;
+        return { ok: false, missing };
+      }
+
+      checker.classList.add("is-success");
+      checkStatus.textContent =
+        `All ${required.length} required files verified successfully.`;
+      return { ok: true, missing: [] };
+    }
+
+    async function checkDiscoveredResources(resources, token) {
+      const all = [
+        ...resources.stylesheets,
+        ...resources.scripts,
+        ...resources.images,
+        ...resources.other
+      ];
+
+      const urls = [...new Set(all)];
+      const missing = [];
+      let completed = 0;
+
+      if (!urls.length) return { ok: true, missing: [] };
+
+      checkStatus.textContent =
+        `Checking ${urls.length} additional referenced resources...`;
+
+      for (const href of urls) {
+        if (token !== runToken) {
+          return { ok: false, cancelled: true, missing };
+        }
+
+        const url = new URL(href);
+        const result = await verifyURL(url);
+        const label = url.pathname.split("/").pop() || url.pathname;
+
+        addFileResult(label, result);
+        if (!result.ok) missing.push(href);
+
+        completed++;
+        checkCount.textContent = `${completed} / ${urls.length}`;
+      }
+
+      if (missing.length) {
+        checker.classList.add("has-errors");
+        checkStatus.textContent =
+          `${missing.length} referenced resource(s) could not be verified.`;
+        return { ok: false, missing };
+      }
+
+      checker.classList.add("is-success");
+      checkStatus.textContent =
+        `Required files and ${urls.length} referenced resources verified.`;
+
+      return { ok: true, missing: [] };
+    }
+
+    /* =========================================================
+       10. CONTROLLED RESOURCE PRELOADING
+    ========================================================= */
+
+    function preloadImage(href) {
+      return new Promise(resolve => {
+        const image = new Image();
+        let settled = false;
+
+        const finish = result => {
+          if (settled) return;
+          settled = true;
+          clearTimeout(timer);
+          resolve(result);
+        };
+
+        const timer = setTimeout(() => finish(false), RESOURCE_TIMEOUT);
+        image.onload = async () => {
+          try {
+            if (image.decode) await image.decode();
+          } catch (_) {}
+          finish(true);
+        };
+        image.onerror = () => finish(false);
+        image.src = href;
+
+        if (image.complete && image.naturalWidth > 0) finish(true);
+      });
+    }
+
+    function prefetchResource(href, asType) {
+      return new Promise(resolve => {
+        const link = document.createElement("link");
+        let settled = false;
+
+        const finish = result => {
+          if (settled) return;
+          settled = true;
+          clearTimeout(timer);
+          resolve(result);
+        };
+
+        const timer = setTimeout(() => finish(false), 2500);
+        link.rel = "prefetch";
+        link.href = href;
+        if (asType) link.as = asType;
+        link.onload = () => finish(true);
+        link.onerror = () => finish(false);
+        document.head.appendChild(link);
+      });
+    }
+
+    async function runQueue(items, worker, concurrency, onProgress) {
+      let nextIndex = 0;
+      let completed = 0;
+
+      async function runner() {
+        while (true) {
+          const index = nextIndex++;
+          if (index >= items.length) return;
+
+          try {
+            await worker(items[index]);
+          } catch (_) {}
+
+          completed++;
+          if (onProgress) onProgress(completed, items.length);
+        }
+      }
+
+      const workers = Array.from(
+        { length: Math.min(concurrency, items.length) },
+        () => runner()
+      );
+
+      await Promise.all(workers);
+    }
+
+    /* =========================================================
+       11. DESTINATION FETCH
+    ========================================================= */
+
+    async function fetchDestination(token) {
+      const response = await fetchWithTimeout(
+        destination.url,
+        { method: "GET" },
+        PAGE_TIMEOUT
+      );
+
+      if (!response.ok) {
+        throw new Error(
+          `Destination page returned HTTP ${response.status}: ${destination.file}`
+        );
+      }
+
+      const html = await response.text();
+
+      if (token !== runToken) {
+        throw new Error("Loading attempt cancelled.");
+      }
+
+      return html;
+    }
+
+    /* =========================================================
+       12. NAVIGATION
+    ========================================================= */
+
+    function redirectToDestination() {
+      if (isRedirecting) return;
+
+      isRedirecting = true;
+      completeProgress();
+
+      setTimeout(() => {
+        window.location.replace(destination.url.href);
+      }, REDIRECT_DELAY);
+    }
+
+    /* =========================================================
+       13. MAIN ADAPTIVE LOADING ENGINE
+    ========================================================= */
+
+    async function startLoading() {
+      if (isRunning || isRedirecting) return;
+
+      isRunning = true;
+      const token = ++runToken;
+
+      retryButton.style.display = "none";
+      updateNetworkDisplay();
+
+      if (!navigator.onLine) {
+        showOfflineMessage();
+        isRunning = false;
+        return;
+      }
+
+      try {
+        setProgress(5, "CONNECTING", "Connecting to Water Innovation Systems...");
+
+        // A. Fetch the requested destination page first.
+        const html = await fetchDestination(token);
+
+        setProgress(18, "ANALYZING", "Analyzing website files and page resources...");
+
+        // B. Verify the explicitly configured required file manifest.
+        const requiredCheck = await checkRequiredFiles(token);
+
+        if (requiredCheck.cancelled || token !== runToken) return;
+
+        if (!requiredCheck.ok) {
+          showFailure(
+            `${requiredCheck.missing.length} required file(s) are missing. See the verification list.`
+          );
+          isRunning = false;
+          return;
+        }
+
+        // C. Discover resources referenced by the destination page.
+        const resources = discoverHTMLResources(html, destination.url);
+
+        setProgress(38, "DISCOVERING", "Discovering stylesheets, scripts and images...");
+
+        // D. Find local CSS background images and font files.
+        const cssAssets = await discoverCSSAssets(resources.stylesheets);
+        resources.other = uniqueURLs([...resources.other, ...cssAssets]);
+
+        // E. Verify every discovered same-origin resource.
+        const resourceCheck = await checkDiscoveredResources(resources, token);
+
+        if (resourceCheck.cancelled || token !== runToken) return;
+
+        if (!resourceCheck.ok) {
+          showFailure(
+            `${resourceCheck.missing.length} referenced resource(s) could not be verified. See the list.`
+          );
+          isRunning = false;
+          return;
+        }
+
+        setProgress(65, "LOADING IMAGES", "Preparing important website images...");
+
+        // F. Preload the first few images; remaining images load naturally
+        // when the destination page opens.
+        const priorityImages = resources.images.slice(0, 8);
+
+        await runQueue(
+          priorityImages,
+          preloadImage,
+          network.concurrency,
+          (done, total) => {
+            const value = total ? 65 + (done / total) * 12 : 77;
+            setProgress(value, "LOADING IMAGES", `Preparing images: ${done} of ${total}`);
+          }
+        );
+
+        if (token !== runToken) return;
+
+        setProgress(82, "OPTIMIZING", "Preparing external page resources...");
+
+        // G. Prefetch a limited number of local scripts and other assets.
+        const background = [
+          ...resources.scripts.map(url => ({ url, type: "script" })),
+          ...resources.other.map(url => ({ url, type: "fetch" }))
+        ].slice(0, MAX_PREFETCH_COUNT);
+
+        await runQueue(
+          background,
+          item => prefetchResource(item.url, item.type),
+          network.concurrency
+        );
+
+        if (token !== runToken) return;
+
+        if (!navigator.onLine) {
+          showOfflineMessage();
+          isRunning = false;
+          return;
+        }
+
+        setProgress(96, "FINALIZING", "Finalizing your website experience...");
         redirectToDestination();
 
-      } else {
+      } catch (error) {
+        console.error("Adaptive loading error:", error);
 
-        status.textContent =
-          "Unable to load the page. Please try again.";
+        if (token !== runToken) return;
 
-        retryButton.style.display = "inline-block";
+        if (!navigator.onLine) {
+          showOfflineMessage();
+        } else {
+          showFailure(error.message || "Unable to verify the website.");
+        }
+
         isRunning = false;
       }
     }
-  }
 
-  /* ----------------------------------------
-     14. OFFLINE HANDLING
-  ---------------------------------------- */
+    /* =========================================================
+       14. ONLINE / OFFLINE EVENTS AND RETRY
+    ========================================================= */
 
-  function showOfflineMessage() {
+    window.addEventListener("offline", () => {
+      if (!isRedirecting) showOfflineMessage();
+    });
 
-    label.textContent = "CONNECTION LOST";
-
-    status.textContent =
-      "No internet connection. Waiting for your network...";
-
-    message.textContent =
-      "Please check your Wi-Fi or mobile data. We will retry when your internet connection is restored.";
-
-    connectionType.textContent = "Offline";
-
-    statusDot.style.background = "#e39a42";
-
-    retryButton.style.display = "inline-block";
-  }
-
-  window.addEventListener("offline", () => {
-
-    if (!isRedirecting) {
-      showOfflineMessage();
-    }
-  });
-
-  window.addEventListener("online", () => {
-
-    if (!isRedirecting) {
+    window.addEventListener("online", () => {
+      if (isRedirecting) return;
 
       isRunning = false;
-
       updateNetworkDisplay();
-
-      message.textContent =
-        "Connection restored. Preparing your requested page...";
-
+      loadingMessage.textContent =
+        "Connection restored. Rechecking your website files...";
       startLoading();
-    }
-  });
+    });
 
-  retryButton.addEventListener("click", () => {
+    retryButton.addEventListener("click", () => {
+      if (isRedirecting) return;
 
-    isRunning = false;
+      isRunning = false;
+      currentProgress = 0;
+      fill.style.width = "0%";
+      percentage.textContent = "0%";
+      progressBar.setAttribute("aria-valuenow", "0");
+      progressLabel.textContent = "RETRYING";
+      statusDot.style.background = "#36a69d";
+      loadingMessage.textContent =
+        "Retrying the website connection and checking files again...";
+      startLoading();
+    });
 
-    currentProgress = 0;
-    fill.style.width = "0%";
-    percentage.textContent = "0%";
-
-    message.textContent =
-      "Retrying your connection...";
+    /* =========================================================
+       15. START
+    ========================================================= */
 
     startLoading();
-  });
 
-  /* ----------------------------------------
-     15. START
-  ---------------------------------------- */
-
-  startLoading();
-
-})();
-</script>
-
+  })();
+  </script>
 </body>
 </html>
