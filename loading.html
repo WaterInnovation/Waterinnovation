@@ -29,6 +29,70 @@
   box-sizing: border-box;
 }
 
+
+
+/* Website File Integrity Checker */
+
+.file-checker {
+  width: 100%;
+  max-width: 330px;
+  margin: 18px auto 0;
+  padding: 12px 14px;
+  text-align: left;
+  background: rgba(255,255,255,.65);
+  border: 1px solid #dfe8f2;
+  border-radius: 12px;
+}
+
+.file-checker-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  color: #24489f;
+  font-size: .72rem;
+  font-weight: 700;
+}
+
+.file-check-status {
+  margin-top: 8px;
+  color: #66758d;
+  font-size: .7rem;
+}
+
+.file-check-details {
+  display: none;
+  max-height: 110px;
+  overflow-y: auto;
+  margin-top: 8px;
+  padding-top: 7px;
+  border-top: 1px solid #dfe8f2;
+  font-size: .67rem;
+  line-height: 1.8;
+}
+
+.file-checker.has-errors {
+  border-color: #e6a4a4;
+  background: #fff8f8;
+}
+
+.file-checker.has-errors .file-check-status {
+  color: #c0392b;
+}
+
+.file-checker.is-success .file-check-status {
+  color: #238b68;
+}
+
+.file-item-ok {
+  color: #238b68;
+}
+
+.file-item-error {
+  color: #c0392b;
+}
+
+
+
 html, body {
   width: 100%;
   min-height: 100%;
@@ -347,6 +411,10 @@ h1 span {
   }
 }
 
+
+
+
+
 /* Connection information */
 
 .connection-info {
@@ -456,6 +524,24 @@ h1 span {
 </head>
 
 <body>
+
+
+<!-- Website File Integrity Checker -->
+<div class="file-checker" id="file-checker">
+
+  <div class="file-checker-heading">
+    <span>Website Integrity Check</span>
+    <span id="file-check-count">0 / 0</span>
+  </div>
+
+  <div class="file-check-status" id="file-check-status">
+    Preparing website files...
+  </div>
+
+  <div class="file-check-details" id="file-check-details"></div>
+
+</div>
+
 
 <div class="background-orbit orbit-left"></div>
 <div class="background-orbit orbit-right"></div>
@@ -1056,6 +1142,153 @@ h1 span {
 
     }, 180);
   }
+
+
+/* ==========================================
+   WEBSITE ROOT FILE INTEGRITY CHECKER
+========================================== */
+
+// Files that must exist in the website root.
+const REQUIRED_FILES = [
+  "index.html",
+  "dosingpage.html",
+  "industrial-mixer.html",
+  "valve.html",
+  "application.html",
+  "projects.html",
+  "support.html",
+  "sales.html",
+  "about.html",
+  "contact.html",
+  "privacy.html",
+  "terms.html",
+  "careers.html",
+
+  // Important website assets.
+  "logo/logo_color.png"
+];
+
+// Add other required files here if applicable.
+// Example:
+// "css/style.css",
+// "js/main.js",
+// "images/banner.webp"
+
+async function checkFileExists(file) {
+
+  try {
+
+    const url = new URL(file, window.location.href);
+
+    const response = await fetch(url.href, {
+      method: "HEAD",
+      cache: "no-cache",
+      credentials: "same-origin"
+    });
+
+    return {
+      file: file,
+      exists: response.ok,
+      status: response.status
+    };
+
+  } catch (error) {
+
+    return {
+      file: file,
+      exists: false,
+      status: "Network Error"
+    };
+  }
+}
+
+
+async function checkWebsiteFiles() {
+
+  const checker = document.getElementById("file-checker");
+  const count = document.getElementById("file-check-count");
+  const checkStatus = document.getElementById("file-check-status");
+  const details = document.getElementById("file-check-details");
+
+  const missingFiles = [];
+  let completed = 0;
+
+  checker.classList.remove("has-errors", "is-success");
+
+  details.style.display = "block";
+  details.innerHTML = "";
+
+  checkStatus.textContent = "Checking website root files...";
+
+  count.textContent = "0 / " + REQUIRED_FILES.length;
+
+  for (const file of REQUIRED_FILES) {
+
+    const result = await checkFileExists(file);
+
+    completed++;
+
+    count.textContent =
+      completed + " / " + REQUIRED_FILES.length;
+
+    const item = document.createElement("div");
+
+    if (result.exists) {
+
+      item.className = "file-item-ok";
+      item.textContent = "✓ " + file;
+
+    } else {
+
+      item.className = "file-item-error";
+      item.textContent =
+        "✕ " + file + " (Missing: " + result.status + ")";
+
+      missingFiles.push(file);
+    }
+
+    details.appendChild(item);
+  }
+
+  // All required files exist.
+  if (missingFiles.length === 0) {
+
+    checker.classList.add("is-success");
+
+    checkStatus.textContent =
+      "All " + completed + " required files verified successfully.";
+
+    return {
+      ok: true,
+      missing: []
+    };
+  }
+
+  // Some files are missing.
+  checker.classList.add("has-errors");
+
+  checkStatus.textContent =
+    missingFiles.length + " missing file(s) detected. Please fix them.";
+
+  message.textContent =
+    "Website verification failed. Some required files are missing from your root directory.";
+
+  label.textContent = "FILE CHECK FAILED";
+
+  status.textContent =
+    "Please upload the missing files to your website.";
+
+  statusDot.style.background = "#c0392b";
+
+  retryButton.style.display = "inline-block";
+
+  return {
+    ok: false,
+    missing: missingFiles
+  };
+}
+
+
 
   async function startLoading() {
 
