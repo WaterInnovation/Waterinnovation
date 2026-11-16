@@ -1092,6 +1092,127 @@ button {
     }
 }
 
+
+
+/* OUR CLIENTS */
+.clients-section {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(180deg, #f4f8fc 0%, #eaf3fb 100%);
+}
+.clients-section::before {
+    position: absolute;
+    top: -170px;
+    right: -120px;
+    width: 390px;
+    height: 390px;
+    border: 1px solid rgba(36,72,159,.08);
+    border-radius: 50%;
+    content: "";
+    pointer-events: none;
+}
+.clients-section .container {
+    position: relative;
+}
+.clients-heading {
+    max-width: 720px;
+    margin: 0 auto 42px;
+    text-align: center;
+}
+.clients-heading .eyebrow {
+    justify-content: center;
+}
+.clients-heading h2 {
+    margin: 14px 0;
+    font: 800 clamp(2rem,4vw,3.1rem)/1.12 "Manrope",sans-serif;
+    letter-spacing: -.055em;
+}
+.clients-heading p {
+    color: var(--muted);
+    font-size: 1rem;
+}
+.clients-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0,1fr));
+    gap: 18px;
+}
+.client-logo-card {
+    position: relative;
+    display: grid;
+    min-height: 150px;
+    place-items: center;
+    padding: 25px;
+    overflow: hidden;
+    border: 1px solid rgba(203,218,235,.9);
+    border-radius: 19px;
+    background: rgba(255,255,255,.92);
+    box-shadow: 0 8px 25px rgba(23,47,105,.045);
+    transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
+}
+.client-logo-card::after {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #24489f, #65c4e8);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .3s ease;
+    content: "";
+}
+.client-logo-card:hover {
+    transform: translateY(-6px);
+    border-color: #b7d2ed;
+    box-shadow: 0 17px 38px rgba(23,47,105,.11);
+}
+.client-logo-card:hover::after {
+    transform: scaleX(1);
+}
+.client-logo-card img {
+    width: 100%;
+    max-width: 205px;
+    height: 82px;
+    object-fit: contain;
+    filter: grayscale(100%);
+    opacity: .78;
+    transition: filter .3s ease, opacity .3s ease, transform .3s ease;
+}
+.client-logo-card:hover img {
+    filter: grayscale(0);
+    opacity: 1;
+    transform: scale(1.04);
+}
+.clients-note {
+    margin-top: 25px;
+    color: var(--muted);
+    font-size: .78rem;
+    text-align: center;
+}
+@media(max-width:950px) {
+    .clients-grid {
+        grid-template-columns: repeat(3,minmax(0,1fr));
+    }
+}
+@media(max-width:700px) {
+    .clients-grid {
+        grid-template-columns: repeat(2,minmax(0,1fr));
+        gap: 12px;
+    }
+    .client-logo-card {
+        min-height: 125px;
+        padding: 17px;
+    }
+    .client-logo-card img {
+        height: 70px;
+    }
+}
+@media(max-width:360px) {
+    .clients-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 </style>
 </head>
 
@@ -1589,6 +1710,50 @@ button {
 
         </div>
 
+    </div>
+</section>
+
+
+<!-- OUR CLIENTS -->
+<section class="section clients-section" id="our-clients">
+    <div class="container">
+        <div class="clients-heading reveal">
+            <span class="eyebrow">Our Clients</span>
+            <h2>Trusted relationships. Shared success.</h2>
+            <p>
+                We are proud to support businesses across diverse industries
+                with dependable products, technical expertise and responsive service.
+            </p>
+        </div>
+
+        <div class="clients-grid">
+            <div class="client-logo-card reveal">
+                <img src="clients/client-01.png" alt="Client logo 1" loading="lazy">
+            </div>
+            <div class="client-logo-card reveal">
+                <img src="clients/client-02.png" alt="Client logo 2" loading="lazy">
+            </div>
+            <div class="client-logo-card reveal">
+                <img src="clients/client-03.png" alt="Client logo 3" loading="lazy">
+            </div>
+            <div class="client-logo-card reveal">
+                <img src="clients/client-04.png" alt="Client logo 4" loading="lazy">
+            </div>
+            <div class="client-logo-card reveal">
+                <img src="clients/client-05.png" alt="Client logo 5" loading="lazy">
+            </div>
+            <div class="client-logo-card reveal">
+                <img src="clients/client-06.png" alt="Client logo 6" loading="lazy">
+            </div>
+            <div class="client-logo-card reveal">
+                <img src="clients/client-07.png" alt="Client logo 7" loading="lazy">
+            </div>
+            <div class="client-logo-card reveal">
+                <img src="clients/client-08.png" alt="Client logo 8" loading="lazy">
+            </div>
+        </div>
+
+        <p class="clients-note">A selection of organisations we are pleased to work with.</p>
     </div>
 </section>
 
