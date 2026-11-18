@@ -2,80 +2,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-    <!-- Homepage -->
-    <url>
-        <loc>https://waterinnovation.github.io/Waterinnovation/</loc>
-        <priority>1.0</priority>
-    </url>
+  <url>
+    <loc>https://waterinnovation.github.io/Waterinnovation/</loc>
+  </url>
 
-    <!-- Product pages -->
-    <url>
-        <loc>https://waterinnovation.github.io/Waterinnovation/dosing.html</loc>
-        <priority>0.9</priority>
-    </url>
+  <url>
+    <loc>https://waterinnovation.github.io/Waterinnovation/dosing.html</loc>
+  </url>
 
-    <url>
-        <loc>https://waterinnovation.github.io/Waterinnovation/controller.html</loc>
-        <priority>0.9</priority>
-    </url>
+  <url>
+    <loc>https://waterinnovation.github.io/Waterinnovation/controller.html</loc>
+  </url>
 
-    <url>
-        <loc>https://waterinnovation.github.io/Waterinnovation/industrial-mixer.html</loc>
-        <priority>0.9</priority>
-    </url>
+  <url>
+    <loc>https://waterinnovation.github.io/Waterinnovation/industrial-mixer.html</loc>
+  </url>
 
-    <url>
-        <loc>https://waterinnovation.github.io/Waterinnovation/valves.html</loc>
-        <priority>0.9</priority>
-    </url>
+  <url>
+    <loc>https://waterinnovation.github.io/Waterinnovation/valves.html</loc>
+  </url>
 
-    <!-- Solutions -->
-    <url>
-        <loc>https://waterinnovation.github.io/Waterinnovation/application.html</loc>
-        <priority>0.8</priority>
-    </url>
+  <url>
+    <loc>https://waterinnovation.github.io/Waterinnovation/application.html</loc>
+  </url>
 
-    <url>
-        <loc>https://waterinnovation.github.io/Waterinnovation/projects.html</loc>
-        <priority>0.8</priority>
-    </url>
+  <url>
+    <loc>https://waterinnovation.github.io/Waterinnovation/projects.html</loc>
+  </url>
 
-    <!-- Customer services -->
-    <url>
-        <loc>https://waterinnovation.github.io/Waterinnovation/support.html</loc>
-        <priority>0.9</priority>
-    </url>
+  <url>
+    <loc>https://waterinnovation.github.io/Waterinnovation/support.html</loc>
+  </url>
 
-    <url>
-        <loc>https://waterinnovation.github.io/Waterinnovation/sales.html</loc>
-        <priority>0.8</priority>
-    </url>
+  <url>
+    <loc>https://waterinnovation.github.io/Waterinnovation/sales.html</loc>
+  </url>
 
-    <!-- Company -->
-    <url>
-        <loc>https://waterinnovation.github.io/Waterinnovation/about.html</loc>
-        <priority>0.8</priority>
-    </url>
+  <url>
+    <loc>https://waterinnovation.github.io/Waterinnovation/about.html</loc>
+  </url>
 
-    <url>
-        <loc>https://waterinnovation.github.io/Waterinnovation/contact.html</loc>
-        <priority>0.9</priority>
-    </url>
+  <url>
+    <loc>https://waterinnovation.github.io/Waterinnovation/contact.html</loc>
+  </url>
 
-    <url>
-        <loc>https://waterinnovation.github.io/Waterinnovation/careers.html</loc>
-        <priority>0.6</priority>
-    </url>
+  <url>
+    <loc>https://waterinnovation.github.io/Waterinnovation/careers.html</loc>
+  </url>
 
-    <!-- Legal -->
-    <url>
-        <loc>https://waterinnovation.github.io/Waterinnovation/privacy.html</loc>
-        <priority>0.3</priority>
-    </url>
+  <url>
+    <loc>https://waterinnovation.github.io/Waterinnovation/privacy.html</loc>
+  </url>
 
-    <url>
-        <loc>https://waterinnovation.github.io/Waterinnovation/terms&amp;conditions.html</loc>
-        <priority>0.3</priority>
-    </url>
+  <url>
+    <loc>https://waterinnovation.github.io/Waterinnovation/terms%26conditions.html</loc>
+  </url>
 
 </urlset>
