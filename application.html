@@ -145,11 +145,14 @@
     .cta-actions { display: flex; flex-wrap: wrap; gap: 10px; flex-shrink: 0; }
 
 
-  /* Footer Social Media Icons */
+ /* Footer Social Media Icons */
 .footer-social {
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   gap: 16px;
+  width: min(1160px, calc(100% - 48px));
+  margin: 20px auto 0;
 }
 
 .footer-social a {
@@ -183,8 +186,9 @@
 
 @media (max-width: 760px) {
   .footer-social {
+    width: calc(100% - 34px);
     justify-content: flex-start;
-    margin-top: 5px;
+    margin: 15px auto 0;
   }
 }
 
