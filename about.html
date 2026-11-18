@@ -759,6 +759,54 @@ button {
 
 /* FOOTER */
 
+
+/* Footer Social Media Icons */
+.footer-social {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+  width: min(1160px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+.footer-social a {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255,255,255,.22);
+  border-radius: 50%;
+  background: rgba(255,255,255,.08);
+  transition: all .25s ease;
+}
+
+.footer-social a:hover {
+  background: #ffffff;
+  transform: translateY(-4px);
+}
+
+.footer-social img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  transition: filter .25s ease;
+}
+
+.footer-social a:hover img {
+  filter: none;
+}
+
+@media (max-width: 760px) {
+  .footer-social {
+    justify-content: flex-end;
+    width: calc(100% - 34px);
+    margin: 5px auto 0;
+  }
+}
+
 .footer {
     padding: 55px 0 25px;
     background: var(--ink);
@@ -1234,7 +1282,7 @@ button {
 <header class="site-header">
     <nav class="container nav">
 
-        <a class="brand" href="loading.html?page=index.html">
+        <a class="brand" href="loading.html?page=index">
             <img class="brand-logo"
                  src="logo/logo_color.png"
                  alt="Water Innovation Systems">
@@ -1248,7 +1296,7 @@ button {
         </button>
 
         <div class="nav-links" id="navLinks">
-            <a href="loading.html?page=index.html">Home</a>
+            <a href="loading.html?page=index">Home</a>
             <div class="nav-dropdown">
 
     <button class="dropdown-toggle"
@@ -1268,23 +1316,23 @@ button {
 
     <div class="dropdown-menu">
 
-        <a href="loading.html?page=dosing.html">Dosing Pumps</a>
+        <a href="loading.html?page=dosing">Dosing Pumps</a>
 
-        <a href="loading.html?page=controller.html">Controllers</a>
+        <a href="loading.html?page=controller">Controllers</a>
 
-        <a href="loading.html?page=industrial-mixer.html">Industrial Mixers</a>
+        <a href="loading.html?page=industrial-mixer">Industrial Mixers</a>
 
-        <a href="loading.html?page=valves.html">Industrial Valves</a>
+        <a href="loading.html?page=valves">Industrial Valves</a>
 
     </div>
 
 </div>
-            <a href="loading.html?page=applications.html">Applications</a>
-            <a href="loading.html?page=projects.html">Projects</a>
-            <a href="loading.html?page=about.html" class="active">About Us</a>
-            <a href="loading.html?page=contact.html">Contact</a>
+            <a href="loading.html?page=applications">Applications</a>
+            <a href="loading.html?page=projects">Projects</a>
+            <a href="loading.html?page=about" class="active">About Us</a>
+            <a href="loading.html?page=contact">Contact</a>
 
-            <a href="contact.html" class="button">
+            <a href="contact" class="button">
                 Talk to an Expert →
             </a>
         </div>
@@ -1856,15 +1904,15 @@ button {
                 <h3>Quick Links</h3>
 
                 <div class="footer-links">
-                    <a href="loading.html?page=index.html">Home</a>
-                    <a href="loading.html?page=dosing.html">Products</a>
-                    <a href="loading.html?page=controller.html">Controllers</a>
-                    <a href="loading.html?page=industrial-mixer.html">Industrial Mixers</a>
-                    <a href="loading.html?page=valves.html">Industrial Valves</a>
-                    <a href="loading.html?page=application.html">Applications</a>
-                    <a href="loading.html?page=projects.html">Projects</a>
-                    <a href="loading.html?page=about.html">About Us</a>
-                    <a href="loading.html?page=contact.html">Contact Us</a>
+                    <a href="loading.html?page=index">Home</a>
+                    <a href="loading.html?page=dosing">Products</a>
+                    <a href="loading.html?page=controller">Controllers</a>
+                    <a href="loading.html?page=industrial-mixer">Industrial Mixers</a>
+                    <a href="loading.html?page=valves">Industrial Valves</a>
+                    <a href="loading.html?page=application">Applications</a>
+                    <a href="loading.html?page=projects">Projects</a>
+                    <a href="loading.html?page=about">About Us</a>
+                    <a href="loading.html?page=contact">Contact Us</a>
                 </div>
             </div>
 
@@ -1894,6 +1942,35 @@ button {
             </div>
 
         </div>
+
+<!-- Social Media Icons -->
+  <div class="footer-social">
+
+    <!-- Facebook -->
+    <a href="https://www.facebook.com/people/Water-Innovation-System/100072337748028/?ref=pages_you_manage#"
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="Facebook">
+      <img src="logo/facebook-white.png" alt="Facebook">
+    </a>
+
+    <!-- LinkedIn -->
+    <a href="https://www.linkedin.com/company/waterinnovationsystems/"
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="LinkedIn">
+      <img src="logo/linkedin-white.png" alt="LinkedIn">
+    </a>
+
+    <!-- Instagram -->
+    <a href="https://www.instagram.com/waterinnovationsystem/"
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="Instagram">
+      <img src="logo/instagram-white.png" alt="Instagram">
+    </a>
+    </div>
+
 
         <div class="footer-bottom">
             <p>
