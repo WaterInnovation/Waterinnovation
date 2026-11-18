@@ -1,9 +1,5 @@
 
-# robots.txt for Water Innovation Systems
-# Website: https://waterinnovation.github.io/Waterinnovation/
-
 User-agent: *
 Allow: /
 
-# XML Sitemap
 Sitemap: https://waterinnovation.github.io/Waterinnovation/sitemap.xml
